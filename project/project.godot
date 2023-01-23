@@ -14,9 +14,14 @@ config/name="CS490_GAME"
 run/main_scene="res://PlaceholderScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Soundtrack="*res://Soundtrack/Soundtrack.tscn"
+
 [display]
 
 window/dpi/allow_hidpi=true
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
