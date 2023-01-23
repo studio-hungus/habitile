@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Tile/Tile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Board/Board.tscn" type="PackedScene" id=2]
 
 [node name="PlaceholderScene" type="Node2D"]
 position = Vector2( 382, 402 )
@@ -18,3 +19,5 @@ text = "Hello world!"
 
 [node name="Tile" parent="." instance=ExtResource( 1 )]
 position = Vector2( 126, -140 )
+
+[node name="Board" parent="." instance=ExtResource( 2 )]
