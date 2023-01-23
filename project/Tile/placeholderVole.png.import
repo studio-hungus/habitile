@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/placeholderVole.png-6b69c24e1054d81e04c3603c790436c6.stex"
+path="res://.import/placeholderVole.png-f3557000037a79cf8e3bd7a7abe07ad0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tiles/placeholderVole.png"
-dest_files=[ "res://.import/placeholderVole.png-6b69c24e1054d81e04c3603c790436c6.stex" ]
+source_file="res://Tile/placeholderVole.png"
+dest_files=[ "res://.import/placeholderVole.png-f3557000037a79cf8e3bd7a7abe07ad0.stex" ]
 
 [params]
 
