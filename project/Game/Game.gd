@@ -22,10 +22,12 @@ func _physics_process(_delta):
 			hovered_node = empty_space
 			found_hover = true
 
+
 	for child in $Tiles.get_children():
 		if child != pressed_tile and child.contains(current_mouse_position):
 			hovered_node = child
 			found_hover = true
+
 
 	if not found_hover:
 		hovered_node = null
@@ -34,12 +36,14 @@ func _physics_process(_delta):
 func _on_Tile_pressed(tile):
 	pressed_tile = tile
 	original_tile_position = tile.global_position
+	tile.z_index = 10
 	tile.connect("released", self, "_on_Tile_released", [tile])
 
 
 func _on_Tile_released(tile):
 	pressed_tile = null
-
+	tile.z_index = 0
+	
 	if hovered_node is Tile:
 		$NoDropSound.play()
 		tile.global_position = original_tile_position
