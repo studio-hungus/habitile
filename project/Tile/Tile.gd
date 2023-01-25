@@ -4,7 +4,7 @@ extends Node2D
 signal pressed
 signal released
 
-export var size := Vector2(64, 64)
+export var size := Vector2(175, 175)
 
 
 func contains(mouse_position:Vector2) -> bool:

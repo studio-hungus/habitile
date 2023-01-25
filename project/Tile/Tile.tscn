@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Tile/vole_placeholder.png" type="Texture" id=1]
 [ext_resource path="res://Tile/Tile.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+extents = Vector2( 87.5, 87.5 )
 
 [node name="Tile" type="Node2D"]
 script = ExtResource( 2 )
