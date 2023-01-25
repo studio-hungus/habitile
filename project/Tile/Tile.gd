@@ -12,7 +12,7 @@ func contains(mouse_position:Vector2) -> bool:
 	return rect.has_point(mouse_position)
 
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			emit_signal("pressed")

@@ -8,7 +8,7 @@ func _ready():
 	for tile in $Tiles.get_children():
 		tile.connect("pressed", self, "_on_Tile_pressed", [tile])
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var current_mouse_position = get_global_mouse_position()
 
 	if pressed_tile != null:
