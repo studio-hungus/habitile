@@ -36,6 +36,8 @@ Soundtrack="*res://Soundtrack/Soundtrack.tscn"
 
 [display]
 
+window/size/width=1920
+window/size/height=1080
 window/dpi/allow_hidpi=true
 
 [gui]
