@@ -48,8 +48,11 @@ func _on_Tile_released(tile):
 		$NoDropSound.play()
 		tile.global_position = original_tile_position
 
-	if hovered_node is EmptySpace:
+	elif hovered_node is EmptySpace:
 		tile.global_position = hovered_node.global_position
 		$DropSound.play()
-
+	
+	else:
+		tile.global_position = original_tile_position
+		
 	tile.disconnect("released", self, "_on_Tile_released")
