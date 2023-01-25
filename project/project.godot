@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "EmptySpace",
+"language": "GDScript",
+"path": "res://Board/EmptySpace/EmptySpace.gd"
+}, {
 "base": "Node2D",
 "class": "Tile",
 "language": "GDScript",
 "path": "res://Tile/Tile.gd"
 } ]
 _global_script_class_icons={
+"EmptySpace": "",
 "Tile": ""
 }
 

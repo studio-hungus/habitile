@@ -15,10 +15,16 @@ func _physics_process(delta):
 	if pressed_tile != null:
 		pressed_tile.global_position = current_mouse_position
 	var found_hover = false
+	
+	for empty_space in $Board.get_empty_spaces():
+		if empty_space.contains(current_mouse_position):
+			hovered_node = empty_space
+			found_hover = true
 	for child in $Tiles.get_children():
 		if child != pressed_tile and child.contains(current_mouse_position):
 			hovered_node = child
 			found_hover = true
+	
 	if not found_hover:
 		hovered_node = null
 	
@@ -49,6 +55,9 @@ func _on_Tile_released(tile):
 		if hovered_node is Tile:
 			$NoDropSound.play()
 			tile.global_position = original_tile_position
+		if hovered_node is EmptySpace:
+			tile.global_position = hovered_node.global_position
+		
 		tile.disconnect("released", self, "_on_Tile_released")
 			
 
