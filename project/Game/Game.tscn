@@ -7,7 +7,6 @@
 [ext_resource path="res://Tile/GL_SFX_Tile-Place.wav" type="AudioStream" id=5]
 
 [node name="Game" type="Node2D"]
-position = Vector2( 382, 402 )
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
@@ -15,20 +14,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -38.5
-margin_top = -7.0
-margin_right = 38.5
-margin_bottom = 7.0
+margin_left = 809.5
+margin_top = 640.0
+margin_right = 886.5
+margin_bottom = 654.0
 text = "Hello world!"
 
 [node name="Board" parent="." instance=ExtResource( 2 )]
-position = Vector2( -150, -186 )
+position = Vector2( 960, 540 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 848, 647 )
 enabled = true
 cast_to = Vector2( 0, 0 )
 
 [node name="Tiles" type="Node2D" parent="."]
+position = Vector2( 848, 647 )
 
 [node name="Tile" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 126, -140 )

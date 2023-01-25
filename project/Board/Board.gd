@@ -2,8 +2,8 @@ extends Node2D
 
 var empty_space := load("res://Board/EmptySpace/EmptySpace.tscn")
 
-export var width := 2
-export var height := 2
+export var width := 6
+export var height := 5
 
 var spaces := []
 
@@ -11,7 +11,7 @@ var spaces := []
 func _ready():
 	for x in width:
 		for y in height:
-			_add_node(x, y)
+			_add_node((width - 1) / 2.0 - x,  (height - 1) / 2.0 - y)
 
 
 func _add_node(x, y):
