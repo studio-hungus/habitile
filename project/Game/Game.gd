@@ -1,6 +1,7 @@
 extends Node2D
 
 var pressed_tile : Node2D
+var hovered_node : Node2D
 
 func _ready():
 	for tile in $Tiles.get_children():
@@ -12,11 +13,15 @@ func _physics_process(delta):
 	var current_mouse_position = get_global_mouse_position()
 	if pressed_tile != null:
 		pressed_tile.global_position = current_mouse_position
+	var found_hover = false
 	for child in $Tiles.get_children():
-		if child.contains(current_mouse_position):
-			print("heck")
-			return
-	print("nothing")
+		if child != pressed_tile and child.contains(current_mouse_position):
+			hovered_node = child
+			found_hover = true
+	if not found_hover:
+		hovered_node = null
+	
+	print(hovered_node)
 	
 	
 #func _on_Area2D_input_event(_viewport, event, _shape_idx):
@@ -39,5 +44,7 @@ func _on_Tile_pressed(tile):
 
 func _on_Tile_released(tile):
 		pressed_tile = null
+		if hovered_node is Tile:
+			$NoDropSound.play()
 #		global_position = empty_space.global_position
 #		drop_sound.play()

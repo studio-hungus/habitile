@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Tile/Tile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Board/Board.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://Game/Game.gd" type="Script" id=3]
+[ext_resource path="res://Game/GL_SFX_Nope.wav" type="AudioStream" id=4]
 
 [node name="Game" type="Node2D"]
 position = Vector2( 382, 402 )
@@ -33,3 +34,6 @@ position = Vector2( 126, -140 )
 
 [node name="Tile2" parent="Tiles" instance=ExtResource( 1 )]
 position = Vector2( 61, -219 )
+
+[node name="NoDropSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
