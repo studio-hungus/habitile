@@ -2,11 +2,12 @@ extends Node2D
 
 var pressed_tile : Node2D
 var hovered_node : Node2D
+var original_tile_position : Vector2
 
 func _ready():
 	for tile in $Tiles.get_children():
 		tile.connect("pressed", self, "_on_Tile_pressed", [tile])
-		tile.connect("released", self, "_on_Tile_released", [tile])
+		
 		
 
 func _physics_process(delta):
@@ -39,12 +40,15 @@ func _physics_process(delta):
 
 func _on_Tile_pressed(tile):
 		pressed_tile = tile
-#		global_position = empty_space.global_position
-#		drop_sound.play()
+		original_tile_position = tile.global_position
+		tile.connect("released", self, "_on_Tile_released", [tile])
+
 
 func _on_Tile_released(tile):
 		pressed_tile = null
 		if hovered_node is Tile:
 			$NoDropSound.play()
-#		global_position = empty_space.global_position
-#		drop_sound.play()
+			tile.global_position = original_tile_position
+		tile.disconnect("released", self, "_on_Tile_released")
+			
+
