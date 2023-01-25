@@ -1,27 +1,29 @@
 extends Node2D
 
-var empty_space := load("res://Board/EmptySpace/EmptySpace.tscn")
 
 export var width := 6
 export var height := 5
-
+var empty_space_scene := load("res://Board/EmptySpace/EmptySpace.tscn")
 var spaces := []
 
 
 func _ready():
 	for x in width:
+		var x_offset = (width - 1) / 2.0 - x
 		for y in height:
-			_add_node((width - 1) / 2.0 - x,  (height - 1) / 2.0 - y)
+			var y_offset = (height - 1) / 2.0 - y
+			_add_node(x_offset,  y_offset)
 
 
-func _add_node(x, y):
-	var new_empty_space = empty_space.instance()
+func _add_node(x:float, y:float):
+	var empty_space = empty_space_scene.instance()
 
-	new_empty_space.position.x = x * 175
-	new_empty_space.position.y = y * 175
+	empty_space.position.x = x * empty_space.size.x
+	empty_space.position.y = y * empty_space.size.y
 
-	spaces.append(new_empty_space)
-	add_child(new_empty_space)
+	spaces.append(empty_space)
+	add_child(empty_space)
 
-func get_empty_spaces()-> Array:
+
+func get_empty_spaces() -> Array:
 	return spaces

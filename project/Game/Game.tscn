@@ -10,16 +10,9 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 809.5
-margin_top = 640.0
-margin_right = 886.5
-margin_bottom = 654.0
-text = "Hello world!"
+[node name="GUI" parent="." instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 
 [node name="Board" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 540 )
@@ -50,5 +43,3 @@ stream = ExtResource( 4 )
 [node name="DropSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = 3.0
-
-[node name="GUI" parent="." instance=ExtResource( 6 )]
