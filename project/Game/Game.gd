@@ -6,6 +6,7 @@ var original_tile_z_index := 0
 var pressed_tile : Node2D
 var hovered_node : Node2D
 var original_tile_position : Vector2
+var is_player_one_turn := false 
 
 onready var tiles := find_node("Tiles")
 onready var board := find_node("Board")
@@ -14,6 +15,7 @@ onready var drop_sound := find_node("DropSound")
 
 
 func _ready():
+	_swap_turn()
 	for tile in tiles.get_children():
 		tile.connect("pressed", self, "_on_Tile_pressed", [tile])
 
@@ -61,8 +63,13 @@ func _on_Tile_released(tile):
 	elif hovered_node is EmptySpace:
 		drop_sound.play()
 		tile.global_position = hovered_node.global_position
+		_swap_turn()
 
 	else:
 		tile.global_position = original_tile_position
 	
 	tile.disconnect("released", self, "_on_Tile_released")
+
+func _swap_turn():
+	is_player_one_turn = !is_player_one_turn
+	$GUI.set_turn(is_player_one_turn)
