@@ -39,7 +39,7 @@ func _physics_process(_delta):
 		if tile != pressed_tile and tile.contains(current_mouse_position):
 			hovered_node = tile
 			found_hover = true
-
+			
 	if not found_hover:
 		hovered_node = null
 
@@ -67,6 +67,7 @@ func _on_Tile_released(tile):
 		tile.global_position = hovered_node.global_position
 
 		_swap_turn()
+		tile.set_placed()
 
 	else:
 		tile.global_position = original_tile_position

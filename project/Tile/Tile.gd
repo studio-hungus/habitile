@@ -6,6 +6,7 @@ signal pressed
 signal released
 
 export var size := Vector2(175, 175)
+var _placed = false
 
 
 func contains(mouse_position:Vector2) -> bool:
@@ -16,8 +17,14 @@ func contains(mouse_position:Vector2) -> bool:
 
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
+	if _placed:
+		return
+		
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			emit_signal("pressed")
 		else:
 			emit_signal("released")
+			
+func set_placed():
+	_placed = true
