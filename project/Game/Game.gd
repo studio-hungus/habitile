@@ -18,6 +18,7 @@ onready var gui := find_node("GUI")
 
 
 func _ready():
+	randomize()
 	for i in 30:
 		var tile = preload("res://Tile/Tile.tscn").instance()
 		tiles.add_child(tile)

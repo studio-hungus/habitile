@@ -6,8 +6,7 @@ signal pressed
 signal released
 
 enum TYPE {
-	VOLE,SALAMANDER
-	
+	VOLE,SALAMANDER,WORMS,DEER,BEEHIVE,BULLFROG,NORTHERNHARRIER,COYOTE
 }
 
 
@@ -41,3 +40,15 @@ func set_type(new_type):
 	
 	if type == TYPE.SALAMANDER:
 		$Sprite.modulate = Color.red
+	if type == TYPE.BEEHIVE:
+		$Sprite.modulate = Color.green
+	if type == TYPE.COYOTE:
+		$Sprite.modulate = Color.blue
+	if type == TYPE.DEER:
+		$Sprite.modulate = Color.cyan
+	if type == TYPE.WORMS:
+		$Sprite.modulate = Color.purple
+	if type == TYPE.BULLFROG:
+		$Sprite.modulate = Color.brown
+	if type == TYPE.NORTHERNHARRIER:
+		$Sprite.modulate = Color.black
