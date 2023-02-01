@@ -5,8 +5,15 @@ extends Node2D
 signal pressed
 signal released
 
+enum TYPE {
+	VOLE,SALAMANDER
+	
+}
+
+
 export var size := Vector2(175, 175)
 var _placed = false
+var type = TYPE.VOLE
 
 
 func contains(mouse_position:Vector2) -> bool:
@@ -27,3 +34,10 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 
 func set_placed():
 	_placed = true
+
+
+func set_type(new_type):
+	type = new_type
+	
+	if type == TYPE.SALAMANDER:
+		$Sprite.modulate = Color.red

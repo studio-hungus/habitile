@@ -7,6 +7,8 @@ var pressed_tile : Node2D
 var hovered_node : Node2D
 var original_tile_position : Vector2
 var is_player_one_turn := true
+var stack_left := []
+var stack_right := []
 
 onready var tiles := find_node("Tiles")
 onready var board := find_node("Board")
@@ -16,6 +18,19 @@ onready var gui := find_node("GUI")
 
 
 func _ready():
+	for i in 30:
+		var tile = preload("res://Tile/Tile.tscn").instance()
+		tiles.add_child(tile)
+		tile.global_position = Vector2(-512, -512)
+		tile.set_type(tile.TYPE.values()[randi() % tile.TYPE.size()])
+
+	tiles.get_child(0).global_position = $LeftPlayerPosition1.global_position
+	tiles.get_child(1).global_position = $LeftPlayerPosition2.global_position
+	tiles.get_child(2).global_position = $LeftPlayerPosition3.global_position
+	tiles.get_child(3).global_position = $RightPlayerPosition1.global_position
+	tiles.get_child(4).global_position = $RightPlayerPosition2.global_position
+	tiles.get_child(5).global_position = $RightPlayerPosition3.global_position
+
 	for tile in tiles.get_children():
 		tile.connect("pressed", self, "_on_Tile_pressed", [tile])
 
