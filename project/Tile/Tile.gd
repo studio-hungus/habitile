@@ -17,14 +17,13 @@ func contains(mouse_position:Vector2) -> bool:
 
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if _placed:
-		return
-		
-	if event is InputEventMouseButton:
-		if event.is_pressed():
-			emit_signal("pressed")
-		else:
-			emit_signal("released")
-			
+	if not _placed:
+		if event is InputEventMouseButton:
+			if event.is_pressed():
+				emit_signal("pressed")
+			else:
+				emit_signal("released")
+
+
 func set_placed():
 	_placed = true
