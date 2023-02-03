@@ -7,8 +7,8 @@ var _pressed_tile : Node2D
 var _hovered_node : Node2D
 var _original_tile_position := Vector2(0, 0)
 var _is_left_player_turn := true
-var _left_stack = []
-var _right_stack = []
+var _left_stack := []
+var _right_stack := []
 
 onready var _tiles := find_node("Tiles")
 onready var _board := find_node("Board")
@@ -18,16 +18,9 @@ onready var _gui := find_node("GUI")
 
 
 func _ready() -> void:
-	for i in 6:
-		_make_new_tile()
-
-	_tiles.get_child(0).global_position = $LeftPlayerPosition1.global_position
-	_tiles.get_child(1).global_position = $LeftPlayerPosition2.global_position
-	_tiles.get_child(2).global_position = $LeftPlayerPosition3.global_position
-	_tiles.get_child(3).global_position = $RightPlayerPosition1.global_position
-	_tiles.get_child(4).global_position = $RightPlayerPosition2.global_position
-	_tiles.get_child(5).global_position = $RightPlayerPosition3.global_position
-
+	_create_stacks()
+	_shuffle_stacks()
+	_display_supply()
 	_update_turn_in_gui()
 
 
@@ -72,13 +65,7 @@ func _on_Tile_released(tile) -> void:
 		tile.global_position = _original_tile_position
 
 	elif _hovered_node is EmptySpace:
-		_drop_sound.play()
-		tile.global_position = _hovered_node.global_position
-
-		_swap_turn()
-		tile.set_placed()
-		
-		_make_new_tile()
+		_place_tile_on_board(tile)
 
 	else:
 		tile.global_position = _original_tile_position
@@ -96,11 +83,52 @@ func _swap_turn() -> void:
 	
 
 # This creates a tile in the original tile position
-func _make_new_tile() -> void:
+func _make_new_tile(tile_type) -> Node2D:
 	var tile : Node2D = preload("res://Tile/Tile.tscn").instance()
 	_tiles.add_child(tile)
-	tile.global_position = _original_tile_position
-	tile.set_type(tile.TYPE.values()[randi() % tile.TYPE.size()])
+	tile.set_type(tile_type)
 	
 	# warning-ignore:return_value_discarded
 	tile.connect("pressed", self, "_on_Tile_pressed", [tile])
+	return tile
+
+func _shuffle_stacks():
+#	randomize()
+	
+	_left_stack.shuffle()
+	_right_stack.shuffle()
+
+
+func _create_stacks():
+	var quantity_animal_in_stack = 2
+	for type in Tile.TYPE.values():
+		for animal in quantity_animal_in_stack:
+			var left_tile := _make_new_tile(type)
+			var right_tile := _make_new_tile(type)
+			left_tile.visible = false
+			right_tile.visible = false
+			_left_stack.append(left_tile)
+			_right_stack.append(right_tile)
+
+
+func _display_supply():
+	for i in 3:
+		_left_stack[0].visible = true
+		_left_stack.pop_front().global_position = $LeftSupply.get_children()[i].global_position
+		_right_stack[0].visible = true
+		_right_stack.pop_front().global_position = $RightSupply.get_children()[i].global_position
+	
+	
+func _place_tile_on_board(tile : Tile):
+	_drop_sound.play()
+	tile.global_position = _hovered_node.global_position
+
+	_swap_turn()
+	tile.set_placed()
+	
+	if _is_left_player_turn and _left_stack.size() > 0:
+		_left_stack[0].visible = true
+		_left_stack.pop_front().global_position = _original_tile_position
+	elif not _is_left_player_turn and _right_stack.size() > 0:
+		_right_stack[0].visible = true
+		_right_stack.pop_front().global_position = _original_tile_position

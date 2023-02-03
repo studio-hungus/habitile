@@ -25,20 +25,24 @@ stream = ExtResource( 4 )
 stream = ExtResource( 5 )
 volume_db = 3.0
 
-[node name="LeftPlayerPosition1" type="Position2D" parent="."]
+[node name="LeftSupply" type="Node2D" parent="."]
+
+[node name="LeftPlayerPosition1" type="Position2D" parent="LeftSupply"]
 position = Vector2( 192, 256 )
 
-[node name="LeftPlayerPosition2" type="Position2D" parent="."]
+[node name="LeftPlayerPosition2" type="Position2D" parent="LeftSupply"]
 position = Vector2( 192, 480 )
 
-[node name="LeftPlayerPosition3" type="Position2D" parent="."]
+[node name="LeftPlayerPosition3" type="Position2D" parent="LeftSupply"]
 position = Vector2( 192, 704 )
 
-[node name="RightPlayerPosition1" type="Position2D" parent="."]
+[node name="RightSupply" type="Node2D" parent="."]
+
+[node name="RightPlayerPosition1" type="Position2D" parent="RightSupply"]
 position = Vector2( 1730, 256 )
 
-[node name="RightPlayerPosition2" type="Position2D" parent="."]
+[node name="RightPlayerPosition2" type="Position2D" parent="RightSupply"]
 position = Vector2( 1730, 480 )
 
-[node name="RightPlayerPosition3" type="Position2D" parent="."]
+[node name="RightPlayerPosition3" type="Position2D" parent="RightSupply"]
 position = Vector2( 1730, 706 )
