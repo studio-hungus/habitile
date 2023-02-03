@@ -15,7 +15,7 @@ onready var _drop_sound := find_node("DropSound")
 onready var _gui := find_node("GUI")
 
 
-func _ready():
+func _ready() -> void:
 	randomize()
 	for i in 6:
 		_make_new_tile()
@@ -30,7 +30,7 @@ func _ready():
 	_set_turn()
 
 
-func _physics_process(_delta):
+func _physics_process(_delta) -> void:
 	var current_mouse_position = get_global_mouse_position()
 	var found_hover = false
 
@@ -52,7 +52,7 @@ func _physics_process(_delta):
 		_hovered_node = null
 
 
-func _on_Tile_pressed(tile):
+func _on_Tile_pressed(tile) -> void:
 	_pressed_tile = tile
 	_original_tile_position = tile.global_position
 
@@ -62,7 +62,7 @@ func _on_Tile_pressed(tile):
 	tile.connect("released", self, "_on_Tile_released", [tile])
 
 
-func _on_Tile_released(tile):
+func _on_Tile_released(tile) -> void:
 	_pressed_tile = null
 	tile.z_index = _original_tile_z_index
 
@@ -85,18 +85,18 @@ func _on_Tile_released(tile):
 	tile.disconnect("released", self, "_on_Tile_released")
 
 
-func _set_turn():
+func _set_turn() -> void:
 	_gui.set_turn(_is_player_one_turn)
 
 
-func _swap_turn():
+func _swap_turn() -> void:
 	_is_player_one_turn = !_is_player_one_turn
 	_set_turn()
 	
 
 # This creates a tile in the original tile position
 func _make_new_tile() -> void:
-	var tile = preload("res://Tile/Tile.tscn").instance()
+	var tile : Node2D = preload("res://Tile/Tile.tscn").instance()
 	_tiles.add_child(tile)
 	tile.global_position = _original_tile_position
 	tile.set_type(tile.TYPE.values()[randi() % tile.TYPE.size()])
