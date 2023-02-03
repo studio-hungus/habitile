@@ -144,3 +144,7 @@ func _place_tile_on_board(tile : Tile):
 func _on_Board_board_filled():
 	_is_game_over = true
 	_gui.display_gameover()
+
+
+func _on_GUI_play_again_button_pressed():
+	var _current_scene = get_tree().reload_current_scene()

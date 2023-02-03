@@ -47,4 +47,5 @@ position = Vector2( 1730, 480 )
 [node name="RightPlayerPosition3" type="Position2D" parent="RightSupply"]
 position = Vector2( 1730, 706 )
 
+[connection signal="play_again_button_pressed" from="GUI" to="." method="_on_GUI_play_again_button_pressed"]
 [connection signal="board_filled" from="Board" to="." method="_on_Board_board_filled"]
