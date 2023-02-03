@@ -10,8 +10,9 @@ var style_inactive = StyleBoxFlat.new()
 func _ready():
 	style_active.set_bg_color(Color("#ADD8E6"))
 
-func set_turn(is_player_one_turn):
-	if is_player_one_turn:
+
+func set_is_left_player_turn(value : bool) -> void:
+	if value:
 		left_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		right_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 		left_panel.add_stylebox_override("panel", style_active)

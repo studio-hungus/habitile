@@ -6,7 +6,9 @@ var _original_tile_z_index := 0
 var _pressed_tile : Node2D
 var _hovered_node : Node2D
 var _original_tile_position := Vector2(0, 0)
-var _is_player_one_turn := true
+var _is_left_player_turn := true
+var _left_stack = []
+var _right_stack = []
 
 onready var _tiles := find_node("Tiles")
 onready var _board := find_node("Board")
@@ -16,7 +18,6 @@ onready var _gui := find_node("GUI")
 
 
 func _ready() -> void:
-	randomize()
 	for i in 6:
 		_make_new_tile()
 
@@ -27,7 +28,7 @@ func _ready() -> void:
 	_tiles.get_child(4).global_position = $RightPlayerPosition2.global_position
 	_tiles.get_child(5).global_position = $RightPlayerPosition3.global_position
 
-	_set_turn()
+	_update_turn_in_gui()
 
 
 func _physics_process(_delta) -> void:
@@ -85,13 +86,13 @@ func _on_Tile_released(tile) -> void:
 	tile.disconnect("released", self, "_on_Tile_released")
 
 
-func _set_turn() -> void:
-	_gui.set_turn(_is_player_one_turn)
+func _update_turn_in_gui() -> void:
+	_gui.set_is_left_player_turn(_is_left_player_turn)
 
 
 func _swap_turn() -> void:
-	_is_player_one_turn = !_is_player_one_turn
-	_set_turn()
+	_is_left_player_turn = !_is_left_player_turn
+	_update_turn_in_gui()
 	
 
 # This creates a tile in the original tile position
