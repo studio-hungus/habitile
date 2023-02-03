@@ -101,3 +101,13 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -270.0
+margin_top = 1.0
+margin_right = -189.0
+margin_bottom = 15.0
+text = "GAME OVER"
+align = 1

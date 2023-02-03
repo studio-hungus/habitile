@@ -46,3 +46,5 @@ position = Vector2( 1730, 480 )
 
 [node name="RightPlayerPosition3" type="Position2D" parent="RightSupply"]
 position = Vector2( 1730, 706 )
+
+[connection signal="board_filled" from="Board" to="." method="_on_Board_board_filled"]
