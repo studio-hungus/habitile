@@ -32,7 +32,7 @@ func _physics_process(_delta) -> void:
 		_pressed_tile.global_position = current_mouse_position
 
 	# empty_space for loop needs to be first 
-	for empty_space in _board.get_empty_spaces():
+	for empty_space in _board.get_spaces():
 		if empty_space.contains(current_mouse_position):
 			_hovered_node = empty_space
 			found_hover = true
@@ -120,9 +120,12 @@ func _display_supply():
 	
 	
 func _place_tile_on_board(tile : Tile):
+	
 	_drop_sound.play()
 	tile.global_position = _hovered_node.global_position
-
+	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
+	_board.set_space(tile, index_of_hovered_node)
+	
 	_swap_turn()
 	tile.set_placed()
 	
@@ -132,3 +135,4 @@ func _place_tile_on_board(tile : Tile):
 	elif not _is_left_player_turn and _right_stack.size() > 0:
 		_right_stack[0].visible = true
 		_right_stack.pop_front().global_position = _original_tile_position
+

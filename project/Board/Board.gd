@@ -27,5 +27,10 @@ func _add_node(x:float, y:float):
 	add_child(empty_space)
 
 
-func get_empty_spaces() -> Array:
+func get_spaces() -> Array:
 	return spaces
+
+
+func set_space(tile : Tile, index: int):
+	spaces[index] = tile
+
