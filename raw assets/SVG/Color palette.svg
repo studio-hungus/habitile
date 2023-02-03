@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="colors_pal" data-name="colors pal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1275.36 1054.05">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9ebf66;
+      }
+
+      .cls-2 {
+        fill: #6e4c54;
+      }
+
+      .cls-3 {
+        fill: #b0a444;
+      }
+
+      .cls-4 {
+        fill: #b5c875;
+      }
+
+      .cls-5 {
+        fill: #57745e;
+      }
+
+      .cls-6 {
+        fill: #372943;
+      }
+
+      .cls-7 {
+        fill: #9fa64c;
+      }
+
+      .cls-8 {
+        fill: #885561;
+      }
+
+      .cls-9 {
+        fill: #819b59;
+      }
+    </style>
+  </defs>
+  <circle class="cls-7" cx="217.88" cy="187.33" r="99"/>
+  <circle class="cls-7" cx="217.88" cy="187.33" r="99"/>
+  <circle class="cls-3" cx="217.88" cy="423.58" r="99"/>
+  <circle class="cls-4" cx="467.35" cy="173" r="99"/>
+  <circle class="cls-9" cx="217.88" cy="650.88" r="99"/>
+  <circle class="cls-1" cx="467.35" cy="650.88" r="99"/>
+  <circle class="cls-8" cx="217.88" cy="878.18" r="99"/>
+  <circle class="cls-2" cx="467.35" cy="878.18" r="99"/>
+  <circle class="cls-4" cx="467.35" cy="423.58" r="99"/>
+  <circle class="cls-5" cx="760.44" cy="192.74" r="104.41"/>
+  <circle class="cls-5" cx="760.44" cy="192.74" r="104.41"/>
+  <circle class="cls-5" cx="760.44" cy="192.74" r="104.41"/>
+  <circle class="cls-6" cx="760.44" cy="443.58" r="104.41"/>
+</svg>
