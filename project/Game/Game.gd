@@ -101,4 +101,5 @@ func _make_new_tile() -> void:
 	tile.global_position = _original_tile_position
 	tile.set_type(tile.TYPE.values()[randi() % tile.TYPE.size()])
 	
+	# warning-ignore:return_value_discarded
 	tile.connect("pressed", self, "_on_Tile_pressed", [tile])
