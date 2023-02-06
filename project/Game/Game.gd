@@ -78,7 +78,7 @@ func _on_Tile_released(tile) -> void:
 
 	else:
 		tile.global_position = _original_tile_position
-	
+
 	tile.disconnect("released", self, "_on_Tile_released")
 
 
@@ -90,14 +90,14 @@ func _swap_turn() -> void:
 	_is_left_player_turn = !_is_left_player_turn
 	_update_turn_in_gui()
 	_display_stack_top()
-	
+
 
 # This creates a tile in the original tile position
 func _make_new_tile(tile_type) -> Node2D:
 	var tile : Node2D = preload("res://Tile/Tile.tscn").instance()
 	_tiles.add_child(tile)
 	tile.set_type(tile_type)
-	
+
 	# warning-ignore:return_value_discarded
 	tile.connect("pressed", self, "_on_Tile_pressed", [tile])
 	return tile
@@ -124,12 +124,8 @@ func _create_stacks():
 
 func _display_supply():
 	for i in SUPPLY_SIZE:
-		_left_stack[0].toggle_interactable()
-		_left_stack[0].visible = true
-		_left_stack.pop_front().global_position = _left_supply.get_children()[i].global_position
-		_right_stack[0].toggle_interactable()
-		_right_stack[0].visible = true
-		_right_stack.pop_front().global_position = _right_supply.get_children()[i].global_position
+		_move_tile_to_supply(_left_stack.pop_front(), _left_supply.get_children()[i].global_position)
+		_move_tile_to_supply(_right_stack.pop_front(), _right_supply.get_children()[i].global_position)
 
 
 func _display_stack_top():
@@ -140,22 +136,22 @@ func _display_stack_top():
 func _place_tile_on_board(tile : Tile):
 	_drop_sound.play()
 	tile.global_position = _hovered_node.global_position
-	tile.toggle_interactable()
+	tile.set_interactable(false)
 
 	if _is_left_player_turn and _left_stack.size() > 0:
-		_move_tile_to_supply(_left_stack.pop_front())
+		_move_tile_to_supply(_left_stack.pop_front(), _original_tile_position)
 	elif not _is_left_player_turn and _right_stack.size() > 0:
-		_move_tile_to_supply(_right_stack.pop_front())
+		_move_tile_to_supply(_right_stack.pop_front(), _original_tile_position)
 
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
 	_board.set_space(tile, index_of_hovered_node)
 	_swap_turn()
 
 
-func _move_tile_to_supply(tile: Tile):
-	tile.toggle_interactable()
-	tile.global_position = _original_tile_position
-	
+func _move_tile_to_supply(tile: Tile, position: Vector2):
+	tile.visible = true
+	tile.set_interactable(true)
+	tile.global_position = position
  
 
 func _on_Board_board_filled():

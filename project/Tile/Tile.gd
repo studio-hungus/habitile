@@ -31,13 +31,13 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 				emit_signal("released")
 
 
-func toggle_interactable():
-	_interactable = not _interactable
+func set_interactable(interactable):
+	_interactable = interactable
 
 
 func set_type(new_type):
 	type = new_type
-	
+
 	if type == TYPE.SALAMANDER:
 		$Sprite.modulate = Color.red
 	if type == TYPE.BEEHIVE:
