@@ -20,12 +20,15 @@ onready var _drop_sound := find_node("DropSound")
 onready var _gui := find_node("GUI")
 onready var _left_supply := find_node("LeftSupply")
 onready var _right_supply := find_node("RightSupply")
+onready var _left_stack_position := find_node("LeftStackPosition")
+onready var _right_stack_position := find_node("RightStackPosition")
 
 
 func _ready() -> void:
 	_create_stacks()
 	_shuffle_stacks()
 	_display_supply()
+	_display_stack_top()
 	_update_turn_in_gui()
 
 
@@ -86,6 +89,7 @@ func _update_turn_in_gui() -> void:
 func _swap_turn() -> void:
 	_is_left_player_turn = !_is_left_player_turn
 	_update_turn_in_gui()
+	_display_stack_top()
 	
 
 # This creates a tile in the original tile position
@@ -112,35 +116,47 @@ func _create_stacks():
 			var right_tile := _make_new_tile(type)
 			left_tile.visible = false
 			right_tile.visible = false
+			left_tile.global_position = _left_stack_position.global_position
+			right_tile.global_position = _right_stack_position.global_position
 			_left_stack.append(left_tile)
 			_right_stack.append(right_tile)
 
 
 func _display_supply():
 	for i in SUPPLY_SIZE:
+		_left_stack[0].toggle_interactable()
 		_left_stack[0].visible = true
 		_left_stack.pop_front().global_position = _left_supply.get_children()[i].global_position
+		_right_stack[0].toggle_interactable()
 		_right_stack[0].visible = true
 		_right_stack.pop_front().global_position = _right_supply.get_children()[i].global_position
+
+
+func _display_stack_top():
+	_left_stack[0].visible = true
+	_right_stack[0].visible = true
 
 
 func _place_tile_on_board(tile : Tile):
 	_drop_sound.play()
 	tile.global_position = _hovered_node.global_position
-
-	_swap_turn()
-	tile.set_placed()
+	tile.toggle_interactable()
 
 	if _is_left_player_turn and _left_stack.size() > 0:
-		_left_stack[0].visible = true
-		_left_stack.pop_front().global_position = _original_tile_position
+		_move_tile_to_supply(_left_stack.pop_front())
 	elif not _is_left_player_turn and _right_stack.size() > 0:
-		_right_stack[0].visible = true
-		_right_stack.pop_front().global_position = _original_tile_position
+		_move_tile_to_supply(_right_stack.pop_front())
 
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
 	_board.set_space(tile, index_of_hovered_node)
+	_swap_turn()
 
+
+func _move_tile_to_supply(tile: Tile):
+	tile.toggle_interactable()
+	tile.global_position = _original_tile_position
+	
+ 
 
 func _on_Board_board_filled():
 	_is_game_over = true

@@ -11,7 +11,7 @@ enum TYPE {
 
 
 export var size := Vector2(175, 175)
-var _placed = false
+var _interactable = false
 var type = TYPE.VOLE
 
 
@@ -23,7 +23,7 @@ func contains(mouse_position:Vector2) -> bool:
 
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if not _placed:
+	if _interactable:
 		if event is InputEventMouseButton:
 			if event.is_pressed():
 				emit_signal("pressed")
@@ -31,8 +31,8 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 				emit_signal("released")
 
 
-func set_placed():
-	_placed = true
+func toggle_interactable():
+	_interactable = not _interactable
 
 
 func set_type(new_type):
