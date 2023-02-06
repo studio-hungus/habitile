@@ -1,5 +1,6 @@
 extends Node2D
 
+const SUPPLY_SIZE = 3
 
 export var _held_tile_z_index := 16
 var _original_tile_z_index := 0
@@ -11,11 +12,14 @@ var _left_stack := []
 var _right_stack := []
 var _is_game_over := false
 
+
 onready var _tiles := find_node("Tiles")
 onready var _board := find_node("Board")
 onready var _no_drop_sound := find_node("NoDropSound")
 onready var _drop_sound := find_node("DropSound")
 onready var _gui := find_node("GUI")
+onready var _left_supply := find_node("LeftSupply")
+onready var _right_supply := find_node("RightSupply")
 
 
 func _ready() -> void:
@@ -43,7 +47,7 @@ func _physics_process(_delta) -> void:
 			if tile != _pressed_tile and tile.contains(current_mouse_position):
 				_hovered_node = tile
 				found_hover = true
-				
+
 		if not found_hover:
 			_hovered_node = null
 
@@ -94,9 +98,8 @@ func _make_new_tile(tile_type) -> Node2D:
 	tile.connect("pressed", self, "_on_Tile_pressed", [tile])
 	return tile
 
+
 func _shuffle_stacks():
-#	randomize()
-	
 	_left_stack.shuffle()
 	_right_stack.shuffle()
 
@@ -114,29 +117,27 @@ func _create_stacks():
 
 
 func _display_supply():
-	for i in 3:
+	for i in SUPPLY_SIZE:
 		_left_stack[0].visible = true
-		_left_stack.pop_front().global_position = $LeftSupply.get_children()[i].global_position
+		_left_stack.pop_front().global_position = _left_supply.get_children()[i].global_position
 		_right_stack[0].visible = true
-		_right_stack.pop_front().global_position = $RightSupply.get_children()[i].global_position
-	
-	
+		_right_stack.pop_front().global_position = _right_supply.get_children()[i].global_position
+
+
 func _place_tile_on_board(tile : Tile):
-	
 	_drop_sound.play()
 	tile.global_position = _hovered_node.global_position
-	
-	
+
 	_swap_turn()
 	tile.set_placed()
-	
+
 	if _is_left_player_turn and _left_stack.size() > 0:
 		_left_stack[0].visible = true
 		_left_stack.pop_front().global_position = _original_tile_position
 	elif not _is_left_player_turn and _right_stack.size() > 0:
 		_right_stack[0].visible = true
 		_right_stack.pop_front().global_position = _original_tile_position
-	
+
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
 	_board.set_space(tile, index_of_hovered_node)
 
