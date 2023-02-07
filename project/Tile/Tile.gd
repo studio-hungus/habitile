@@ -39,16 +39,18 @@ func set_type(new_type):
 	type = new_type
 
 	if type == TYPE.SALAMANDER:
-		$Sprite.modulate = Color.red
+		add_child(load("res://Tile/TileTypes/SalamanderTile/SalamanderTile.tscn").instance())
+	if type == TYPE.VOLE:
+		add_child(load("res://Tile/TileTypes/VoleTile/VoleTile.tscn").instance())
 	if type == TYPE.BEEHIVE:
-		$Sprite.modulate = Color.green
+		add_child(load("res://Tile/TileTypes/BeehiveTile/BeehiveTile.tscn").instance())
 	if type == TYPE.COYOTE:
-		$Sprite.modulate = Color.blue
+		add_child(load("res://Tile/TileTypes/CoyoteTile/CoyoteTile.tscn").instance())
 	if type == TYPE.DEER:
-		$Sprite.modulate = Color.cyan
+		add_child(load("res://Tile/TileTypes/DeerTile/DeerTile.tscn").instance())
 	if type == TYPE.WORMS:
-		$Sprite.modulate = Color.purple
+		add_child(load("res://Tile/TileTypes/WormsTile/WormsTile.tscn").instance())
 	if type == TYPE.BULLFROG:
-		$Sprite.modulate = Color.brown
+		add_child(load("res://Tile/TileTypes/BullfrogTile/BullfrogTile.tscn").instance())
 	if type == TYPE.NORTHERNHARRIER:
-		$Sprite.modulate = Color.black
+		add_child(load("res://Tile/TileTypes/NortherHarrierTile/NothernHarrierTile.tscn").instance())
