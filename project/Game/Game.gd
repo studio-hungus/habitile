@@ -129,8 +129,10 @@ func _display_supply():
 
 
 func _display_stack_top():
-	_left_stack[0].visible = true
-	_right_stack[0].visible = true
+	if not _left_stack.empty():
+		_left_stack[0].visible = true
+	if not _right_stack.empty():
+		_right_stack[0].visible = true
 
 
 func _place_tile_on_board(tile : Tile):
@@ -143,9 +145,12 @@ func _place_tile_on_board(tile : Tile):
 	elif not _is_left_player_turn and _right_stack.size() > 0:
 		_move_tile_to_supply(_right_stack.pop_front(), _original_tile_position)
 
+	_swap_turn()
+	
+	#This tell the board a tile has been placed. Once the board has zero spaces. It ends the game.
+	#This has to happen after turns are swapped or the turn will swap after the game ends
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
 	_board.set_space(tile, index_of_hovered_node)
-	_swap_turn()
 
 
 func _move_tile_to_supply(tile: Tile, position: Vector2):
@@ -156,6 +161,8 @@ func _move_tile_to_supply(tile: Tile, position: Vector2):
 
 func _on_Board_board_filled():
 	_is_game_over = true
+	for tile in _tiles.get_children():
+		tile.set_interactable(false)
 	_gui.display_gameover()
 
 
