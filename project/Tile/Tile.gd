@@ -66,15 +66,8 @@ func set_type(new_type):
 		
 func _set_state(value):
 	state = value
-	var supply_sprite = card_creature.get_node("Sprite")
-	var board_sprite = card_creature.get_node("SmallSprite")
-	var label = card_creature.get_node("AnimalName")
+
 	if state == State.BIG:
-		supply_sprite.visible = true
-		board_sprite.visible = false
-		label.visible = true
+		card_creature.enter_big_state()
 	else:
-		supply_sprite.visible = false
-		board_sprite.visible = true
-		label.visible = false
-		
+		card_creature.enter_small_state()
