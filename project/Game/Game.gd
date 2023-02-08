@@ -17,6 +17,8 @@ onready var _tiles := find_node("Tiles")
 onready var _board := find_node("Board")
 onready var _no_drop_sound := find_node("NoDropSound")
 onready var _drop_sound := find_node("DropSound")
+onready var _left_player_turn_sting := find_node("LeftPlayerTurnSound")
+onready var _right_player_turn_sting := find_node("RightPlayerTurnSound")
 onready var _gui := find_node("GUI")
 onready var _left_supply := find_node("LeftSupply")
 onready var _right_supply := find_node("RightSupply")
@@ -61,7 +63,6 @@ func _on_Tile_pressed(tile) -> void:
 
 	_original_tile_z_index = tile.z_index
 	tile.z_index = _held_tile_z_index
-
 	tile.connect("released", self, "_on_Tile_released", [tile])
 
 
@@ -88,6 +89,10 @@ func _update_turn_in_gui() -> void:
 
 func _swap_turn() -> void:
 	_is_left_player_turn = !_is_left_player_turn
+	if _is_left_player_turn:
+		_left_player_turn_sting.play()
+	else:
+		_right_player_turn_sting
 	_update_turn_in_gui()
 	_display_stack_top()
 
