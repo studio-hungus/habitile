@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/empty_placeholder.png-c53e4995ba4e35a17d51f0b9efaef311.stex"
+path="res://.import/wirefram_board_plain.png-b587e766d7f1e1096715b08381dddd79.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Board/EmptySpace/empty_placeholder.png"
-dest_files=[ "res://.import/empty_placeholder.png-c53e4995ba4e35a17d51f0b9efaef311.stex" ]
+source_file="res://GUI/wirefram_board_plain.png"
+dest_files=[ "res://.import/wirefram_board_plain.png-b587e766d7f1e1096715b08381dddd79.stex" ]
 
 [params]
 

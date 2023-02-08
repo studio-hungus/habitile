@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://GUI/wirefram_board_plain.png" type="Texture" id=2]
+[ext_resource path="res://GUI/border_right.png" type="Texture" id=3]
+[ext_resource path="res://GUI/border_left.png" type="Texture" id=4]
+[ext_resource path="res://GUI/border_top.png" type="Texture" id=5]
+[ext_resource path="res://GUI/border_bottom.png" type="Texture" id=6]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.521569, 0.321569, 1, 1 )
+[sub_resource type="StreamTexture" id=3]
+
+[sub_resource type="Theme" id=4]
+/icons/texture = SubResource( 3 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.290196, 0.254902, 0.164706, 1 )
@@ -18,7 +25,16 @@ script = ExtResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="LeftPanel" type="Panel" parent="CanvasLayer"]
+[node name="BoardSquare" type="TextureRect" parent="CanvasLayer"]
+margin_left = 8.0
+margin_right = 2094.0
+margin_bottom = 1236.0
+rect_scale = Vector2( 0.913114, 0.863161 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="LeftPanel" type="TextureRect" parent="CanvasLayer"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -540.0
@@ -26,7 +42,8 @@ margin_right = 384.0
 margin_bottom = 540.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
-custom_styles/panel = SubResource( 1 )
+theme = SubResource( 4 )
+texture = ExtResource( 4 )
 
 [node name="TitlePanel" type="Panel" parent="CanvasLayer/LeftPanel"]
 margin_right = 384.0
@@ -59,7 +76,7 @@ bbcode_enabled = true
 bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
 
-[node name="RightPanel" type="Panel" parent="CanvasLayer"]
+[node name="RightPanel" type="TextureRect" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -69,7 +86,7 @@ margin_top = -540.0
 margin_bottom = 540.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
-custom_styles/panel = SubResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="TitlePanel" type="Panel" parent="CanvasLayer/RightPanel"]
 margin_right = 384.0
@@ -120,5 +137,18 @@ margin_top = 1.0
 margin_right = 157.0
 margin_bottom = 21.0
 text = "Play again"
+
+[node name="TopBorder" type="TextureRect" parent="CanvasLayer"]
+margin_left = 384.0
+margin_right = 1536.0
+margin_bottom = 60.0
+texture = ExtResource( 5 )
+
+[node name="BottomBorder" type="TextureRect" parent="CanvasLayer"]
+margin_left = 384.0
+margin_top = 1024.0
+margin_right = 1536.0
+margin_bottom = 1084.0
+texture = ExtResource( 6 )
 
 [connection signal="pressed" from="CanvasLayer/PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
