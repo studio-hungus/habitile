@@ -151,6 +151,7 @@ func _place_tile_on_board(tile : Tile):
 		_move_tile_to_supply(_left_stack.pop_front(), _original_tile_position)
 	elif not _is_left_player_turn and _right_stack.size() > 0:
 		_move_tile_to_supply(_right_stack.pop_front(), _original_tile_position)
+	tile._set_state(1)
 
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
 	_board.set_space(tile, index_of_hovered_node)

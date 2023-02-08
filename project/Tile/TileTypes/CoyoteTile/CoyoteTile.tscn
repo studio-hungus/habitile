@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://testfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Tile/template_tile_supply.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/VoleTile/tile_board_vole.png" type="Texture" id=3]
 
 [node name="CoyoteTile" type="Node2D"]
 
@@ -32,3 +33,7 @@ margin_right = 42.0
 margin_bottom = 128.0
 custom_fonts/font = ExtResource( 1 )
 text = "-10"
+
+[node name="SmallSprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )

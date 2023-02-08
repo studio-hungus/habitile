@@ -5,6 +5,10 @@ extends Node2D
 signal pressed
 signal released
 
+enum State{
+	BIG, SMALL
+}
+
 enum TYPE {
 	VOLE,SALAMANDER,WORMS,DEER,BEEHIVE,BULLFROG,NORTHERNHARRIER,COYOTE
 }
@@ -13,6 +17,9 @@ enum TYPE {
 export var size := Vector2(175, 175)
 var _interactable = false
 var type = TYPE.VOLE
+var card_creature
+
+var state = State.BIG setget _set_state
 
 
 func contains(mouse_position:Vector2) -> bool:
@@ -39,18 +46,35 @@ func set_type(new_type):
 	type = new_type
 
 	if type == TYPE.SALAMANDER:
-		add_child(load("res://Tile/TileTypes/SalamanderTile/SalamanderTile.tscn").instance())
+		card_creature = load("res://Tile/TileTypes/SalamanderTile/SalamanderTile.tscn").instance()
 	if type == TYPE.VOLE:
-		add_child(load("res://Tile/TileTypes/VoleTile/VoleTile.tscn").instance())
+		card_creature = load("res://Tile/TileTypes/VoleTile/VoleTile.tscn").instance()
 	if type == TYPE.BEEHIVE:
-		add_child(load("res://Tile/TileTypes/BeehiveTile/BeehiveTile.tscn").instance())
+		card_creature = load("res://Tile/TileTypes/BeehiveTile/BeehiveTile.tscn").instance()
 	if type == TYPE.COYOTE:
-		add_child(load("res://Tile/TileTypes/CoyoteTile/CoyoteTile.tscn").instance())
+		card_creature = load("res://Tile/TileTypes/CoyoteTile/CoyoteTile.tscn").instance()
 	if type == TYPE.DEER:
-		add_child(load("res://Tile/TileTypes/DeerTile/DeerTile.tscn").instance())
+		card_creature = load("res://Tile/TileTypes/DeerTile/DeerTile.tscn").instance()
 	if type == TYPE.WORMS:
-		add_child(load("res://Tile/TileTypes/WormsTile/WormsTile.tscn").instance())
+		card_creature = load("res://Tile/TileTypes/WormsTile/WormsTile.tscn").instance()
 	if type == TYPE.BULLFROG:
-		add_child(load("res://Tile/TileTypes/BullfrogTile/BullfrogTile.tscn").instance())
+		card_creature = load("res://Tile/TileTypes/BullfrogTile/BullfrogTile.tscn").instance()
 	if type == TYPE.NORTHERNHARRIER:
-		add_child(load("res://Tile/TileTypes/NortherHarrierTile/NothernHarrierTile.tscn").instance())
+		card_creature = load("res://Tile/TileTypes/NortherHarrierTile/NothernHarrierTile.tscn").instance()
+	add_child(card_creature)
+		
+		
+func _set_state(value):
+	state = value
+	var supply_sprite = card_creature.get_node("Sprite")
+	var board_sprite = card_creature.get_node("SmallSprite")
+	var label = card_creature.get_node("AnimalName")
+	if state == State.BIG:
+		supply_sprite.visible = true
+		board_sprite.visible = false
+		label.visible = true
+	else:
+		supply_sprite.visible = false
+		board_sprite.visible = true
+		label.visible = false
+		
