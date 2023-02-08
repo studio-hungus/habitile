@@ -4,62 +4,53 @@ extends Control
 signal play_again_button_pressed
 
 
-onready var left_panel = $CanvasLayer/LeftPanel
-onready var right_panel = $CanvasLayer/RightPanel
-onready var gameover_label = $CanvasLayer/GameOverLabel
-onready var play_again_button = $CanvasLayer/PlayAgainButton
-
-var style_active = StyleBoxFlat.new()
-var style_inactive = StyleBoxFlat.new()
+onready var _tween = $Tween
+onready var _left_panel = $CanvasLayer/LeftPanel
+onready var _right_panel = $CanvasLayer/RightPanel
+onready var _left_player_indicator = $CanvasLayer/LeftPanel/TurnIndicator
+onready var _right_player_indicator = $CanvasLayer/RightPanel/TurnIndicator
+onready var _gameover_label = $CanvasLayer/GameOverLabel
+onready var _play_again_button = $CanvasLayer/PlayAgainButton
 
 
 func _ready():
-	right_panel.get_child(2).modulate = Color("#00ffffff")
-	
-	style_active.set_bg_color(Color("#ADD8E6"))
-	gameover_label.visible = false
-	play_again_button.visible = false
+	_gameover_label.visible = false
+	_play_again_button.visible = false
+
 
 func set_is_left_player_turn(value : bool) -> void:
-	var tween = get_node("Tween")
 	if value:
-		left_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		right_panel.mouse_filter = Control.MOUSE_FILTER_STOP
-		left_panel.add_stylebox_override("panel", style_active)
-		right_panel.add_stylebox_override("panel", style_inactive)
-		
-		tween.interpolate_property(right_panel.get_child(2), "modulate",
-		Color("#ffffffff"), Color("#00ffffff"), 0.5,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		_left_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_right_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 
-		tween.interpolate_property(left_panel.get_child(2), "modulate",
-		Color("#00ffffff"), Color("#ffffffff"), 0.5,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		tween.start()
+		_tween_alpha(_left_player_indicator, 1.0)
+		_tween_alpha(_right_player_indicator, 0.0)
 	else:
-		
-		tween.interpolate_property(left_panel.get_child(2), "modulate",
-		Color("#ffffffff"), Color("#00ffffff"), 0.5,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		_left_panel.mouse_filter = Control.MOUSE_FILTER_STOP
+		_right_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-		tween.interpolate_property(right_panel.get_child(2), "modulate",
-		Color("#00ffffff"), Color("#ffffffff"), 0.5,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		tween.start()
-		
-		left_panel.mouse_filter = Control.MOUSE_FILTER_STOP
-		right_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		left_panel.add_stylebox_override("panel", style_inactive)
-		right_panel.add_stylebox_override("panel", style_active)
+		_tween_alpha(_left_player_indicator, 0.0)
+		_tween_alpha(_right_player_indicator, 1.0)
 
 
 func display_gameover():
-	left_panel.add_stylebox_override("panel", style_inactive)
-	left_panel.mouse_filter = Control.MOUSE_FILTER_STOP
-	right_panel.add_stylebox_override("panel", style_inactive)
-	right_panel.mouse_filter = Control.MOUSE_FILTER_STOP
-	gameover_label.visible = true
-	play_again_button.visible = true
+	_left_panel.mouse_filter = Control.MOUSE_FILTER_STOP
+	_right_panel.mouse_filter = Control.MOUSE_FILTER_STOP
+	_tween_alpha(_left_player_indicator, 0.0)
+	_tween_alpha(_right_player_indicator, 0.0)
+
+	_gameover_label.visible = true
+	_play_again_button.visible = true
+
+
+func _tween_alpha(node: Node, value: float):
+	if node.modulate[3] != value:
+		_tween.interpolate_property(node, "modulate",
+			Color(1.0, 1.0, 1.0, 1.0 - value), Color(1.0, 1.0, 1.0, value), 0.5,
+			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+
+		_tween.start()
+
 
 
 func _on_PlayAgainButton_pressed():

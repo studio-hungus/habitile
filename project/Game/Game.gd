@@ -152,12 +152,11 @@ func _place_tile_on_board(tile : Tile):
 	elif not _is_left_player_turn and _right_stack.size() > 0:
 		_move_tile_to_supply(_right_stack.pop_front(), _original_tile_position)
 
-	_swap_turn()
-	
-	#This tell the board a tile has been placed. Once the board has zero spaces. It ends the game.
-	#This has to happen after turns are swapped or the turn will swap after the game ends
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
 	_board.set_space(tile, index_of_hovered_node)
+
+	if _board.get_number_of_empty_spaces() != 0:
+		_swap_turn()
 
 
 func _move_tile_to_supply(tile: Tile, position: Vector2):

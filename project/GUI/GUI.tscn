@@ -83,7 +83,8 @@ bbcode_enabled = true
 bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/LeftPanel"]
+[node name="TurnIndicator" type="TextureRect" parent="CanvasLayer/LeftPanel"]
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 384.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -132,11 +133,25 @@ bbcode_enabled = true
 bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/RightPanel"]
+[node name="TurnIndicator" type="TextureRect" parent="CanvasLayer/RightPanel"]
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 384.0
 margin_bottom = 1080.0
 mouse_filter = 2
 texture = SubResource( 6 )
+
+[node name="TopBorder" type="TextureRect" parent="CanvasLayer"]
+margin_left = 384.0
+margin_right = 1536.0
+margin_bottom = 60.0
+texture = ExtResource( 5 )
+
+[node name="BottomBorder" type="TextureRect" parent="CanvasLayer"]
+margin_left = 384.0
+margin_top = 1024.0
+margin_right = 1536.0
+margin_bottom = 1084.0
+texture = ExtResource( 6 )
 
 [node name="GameOverLabel" type="Label" parent="CanvasLayer"]
 anchor_left = 0.5
@@ -156,19 +171,6 @@ margin_top = 1.0
 margin_right = 157.0
 margin_bottom = 21.0
 text = "Play again"
-
-[node name="TopBorder" type="TextureRect" parent="CanvasLayer"]
-margin_left = 384.0
-margin_right = 1536.0
-margin_bottom = 60.0
-texture = ExtResource( 5 )
-
-[node name="BottomBorder" type="TextureRect" parent="CanvasLayer"]
-margin_left = 384.0
-margin_top = 1024.0
-margin_right = 1536.0
-margin_bottom = 1084.0
-texture = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
 
