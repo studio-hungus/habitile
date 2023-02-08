@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
-[ext_resource path="res://GUI/wirefram_board_plain.png" type="Texture" id=2]
+[ext_resource path="res://GUI/wirefram_board_v2.png" type="Texture" id=2]
 [ext_resource path="res://GUI/border_right.png" type="Texture" id=3]
 [ext_resource path="res://GUI/border_left.png" type="Texture" id=4]
 [ext_resource path="res://GUI/border_top.png" type="Texture" id=5]
@@ -15,6 +15,16 @@
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.290196, 0.254902, 0.164706, 1 )
 
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.00440529, 1 )
+colors = PoolColorArray( 0, 0, 0, 0.00392157, 0.0396476, 0.0396476, 0.0396476, 0.0434137, 0.941176, 0.890196, 0.211765, 0.611765 )
+
+[sub_resource type="GradientTexture2D" id=6]
+gradient = SubResource( 7 )
+width = 384
+height = 1080
+fill_to = Vector2( 0, 1 )
+
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,13 +36,10 @@ script = ExtResource( 1 )
 layer = -1
 
 [node name="BoardSquare" type="TextureRect" parent="CanvasLayer"]
-margin_left = 8.0
-margin_right = 2094.0
-margin_bottom = 1236.0
-rect_scale = Vector2( 0.913114, 0.863161 )
+margin_right = 1921.0
+margin_bottom = 1081.0
 mouse_filter = 2
 texture = ExtResource( 2 )
-stretch_mode = 1
 
 [node name="LeftPanel" type="TextureRect" parent="CanvasLayer"]
 anchor_top = 0.5
@@ -75,6 +82,12 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/LeftPanel"]
+margin_right = 384.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = SubResource( 6 )
 
 [node name="RightPanel" type="TextureRect" parent="CanvasLayer"]
 anchor_left = 1.0
@@ -119,6 +132,12 @@ bbcode_enabled = true
 bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/RightPanel"]
+margin_right = 384.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = SubResource( 6 )
+
 [node name="GameOverLabel" type="Label" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -150,5 +169,7 @@ margin_top = 1024.0
 margin_right = 1536.0
 margin_bottom = 1084.0
 texture = ExtResource( 6 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="CanvasLayer/PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
