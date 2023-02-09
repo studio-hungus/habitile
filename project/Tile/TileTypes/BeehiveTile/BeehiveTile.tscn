@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://testfont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Tile/template_tile_supply.png" type="Texture" id=2]
-[ext_resource path="res://Tile/TileTypes/VoleTile/tile_board_vole.png" type="Texture" id=3]
+[ext_resource path="res://Tile/TileTypes/BeehiveTile/tile_board_beehive.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/BeehiveTile/tile_supply_beehive.png" type="Texture" id=3]
 [ext_resource path="res://Tile/TileTypes/AnimalTile.gd" type="Script" id=4]
 
 [node name="BeeHiveTile" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="AnimalName" type="Label" parent="."]
 margin_left = -95.0
@@ -38,4 +38,4 @@ text = "-10"
 
 [node name="SmallSprite" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )

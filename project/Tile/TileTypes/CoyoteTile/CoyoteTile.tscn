@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://testfont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Tile/template_tile_supply.png" type="Texture" id=2]
-[ext_resource path="res://Tile/TileTypes/VoleTile/tile_board_vole.png" type="Texture" id=3]
+[ext_resource path="res://Tile/TileTypes/CoyoteTile/tile_supply_coyote.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/CoyoteTile/tile_board_coyote.png" type="Texture" id=3]
 [ext_resource path="res://Tile/TileTypes/AnimalTile.gd" type="Script" id=4]
 
 [node name="CoyoteTile" type="Node2D"]
