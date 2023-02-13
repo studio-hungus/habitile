@@ -75,6 +75,7 @@ func _on_Tile_pressed(tile) -> void:
 
 
 func _on_Tile_released(tile) -> void:
+
 	_pressed_tile = null
 	tile.z_index = _original_tile_z_index
 	

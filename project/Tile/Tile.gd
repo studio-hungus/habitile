@@ -16,6 +16,7 @@ enum TYPE {
 
 export var size := Vector2(175, 175)
 var _interactable = false
+var _pressed = false
 var type = TYPE.VOLE
 var card_creature
 
@@ -33,9 +34,18 @@ func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if _interactable:
 		if event is InputEventMouseButton:
 			if event.is_pressed():
+				_pressed = true
 				emit_signal("pressed")
+
 			else:
+				_pressed = false
 				emit_signal("released")
+
+
+func _process(_delta):
+	if not Input.is_mouse_button_pressed(BUTTON_LEFT) and _pressed:
+		_pressed = false
+		emit_signal("released")
 
 
 func set_interactable(interactable):
