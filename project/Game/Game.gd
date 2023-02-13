@@ -25,7 +25,7 @@ onready var _left_supply := find_node("LeftSupply")
 onready var _right_supply := find_node("RightSupply")
 onready var _left_stack_position := find_node("LeftStackPosition")
 onready var _right_stack_position := find_node("RightStackPosition")
-
+onready var _space_indicator := find_node("SpaceIndicator")
 
 func _ready() -> void:
 	_create_stacks()
@@ -50,8 +50,9 @@ func _physics_process(_delta) -> void:
 				found_hover = true
 				
 				if _pressed_tile != null:
-					$Sprite.global_position = _hovered_node.global_position
-					$Sprite.visible = true
+					_space_indicator.move(_hovered_node.global_position)
+				if _hovered_node is Tile:
+					_space_indicator.hide()
 
 		for tile in _tiles.get_children():
 			if tile != _pressed_tile and tile.contains(current_mouse_position):
@@ -60,7 +61,7 @@ func _physics_process(_delta) -> void:
 
 		if not found_hover:
 			_hovered_node = null
-			$Sprite.visible = false
+			_space_indicator.hide()
 
 
 func _on_Tile_pressed(tile) -> void:
@@ -77,7 +78,7 @@ func _on_Tile_released(tile) -> void:
 	_pressed_tile = null
 	tile.z_index = _original_tile_z_index
 	
-	$Sprite.visible = false
+	_space_indicator.hide()
 
 	if _hovered_node is Tile:
 		_no_drop_sound.play()

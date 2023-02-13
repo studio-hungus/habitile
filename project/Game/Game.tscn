@@ -8,7 +8,7 @@
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/GL_Sting_Right_Player_Turn.wav" type="AudioStream" id=7]
 [ext_resource path="res://Game/GL_SFX_Pickup.wav" type="AudioStream" id=8]
-[ext_resource path="res://icon.png" type="Texture" id=9]
+[ext_resource path="res://Game/SpaceIndicator/SpaceIndicator.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -69,12 +69,8 @@ position = Vector2( 192, 928 )
 [node name="RightStackPosition" type="Position2D" parent="."]
 position = Vector2( 1728, 928 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="SpaceIndicator" parent="." instance=ExtResource( 10 )]
 visible = false
-modulate = Color( 1, 0.984314, 0, 0.490196 )
-position = Vector2( 1.90735e-06, 5.00679e-06 )
-scale = Vector2( 3.25, 3.25 )
-texture = ExtResource( 9 )
 
 [connection signal="play_again_button_pressed" from="GUI" to="." method="_on_GUI_play_again_button_pressed"]
 [connection signal="board_filled" from="Board" to="." method="_on_Board_board_filled"]
