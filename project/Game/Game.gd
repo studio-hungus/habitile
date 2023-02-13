@@ -44,10 +44,14 @@ func _physics_process(_delta) -> void:
 			_pressed_tile.global_position = current_mouse_position
 
 		# empty_space for loop needs to be first 
-		for empty_space in _board.get_spaces():
-			if empty_space.contains(current_mouse_position):
-				_hovered_node = empty_space
+		for space in _board.get_spaces():
+			if space.contains(current_mouse_position):
+				_hovered_node = space
 				found_hover = true
+				
+				if _pressed_tile != null:
+					$Sprite.global_position = _hovered_node.global_position
+					$Sprite.visible = true
 
 		for tile in _tiles.get_children():
 			if tile != _pressed_tile and tile.contains(current_mouse_position):
@@ -56,6 +60,7 @@ func _physics_process(_delta) -> void:
 
 		if not found_hover:
 			_hovered_node = null
+			$Sprite.visible = false
 
 
 func _on_Tile_pressed(tile) -> void:
@@ -71,6 +76,8 @@ func _on_Tile_pressed(tile) -> void:
 func _on_Tile_released(tile) -> void:
 	_pressed_tile = null
 	tile.z_index = _original_tile_z_index
+	
+	$Sprite.visible = false
 
 	if _hovered_node is Tile:
 		_no_drop_sound.play()
