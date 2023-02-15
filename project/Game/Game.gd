@@ -171,9 +171,15 @@ func _place_tile_on_board(tile : Tile):
 
 
 func _move_tile_to_supply(tile: Tile, position: Vector2):
+	var tween = get_tree().create_tween()
+	
 	tile.visible = true
 	tile.set_interactable(true)
-	tile.global_position = position
+	tile.z_index = 20
+	tween.tween_property(tile, "global_position", position, 1)\
+	  .set_trans(Tween.TRANS_BOUNCE)\
+	  .set_ease(Tween.EASE_OUT)\
+	  .connect("finished", self, "_tween_end", [tile])
  
 
 func _on_Board_board_filled():
@@ -185,3 +191,7 @@ func _on_Board_board_filled():
 
 func _on_GUI_play_again_button_pressed():
 	var _current_scene = get_tree().reload_current_scene()
+	
+
+func _tween_end(tile: Tile):
+	tile.z_index = 0
