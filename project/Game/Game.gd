@@ -65,6 +65,7 @@ func _physics_process(_delta) -> void:
 
 
 func _on_Tile_pressed(tile) -> void:
+	
 	_pressed_tile = tile
 	_original_tile_position = tile.global_position
 
