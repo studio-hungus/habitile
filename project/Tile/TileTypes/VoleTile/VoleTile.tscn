@@ -7,6 +7,10 @@
 
 [node name="VoleTile" type="Node2D"]
 script = ExtResource( 4 )
+positive_score_modifier = 10
+positive_neighbor_tiles = [ -1, 2 ]
+negative_score_modifier = -15
+negative_neighbor_tiles = [ 7, 6 ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

@@ -72,8 +72,12 @@ func set_type(new_type):
 	if type == TYPE.NORTHERNHARRIER:
 		card_creature = load("res://Tile/TileTypes/NortherHarrierTile/NothernHarrierTile.tscn").instance()
 	add_child(card_creature)
-		
-		
+
+
+func get_type():
+	return type
+
+
 func _set_state(value):
 	state = value
 
@@ -81,3 +85,21 @@ func _set_state(value):
 		card_creature.enter_big_state()
 	else:
 		card_creature.enter_small_state()
+
+
+func calculate_points(neighbors: Array) -> int:
+	var points := 0
+
+	for neighbor in neighbors:
+		if (neighbor is EmptySpace):
+			if card_creature.positive_neighbor_tiles.has(-1):
+				points += card_creature.positive_score_modifier
+			elif card_creature.negative_neighbor_tiles.has(-1):
+				points += card_creature.negative_score_modifier
+		else:
+			if card_creature.positive_neighbor_tiles.has(neighbor.type):
+				points += card_creature.positive_score_modifier
+			elif card_creature.negative_neighbor_tiles.has(neighbor.type):
+				points += card_creature.negative_score_modifier
+
+	return points

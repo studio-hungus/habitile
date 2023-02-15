@@ -43,6 +43,8 @@ func get_space(x: int, y: int) -> Node2D:
 	return spaces[x * height + y]
 
 
+# This solution assumes that the board is being represented as a one dimensional
+# in-placement array to work.
 func get_neighbors(x: int, y: int) -> Array:
 	var neighbors := []
 
@@ -65,7 +67,8 @@ func set_space(tile : Tile, index: int):
 	_number_of_empty_spaces -= 1
 	var y = index % height
 	var x = (index - y) / height
-	get_neighbors(x, y)
+	var neighbors := get_neighbors(x, y)
+	print(tile.calculate_points(neighbors))
 	if _number_of_empty_spaces == 0:
 		emit_signal("board_filled")
 

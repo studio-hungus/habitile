@@ -7,6 +7,7 @@
 
 [node name="WormsTile" type="Node2D"]
 script = ExtResource( 4 )
+negative_neighbor_tiles = [ 5, 6, 0, 1 ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
