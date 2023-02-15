@@ -17,8 +17,9 @@ func _ready():
 		var x_offset = (width - 1) / 2.0 - x
 		for y in height:
 			var y_offset = (height - 1) / 2.0 - y
-			_add_node(x_offset,  y_offset)
+			_add_node(-x_offset,  -y_offset)
 	_number_of_empty_spaces = spaces.size()
+
 
 func _add_node(x:float, y:float):
 	var empty_space = empty_space_scene.instance()
@@ -34,9 +35,37 @@ func get_spaces() -> Array:
 	return spaces
 
 
+func get_space(x: int, y: int) -> Node2D:
+	if (x < 0) or (y < 0):
+		return null
+	if (x >= width) or (y >= height):
+		return null
+	return spaces[x * height + y]
+
+
+func get_neighbors(x: int, y: int) -> Array:
+	var neighbors := []
+
+	for i in 3:
+		for j in 3:
+			if i == 1 and j == 1:
+				continue
+
+			neighbors.append(get_space(x + i - 1, y + j - 1))
+
+	while neighbors.has(null):
+		neighbors.erase(null)
+
+	print(neighbors)
+	return neighbors
+
+
 func set_space(tile : Tile, index: int):
 	spaces[index] = tile
 	_number_of_empty_spaces -= 1
+	var y = index % height
+	var x = (index - y) / height
+	get_neighbors(x, y)
 	if _number_of_empty_spaces == 0:
 		emit_signal("board_filled")
 
