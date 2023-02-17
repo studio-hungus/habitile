@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
+[ext_resource path="res://Tile/TileTypes/VoleTile/tile_supply_vole.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/VoleTile/tile_board_vole.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+positive_score_modifier = 10
+negative_score_modifier = -15
+positive_neighbor_tiles = [ null ]
+negative_neighbor_tiles = [  ]
+in_supply_texture = ExtResource( 2 )
+on_board_texture = ExtResource( 3 )
