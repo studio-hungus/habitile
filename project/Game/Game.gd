@@ -148,8 +148,10 @@ func _display_supply():
 func _display_stack_top():
 	if not _left_stack.empty():
 		_left_stack[0].visible = true
+		_left_stack[0].modulate = Color.gray
 	if not _right_stack.empty():
 		_right_stack[0].visible = true
+		_right_stack[0].modulate = Color.gray
 
 
 func _place_tile_on_board(tile : Tile):
@@ -172,6 +174,7 @@ func _place_tile_on_board(tile : Tile):
 
 func _move_tile_to_supply(tile: Tile, position: Vector2):
 	var tween = get_tree().create_tween()
+	tile.modulate = Color.white
 	
 	tile.visible = true
 	tile.z_index = 20

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://GUI/wirefram_board_v2.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://GUI/border_left.png" type="Texture" id=4]
 [ext_resource path="res://GUI/border_top.png" type="Texture" id=5]
 [ext_resource path="res://GUI/border_bottom.png" type="Texture" id=6]
+[ext_resource path="res://Tile/Roboto-Medium.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="StreamTexture" id=3]
 
@@ -24,6 +25,17 @@ gradient = SubResource( 7 )
 width = 384
 height = 1080
 fill_to = Vector2( 0, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 2
+font_data = ExtResource( 7 )
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -72,23 +84,27 @@ bbcode_enabled = true
 bbcode_text = "[center]Player 1[/center]"
 text = "Player 1"
 
-[node name="UpNextLabel" type="RichTextLabel" parent="CanvasLayer/LeftPanel"]
-margin_left = 7.0
-margin_top = 810.0
-margin_right = 391.0
-margin_bottom = 844.0
-input_pass_on_modal_close_click = false
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-bbcode_enabled = true
-bbcode_text = "[center]UP NEXT[/center]"
-text = "UP NEXT"
-
-[node name="TurnIndicator" type="TextureRect" parent="CanvasLayer/LeftPanel"]
+[node name="LeftTurnIndicator" type="TextureRect" parent="CanvasLayer/LeftPanel"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 384.0
 margin_bottom = 1080.0
 mouse_filter = 2
 texture = SubResource( 6 )
+
+[node name="UpNextLabel" type="RichTextLabel" parent="CanvasLayer/LeftPanel"]
+margin_left = 2.0
+margin_top = 799.0
+margin_right = 386.0
+margin_bottom = 833.0
+rect_pivot_offset = Vector2( 1035, -60 )
+input_pass_on_modal_close_click = false
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/mono_font = SubResource( 8 )
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]UP NEXT[/center]"
+text = "UP NEXT"
+scroll_active = false
 
 [node name="RightPanel" type="TextureRect" parent="CanvasLayer"]
 anchor_left = 1.0
@@ -122,23 +138,26 @@ bbcode_enabled = true
 bbcode_text = "[center]Player 2[/center]"
 text = "Player 2"
 
-[node name="UpNextLabel" type="RichTextLabel" parent="CanvasLayer/RightPanel"]
-margin_left = 7.0
-margin_top = 810.0
-margin_right = 391.0
-margin_bottom = 844.0
-input_pass_on_modal_close_click = false
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-bbcode_enabled = true
-bbcode_text = "[center]UP NEXT[/center]"
-text = "UP NEXT"
-
-[node name="TurnIndicator" type="TextureRect" parent="CanvasLayer/RightPanel"]
+[node name="RightTurnIndicator" type="TextureRect" parent="CanvasLayer/RightPanel"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 384.0
 margin_bottom = 1080.0
 mouse_filter = 2
 texture = SubResource( 6 )
+
+[node name="UpNextLabel" type="RichTextLabel" parent="CanvasLayer/RightPanel"]
+margin_top = 799.0
+margin_right = 384.0
+margin_bottom = 833.0
+rect_pivot_offset = Vector2( 1035, -60 )
+input_pass_on_modal_close_click = false
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/mono_font = SubResource( 8 )
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]UP NEXT[/center]"
+text = "UP NEXT"
+scroll_active = false
 
 [node name="TopBorder" type="TextureRect" parent="CanvasLayer"]
 margin_left = 384.0
@@ -173,5 +192,24 @@ margin_bottom = 21.0
 text = "Play again"
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Overlays" type="Node2D" parent="."]
+z_index = 100
+__meta__ = {
+"_editor_description_": "Adjusts z.index for overlay"
+}
+
+[node name="LeftOverlay" type="ColorRect" parent="Overlays"]
+margin_right = 384.0
+margin_bottom = 1080.0
+mouse_filter = 2
+color = Color( 0.270588, 0.305882, 0.188235, 0.498039 )
+
+[node name="RightOverlay" type="ColorRect" parent="Overlays"]
+margin_left = 1536.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
+color = Color( 0.270588, 0.305882, 0.188235, 0.498039 )
 
 [connection signal="pressed" from="CanvasLayer/PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
