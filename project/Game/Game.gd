@@ -174,7 +174,6 @@ func _move_tile_to_supply(tile: Tile, position: Vector2):
 	var tween = get_tree().create_tween()
 	
 	tile.visible = true
-	tile.set_interactable(true)
 	tile.z_index = 20
 	tween.tween_property(tile, "global_position", position, 1)\
 	  .set_trans(Tween.TRANS_BOUNCE)\
@@ -195,3 +194,4 @@ func _on_GUI_play_again_button_pressed():
 
 func _tween_end(tile: Tile):
 	tile.z_index = 0
+	tile.set_interactable(true)
