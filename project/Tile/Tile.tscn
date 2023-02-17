@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://testfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Tile/Tile.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -12,5 +13,35 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
+[node name="SupplySprite" type="Sprite" parent="."]
+
+[node name="AnimalName" type="Label" parent="."]
+margin_left = -95.0
+margin_top = -81.0
+margin_right = 31.0
+margin_bottom = -54.0
+custom_fonts/font = ExtResource( 1 )
+text = "Worm"
+
+[node name="Plus" type="Label" parent="AnimalName"]
+margin_left = 2.0
+margin_top = 27.0
+margin_right = 42.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( -148, -10 )
+custom_fonts/font = ExtResource( 1 )
+text = "+5"
+
+[node name="Minus" type="Label" parent="AnimalName"]
+margin_left = 2.0
+margin_top = 101.0
+margin_right = 42.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 1 )
+text = "-10"
+
+[node name="BoardSprite" type="Sprite" parent="."]
+visible = false
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Tile/TileTypes/Salamander/tile_supply_salamander.png" type="Texture" id=1]
+[ext_resource path="res://Tile/TileTypes/Salamander/tile_board_salamander.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/Worms/Worms.tres" type="Resource" id=3]
+[ext_resource path="res://Tile/TileType.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 4 )
+name = "Salamander"
+positive_score_modifier = 15
+negative_score_modifier = -20
+positive_neighbor_tiles = [ ExtResource( 3 ) ]
+in_supply_texture = ExtResource( 1 )
+on_board_texture = ExtResource( 2 )

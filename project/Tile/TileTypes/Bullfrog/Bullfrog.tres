@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
+[ext_resource path="res://Tile/TileTypes/Beehive/tile_board_beehive.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/Bullfrog/tile_board_bullfrog.png" type="Texture" id=3]
+[ext_resource path="res://Tile/TileTypes/Bullfrog/tile_supply_bullfrog.png" type="Texture" id=4]
+[ext_resource path="res://Tile/TileTypes/Worms/Worms.tres" type="Resource" id=5]
+[ext_resource path="res://Tile/TileTypes/Beehive/tile_supply_beehive.png" type="Texture" id=6]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+name = "Beehive"
+positive_score_modifier = 10
+negative_score_modifier = -15
+positive_neighbor_tiles = [ null, null, null ]
+in_supply_texture = ExtResource( 6 )
+on_board_texture = ExtResource( 2 )
+
+[resource]
+script = ExtResource( 1 )
+name = "Bullfrog"
+positive_score_modifier = 15
+negative_score_modifier = -20
+positive_neighbor_tiles = [ ExtResource( 5 ), SubResource( 1 ), null ]
+in_supply_texture = ExtResource( 4 )
+on_board_texture = ExtResource( 3 )

@@ -2,6 +2,7 @@ extends Node2D
 
 const SUPPLY_SIZE = 3
 
+export(Array, Resource) var _initial_stack_tile_types := []
 export var _held_tile_z_index := 16
 var _original_tile_z_index := 0
 var _pressed_tile : Node2D
@@ -112,8 +113,9 @@ func _swap_turn() -> void:
 # This creates a tile in the original tile position
 func _make_new_tile(tile_type) -> Node2D:
 	var tile : Node2D = preload("res://Tile/Tile.tscn").instance()
+	# Tile need to be added to scene tree before initialization of the type.
 	_tiles.add_child(tile)
-	tile.set_type(tile_type)
+	tile.initialize_type(tile_type)
 
 	# warning-ignore:return_value_discarded
 	tile.connect("pressed", self, "_on_Tile_pressed", [tile])
@@ -126,17 +128,15 @@ func _shuffle_stacks():
 
 
 func _create_stacks():
-	var quantity_animal_in_stack = 2
-	for type in Tile.TYPE.values():
-		for animal in quantity_animal_in_stack:
-			var left_tile := _make_new_tile(type)
-			var right_tile := _make_new_tile(type)
-			left_tile.visible = false
-			right_tile.visible = false
-			left_tile.global_position = _left_stack_position.global_position
-			right_tile.global_position = _right_stack_position.global_position
-			_left_stack.append(left_tile)
-			_right_stack.append(right_tile)
+	for type in _initial_stack_tile_types:
+		var left_tile := _make_new_tile(type)
+		var right_tile := _make_new_tile(type)
+		left_tile.visible = false
+		right_tile.visible = false
+		left_tile.global_position = _left_stack_position.global_position
+		right_tile.global_position = _right_stack_position.global_position
+		_left_stack.append(left_tile)
+		_right_stack.append(right_tile)
 
 
 func _display_supply():

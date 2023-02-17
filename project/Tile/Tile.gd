@@ -9,19 +9,17 @@ enum State{
 	BIG, SMALL
 }
 
-enum TYPE {
-	VOLE,SALAMANDER,WORMS,DEER,BEEHIVE,BULLFROG,NORTHERNHARRIER,COYOTE
-}
-
 
 export var size := Vector2(175, 175)
 var _interactable = false
 var _pressed = false
-var type = TYPE.VOLE
-var card_creature
+var type: TileType
 
 var state = State.BIG setget _set_state
 
+onready var _supply_sprite := get_node("SupplySprite")
+onready var _board_sprite := get_node("BoardSprite")
+onready var _name_label := get_node("AnimalName")
 
 func contains(mouse_position:Vector2) -> bool:
 	var center := global_position - size / 2
@@ -52,26 +50,14 @@ func set_interactable(interactable):
 	_interactable = interactable
 
 
-func set_type(new_type):
-	type = new_type
-
-	if type == TYPE.SALAMANDER:
-		card_creature = load("res://Tile/TileTypes/SalamanderTile/SalamanderTile.tscn").instance()
-	if type == TYPE.VOLE:
-		card_creature = load("res://Tile/TileTypes/VoleTile/VoleTile.tscn").instance()
-	if type == TYPE.BEEHIVE:
-		card_creature = load("res://Tile/TileTypes/BeehiveTile/BeehiveTile.tscn").instance()
-	if type == TYPE.COYOTE:
-		card_creature = load("res://Tile/TileTypes/CoyoteTile/CoyoteTile.tscn").instance()
-	if type == TYPE.DEER:
-		card_creature = load("res://Tile/TileTypes/DeerTile/DeerTile.tscn").instance()
-	if type == TYPE.WORMS:
-		card_creature = load("res://Tile/TileTypes/WormsTile/WormsTile.tscn").instance()
-	if type == TYPE.BULLFROG:
-		card_creature = load("res://Tile/TileTypes/BullfrogTile/BullfrogTile.tscn").instance()
-	if type == TYPE.NORTHERNHARRIER:
-		card_creature = load("res://Tile/TileTypes/NortherHarrierTile/NothernHarrierTile.tscn").instance()
-	add_child(card_creature)
+func initialize_type(init_type: TileType):
+	assert(type == null)
+	type = init_type
+	_supply_sprite.texture = type.in_supply_texture
+	_board_sprite.texture = type.on_board_texture
+	_name_label.text = type.name
+	get_node("AnimalName/Plus").text = "+%s" % type.positive_score_modifier
+	get_node("AnimalName/Minus").text = "-%s" % abs(type.negative_score_modifier)
 
 
 func get_type():
@@ -80,26 +66,34 @@ func get_type():
 
 func _set_state(value):
 	state = value
-
 	if state == State.BIG:
-		card_creature.enter_big_state()
+		_enter_big_state()
 	else:
-		card_creature.enter_small_state()
+		_enter_small_state()
+
+
+func _enter_big_state():
+	_supply_sprite.visible = true
+	_board_sprite.visible = false
+	_name_label.visible = true
+
+
+func _enter_small_state():
+	_supply_sprite.visible = false
+	_board_sprite.visible = true
+	_name_label.visible = false
 
 
 func calculate_points(neighbors: Array) -> int:
 	var points := 0
 
 	for neighbor in neighbors:
-		if (neighbor is EmptySpace):
-			if card_creature.positive_neighbor_tiles.has(-1):
-				points += card_creature.positive_score_modifier
-			elif card_creature.negative_neighbor_tiles.has(-1):
-				points += card_creature.negative_score_modifier
+		if neighbor is EmptySpace:
+			pass
 		else:
-			if card_creature.positive_neighbor_tiles.has(neighbor.type):
-				points += card_creature.positive_score_modifier
-			elif card_creature.negative_neighbor_tiles.has(neighbor.type):
-				points += card_creature.negative_score_modifier
+			if type.positive_neighbor_tiles.has(neighbor.type):
+				points += type.positive_score_modifier
+			elif neighbor.type.positive_neighbor_tiles.has(type):
+				points += type.negative_score_modifier
 
 	return points

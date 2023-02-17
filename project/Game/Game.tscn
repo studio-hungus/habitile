@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Game/GL_Sting_Left_Player_Turn.wav" type="AudioStream" id=1]
 [ext_resource path="res://Board/Board.tscn" type="PackedScene" id=2]
@@ -8,10 +8,19 @@
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/GL_Sting_Right_Player_Turn.wav" type="AudioStream" id=7]
 [ext_resource path="res://Game/GL_SFX_Pickup.wav" type="AudioStream" id=8]
+[ext_resource path="res://Tile/TileTypes/Vole/Vole.tres" type="Resource" id=9]
 [ext_resource path="res://Game/SpaceIndicator/SpaceIndicator.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Tile/TileTypes/Worms/Worms.tres" type="Resource" id=11]
+[ext_resource path="res://Tile/TileTypes/Salamander/Salamander.tres" type="Resource" id=12]
+[ext_resource path="res://Tile/TileTypes/NortherHarrier/NorthernHarrier.tres" type="Resource" id=13]
+[ext_resource path="res://Tile/TileTypes/Deer/Deer.tres" type="Resource" id=14]
+[ext_resource path="res://Tile/TileTypes/Coyote/Coyote.tres" type="Resource" id=15]
+[ext_resource path="res://Tile/TileTypes/Beehive/Beehive.tres" type="Resource" id=16]
+[ext_resource path="res://Tile/TileTypes/Bullfrog/Bullfrog.tres" type="Resource" id=17]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
+_initial_stack_tile_types = [ ExtResource( 11 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 12 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 15 ) ]
 
 [node name="GUI" parent="." instance=ExtResource( 6 )]
 anchor_right = 0.0
@@ -73,4 +82,3 @@ position = Vector2( 1728, 928 )
 visible = false
 
 [connection signal="play_again_button_pressed" from="GUI" to="." method="_on_GUI_play_again_button_pressed"]
-[connection signal="board_filled" from="Board" to="." method="_on_Board_board_filled"]
