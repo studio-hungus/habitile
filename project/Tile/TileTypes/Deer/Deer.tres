@@ -10,5 +10,6 @@ name = "Deer"
 positive_score_modifier = 10
 negative_score_modifier = -15
 positive_neighbor_tiles = [  ]
+allergic_to_grass = false
 in_supply_texture = ExtResource( 2 )
 on_board_texture = ExtResource( 3 )

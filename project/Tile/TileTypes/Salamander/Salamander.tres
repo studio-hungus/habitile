@@ -11,5 +11,6 @@ name = "Salamander"
 positive_score_modifier = 15
 negative_score_modifier = -20
 positive_neighbor_tiles = [ ExtResource( 3 ) ]
+allergic_to_grass = false
 in_supply_texture = ExtResource( 1 )
 on_board_texture = ExtResource( 2 )

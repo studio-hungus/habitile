@@ -1,7 +1,7 @@
 class_name EmptySpace
 extends Area2D
 
-
+export var type : Resource
 export var size := Vector2(175, 175)
 
 func contains(mouse_position:Vector2) -> bool:

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+positive_score_modifier = 0
+negative_score_modifier = 0
+positive_neighbor_tiles = [  ]
+allergic_to_grass = false

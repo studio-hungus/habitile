@@ -86,14 +86,14 @@ func _enter_small_state():
 
 func calculate_points(neighbors: Array) -> int:
 	var points := 0
-
 	for neighbor in neighbors:
-		if neighbor is EmptySpace:
-			pass
-		else:
-			if type.positive_neighbor_tiles.has(neighbor.type):
-				points += type.positive_score_modifier
-			elif neighbor.type.positive_neighbor_tiles.has(type):
-				points += type.negative_score_modifier
+		if type.allergic_to_grass and neighbor is EmptySpace:
+			points += type.negative_score_modifier
+			continue
+
+		if type.positive_neighbor_tiles.has(neighbor.type):
+			points += type.positive_score_modifier
+		elif neighbor.type.positive_neighbor_tiles.has(type):
+			points += type.negative_score_modifier
 
 	return points
