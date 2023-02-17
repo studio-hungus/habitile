@@ -58,20 +58,20 @@ func get_neighbors(x: int, y: int) -> Array:
 	while neighbors.has(null):
 		neighbors.erase(null)
 
-	print(neighbors)
+
 	return neighbors
 
 
-func set_space(tile : Tile, index: int):
+func set_space(tile : Tile, index: int) -> int:
 	spaces[index] = tile
 	_number_of_empty_spaces -= 1
 	var y = index % height
 	var x = (index - y) / height
 	var neighbors := get_neighbors(x, y)
-	print(tile.calculate_points(neighbors))
+	
 	if _number_of_empty_spaces == 0:
 		emit_signal("board_filled")
-
+	return tile.calculate_points(neighbors)
 	
 
 

@@ -12,6 +12,8 @@ var _is_left_player_turn := true
 var _left_stack := []
 var _right_stack := []
 var _is_game_over := false
+var _left_score := 0
+var _right_score := 0
 
 
 onready var _tiles := find_node("Tiles")
@@ -102,6 +104,8 @@ func _update_turn_in_gui() -> void:
 
 
 func _swap_turn() -> void:
+	print("Left Score %d" % _left_score)
+	print("Right Score %d" % _right_score)
 	_is_left_player_turn = !_is_left_player_turn
 	if _is_left_player_turn:
 		_left_player_turn_sting.play()
@@ -167,11 +171,15 @@ func _place_tile_on_board(tile : Tile):
 	tile._set_state(1)
 
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
-	_board.set_space(tile, index_of_hovered_node)
-
+	var score_modifier = _board.set_space(tile, index_of_hovered_node)
+	if _is_left_player_turn:
+		_left_score += score_modifier
+	else:
+		_right_score += score_modifier
+	
 	if _board.get_number_of_empty_spaces() != 0:
 		_swap_turn()
-
+	
 
 func _move_tile_to_supply(tile: Tile, position: Vector2):
 	var tween = get_tree().create_tween()
