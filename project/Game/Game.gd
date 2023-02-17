@@ -3,7 +3,7 @@ extends Node2D
 const SUPPLY_SIZE = 3
 
 export(Array, Resource) var _initial_stack_tile_types := []
-export var _held_tile_z_index := 16
+export var _held_tile_z_index := 21
 var _original_tile_z_index := 0
 var _pressed_tile : Node2D
 var _hovered_node : Node2D
@@ -186,7 +186,7 @@ func _move_tile_to_supply(tile: Tile, position: Vector2):
 	tile.modulate = Color.white
 	
 	tile.visible = true
-	tile.z_index = 20
+	tile.z_index = 2
 	tween.tween_property(tile, "global_position", position, 1)\
 	  .set_trans(Tween.TRANS_BOUNCE)\
 	  .set_ease(Tween.EASE_OUT)\

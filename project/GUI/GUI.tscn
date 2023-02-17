@@ -194,7 +194,7 @@ text = "Play again"
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Overlays" type="Node2D" parent="."]
-z_index = 100
+z_index = 20
 __meta__ = {
 "_editor_description_": "Adjusts z.index for overlay"
 }
