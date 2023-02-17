@@ -82,3 +82,4 @@ position = Vector2( 1728, 928 )
 visible = false
 
 [connection signal="play_again_button_pressed" from="GUI" to="." method="_on_GUI_play_again_button_pressed"]
+[connection signal="board_filled" from="Board" to="." method="_on_Board_board_filled"]

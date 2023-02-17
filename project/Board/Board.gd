@@ -72,6 +72,8 @@ func set_space(tile : Tile, index: int):
 	if _number_of_empty_spaces == 0:
 		emit_signal("board_filled")
 
+	
+
 
 func get_number_of_empty_spaces() -> int:
 	return _number_of_empty_spaces
