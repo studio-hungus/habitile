@@ -7,14 +7,12 @@
 [ext_resource path="res://GUI/border_top.png" type="Texture" id=5]
 [ext_resource path="res://GUI/border_bottom.png" type="Texture" id=6]
 [ext_resource path="res://Tile/Roboto-Medium.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://GUI/scoreboard.png" type="Texture" id=8]
 
 [sub_resource type="StreamTexture" id=3]
 
 [sub_resource type="Theme" id=4]
 /icons/texture = SubResource( 3 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.290196, 0.254902, 0.164706, 1 )
 
 [sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0, 0.00440529, 1 )
@@ -64,26 +62,6 @@ input_pass_on_modal_close_click = false
 theme = SubResource( 4 )
 texture = ExtResource( 4 )
 
-[node name="TitlePanel" type="Panel" parent="CanvasLayer/LeftPanel"]
-margin_right = 384.0
-margin_bottom = 88.0
-input_pass_on_modal_close_click = false
-custom_styles/panel = SubResource( 2 )
-
-[node name="PlayerLabel" type="RichTextLabel" parent="CanvasLayer/LeftPanel/TitlePanel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -8.0
-margin_right = 144.0
-margin_bottom = 8.0
-input_pass_on_modal_close_click = false
-bbcode_enabled = true
-bbcode_text = "[center]Player 1[/center]"
-text = "Player 1"
-
 [node name="LeftTurnIndicator" type="TextureRect" parent="CanvasLayer/LeftPanel"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 384.0
@@ -117,26 +95,6 @@ margin_bottom = 540.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
 texture = ExtResource( 3 )
-
-[node name="TitlePanel" type="Panel" parent="CanvasLayer/RightPanel"]
-margin_right = 384.0
-margin_bottom = 88.0
-input_pass_on_modal_close_click = false
-custom_styles/panel = SubResource( 2 )
-
-[node name="PlayerLabel" type="RichTextLabel" parent="CanvasLayer/RightPanel/TitlePanel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -8.0
-margin_right = 144.0
-margin_bottom = 8.0
-input_pass_on_modal_close_click = false
-bbcode_enabled = true
-bbcode_text = "[center]Player 2[/center]"
-text = "Player 2"
 
 [node name="RightTurnIndicator" type="TextureRect" parent="CanvasLayer/RightPanel"]
 modulate = Color( 1, 1, 1, 0 )
@@ -211,5 +169,14 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
 color = Color( 0.270588, 0.305882, 0.188235, 0.498039 )
+
+[node name="LeftScoreboard" type="Sprite" parent="."]
+position = Vector2( 229, 82 )
+texture = ExtResource( 8 )
+
+[node name="RightScoreboard" type="Sprite" parent="."]
+position = Vector2( 1688, 80 )
+texture = ExtResource( 8 )
+flip_h = true
 
 [connection signal="pressed" from="CanvasLayer/PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
