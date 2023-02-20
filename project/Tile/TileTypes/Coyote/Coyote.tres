@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=8 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
 [ext_resource path="res://Tile/TileTypes/Coyote/tile_supply_coyote.png" type="Texture" id=2]
@@ -6,7 +6,10 @@
 [ext_resource path="res://Tile/TileTypes/Salamander/Salamander.tres" type="Resource" id=4]
 [ext_resource path="res://Tile/TileTypes/Deer/Deer.tres" type="Resource" id=5]
 [ext_resource path="res://Tile/TileTypes/Vole/Vole.tres" type="Resource" id=6]
+[ext_resource path="res://Tile/TileTypes/Salamander/Salamander_icon.png" type="Texture" id=7]
 [ext_resource path="res://Tile/TileTypes/Coyote/tile_board_coyote.png" type="Texture" id=8]
+[ext_resource path="res://Tile/TileTypes/Deer/Deer_icon.png" type="Texture" id=9]
+[ext_resource path="res://Tile/TileTypes/Vole/Vole_icon.png" type="Texture" id=10]
 
 [resource]
 script = ExtResource( 1 )
@@ -17,3 +20,5 @@ positive_neighbor_tiles = [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 )
 allergic_to_grass = true
 in_supply_texture = ExtResource( 2 )
 on_board_texture = ExtResource( 8 )
+postive_icons_textures = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 7 ) ]
+negative_icons_textures = [  ]

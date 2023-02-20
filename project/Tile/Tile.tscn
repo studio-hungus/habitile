@@ -44,4 +44,42 @@ text = "-10"
 [node name="BoardSprite" type="Sprite" parent="."]
 visible = false
 
+[node name="Icons" type="Node2D" parent="."]
+
+[node name="PositiveIcons" type="Node2D" parent="Icons"]
+position = Vector2( 8, 0 )
+
+[node name="Icon" type="Sprite" parent="Icons/PositiveIcons"]
+position = Vector2( -48, -39 )
+
+[node name="Icon2" type="Sprite" parent="Icons/PositiveIcons"]
+position = Vector2( -14, -40 )
+
+[node name="Icon3" type="Sprite" parent="Icons/PositiveIcons"]
+position = Vector2( -81, -7 )
+
+[node name="Icon4" type="Sprite" parent="Icons/PositiveIcons"]
+position = Vector2( -46, -7 )
+
+[node name="Icon5" type="Sprite" parent="Icons/PositiveIcons"]
+position = Vector2( -11, -7 )
+
+[node name="NegativeIcons" type="Node2D" parent="Icons"]
+position = Vector2( 8, 72 )
+
+[node name="Icon" type="Sprite" parent="Icons/NegativeIcons"]
+position = Vector2( -48, -39 )
+
+[node name="Icon2" type="Sprite" parent="Icons/NegativeIcons"]
+position = Vector2( -14, -40 )
+
+[node name="Icon3" type="Sprite" parent="Icons/NegativeIcons"]
+position = Vector2( -81, -7 )
+
+[node name="Icon4" type="Sprite" parent="Icons/NegativeIcons"]
+position = Vector2( -46, -7 )
+
+[node name="Icon5" type="Sprite" parent="Icons/NegativeIcons"]
+position = Vector2( -11, -7 )
+
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

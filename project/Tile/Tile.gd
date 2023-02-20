@@ -20,6 +20,7 @@ var state = State.BIG setget _set_state
 onready var _supply_sprite := get_node("SupplySprite")
 onready var _board_sprite := get_node("BoardSprite")
 onready var _name_label := get_node("AnimalName")
+onready var _icons := get_node("Icons")
 
 func contains(mouse_position:Vector2) -> bool:
 	var center := global_position - size / 2
@@ -52,13 +53,18 @@ func set_interactable(interactable):
 
 func initialize_type(init_type: TileType):
 	assert(type == null)
+	
 	type = init_type
+	
 	_supply_sprite.texture = type.in_supply_texture
 	_board_sprite.texture = type.on_board_texture
 	_name_label.text = type.name
 	get_node("AnimalName/Plus").text = "+%s" % type.positive_score_modifier
 	get_node("AnimalName/Minus").text = "-%s" % abs(type.negative_score_modifier)
-
+	for i in len(type.postive_icons_textures):
+		$Icons/PositiveIcons.get_child(i).texture = type.postive_icons_textures[i]
+	for i in len(type.negative_icons_textures):
+		$Icons/NegativeIcons.get_child(i).texture = type.negative_icons_textures[i]
 
 func get_type():
 	return type

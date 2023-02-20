@@ -8,4 +8,5 @@ export(Array, Resource) var positive_neighbor_tiles := []
 export(bool) var allergic_to_grass := false
 export(Texture) var in_supply_texture
 export(Texture) var on_board_texture
-export(Texture) var icon_texture
+export(Array, Texture) var postive_icons_textures
+export(Array, Texture) var negative_icons_textures
