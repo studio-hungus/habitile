@@ -5,8 +5,11 @@
 [ext_resource path="res://Tile/TileTypes/Worms/Worms.tres" type="Resource" id=3]
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=4]
 [ext_resource path="res://Tile/TileTypes/Coyote/Coyote_icon.png" type="Texture" id=5]
-[ext_resource path="res://Tile/TileTypes/Worms/Worms_icon.png" type="Texture" id=6]
 [ext_resource path="res://Tile/TileTypes/NortherHarrier/Harrier_icon.png" type="Texture" id=7]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/Worms_icon.png-360188192d8f6ca4a0e78b35802b2e93.stex"
 
 [resource]
 script = ExtResource( 4 )
@@ -17,5 +20,5 @@ positive_neighbor_tiles = [ ExtResource( 3 ) ]
 allergic_to_grass = false
 in_supply_texture = ExtResource( 1 )
 on_board_texture = ExtResource( 2 )
-postive_icons_textures = [ ExtResource( 6 ) ]
+postive_icons_textures = [ SubResource( 1 ) ]
 negative_icons_textures = [ ExtResource( 5 ), ExtResource( 7 ) ]

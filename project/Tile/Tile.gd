@@ -88,6 +88,7 @@ func _enter_small_state():
 	_supply_sprite.visible = false
 	_board_sprite.visible = true
 	_name_label.visible = false
+	_icons.visible = false
 
 
 func calculate_points(neighbors: Array) -> int:

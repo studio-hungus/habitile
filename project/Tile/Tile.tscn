@@ -45,6 +45,7 @@ text = "-10"
 visible = false
 
 [node name="Icons" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.866667 )
 
 [node name="PositiveIcons" type="Node2D" parent="Icons"]
 position = Vector2( 8, 0 )
