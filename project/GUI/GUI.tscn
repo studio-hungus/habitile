@@ -42,6 +42,8 @@ mouse_filter = 2
 input_pass_on_modal_close_click = false
 script = ExtResource( 1 )
 
+[node name="EndGameCanvas" type="CanvasLayer" parent="."]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -130,25 +132,6 @@ margin_right = 1536.0
 margin_bottom = 1084.0
 texture = ExtResource( 6 )
 
-[node name="GameOverLabel" type="Label" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -270.0
-margin_top = 1.0
-margin_right = -189.0
-margin_bottom = 15.0
-text = "GAME OVER"
-align = 1
-
-[node name="PlayAgainButton" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 82.0
-margin_top = 1.0
-margin_right = 157.0
-margin_bottom = 21.0
-text = "Play again"
-
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Overlays" type="Node2D" parent="."]
@@ -179,4 +162,3 @@ position = Vector2( 1688, 80 )
 texture = ExtResource( 8 )
 flip_h = true
 
-[connection signal="pressed" from="CanvasLayer/PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]

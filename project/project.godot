@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://Board/EmptySpace/EmptySpace.gd"
 }, {
 "base": "Node2D",
+"class": "Game",
+"language": "GDScript",
+"path": "res://Game/Game.gd"
+}, {
+"base": "Node2D",
 "class": "Tile",
 "language": "GDScript",
 "path": "res://Tile/Tile.gd"
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "EmptySpace": "",
+"Game": "",
 "Tile": "",
 "TileType": ""
 }

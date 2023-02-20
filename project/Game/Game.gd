@@ -1,4 +1,9 @@
+class_name Game
 extends Node2D
+
+enum EndState {
+	LEFT_WIN, RIGHT_WIN, TIE
+}
 
 const SUPPLY_SIZE = 3
 
@@ -176,10 +181,10 @@ func _place_tile_on_board(tile : Tile):
 		_left_score += score_modifier
 	else:
 		_right_score += score_modifier
-	
+
 	if _board.get_number_of_empty_spaces() != 0:
 		_swap_turn()
-	
+
 
 func _move_tile_to_supply(tile: Tile, position: Vector2):
 	var tween = get_tree().create_tween()
@@ -197,12 +202,16 @@ func _on_Board_board_filled():
 	_is_game_over = true
 	for tile in _tiles.get_children():
 		tile.set_interactable(false)
-	_gui.display_gameover()
-
-
-func _on_GUI_play_again_button_pressed():
-	var _current_scene = get_tree().reload_current_scene()
 	
+	var end_state = EndState.TIE
+	
+	if _left_score > _right_score:
+		end_state = EndState.LEFT_WIN
+	elif _left_score < _right_score:
+		end_state = EndState.RIGHT_WIN
+
+	_gui.display_gameover(end_state)
+
 
 func _tween_end(tile: Tile):
 	tile.z_index = 0

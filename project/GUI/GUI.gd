@@ -9,16 +9,10 @@ onready var _left_panel = find_node("LeftPanel")
 onready var _right_panel = find_node("RightPanel")
 onready var _left_player_indicator = find_node("LeftTurnIndicator")
 onready var _right_player_indicator = find_node("RightTurnIndicator")
-onready var _gameover_label = find_node("GameOverLabel")
-onready var _play_again_button = find_node("PlayAgainButton")
 onready var _left_player_fade = find_node("LeftOverlay")
 onready var _right_player_fade = find_node("RightOverlay")
-
-
-
-func _ready():
-	_gameover_label.visible = false
-	_play_again_button.visible = false
+onready var _end_game_gui = preload("res://EndGameGUI/EndGameGUI.tscn")
+onready var _end_game_canvas = find_node("EndGameCanvas")
 
 
 func set_is_left_player_turn(value : bool) -> void:
@@ -40,14 +34,15 @@ func set_is_left_player_turn(value : bool) -> void:
 		_tween_alpha(_right_player_indicator, 1.0)
 
 
-func display_gameover():
+func display_gameover(end_state):
 	_left_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	_right_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	_tween_alpha(_left_player_indicator, 0.0)
 	_tween_alpha(_right_player_indicator, 0.0)
 
-	_gameover_label.visible = true
-	_play_again_button.visible = true
+	var _end_game_gui_instance = _end_game_gui.instance()
+	_end_game_canvas.add_child(_end_game_gui_instance)
+	_end_game_gui_instance.display_gameover_screen(end_state)
 
 
 func _tween_alpha(node: Node, value: float):
@@ -57,7 +52,6 @@ func _tween_alpha(node: Node, value: float):
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 
 		_tween.start()
-
 
 
 func _on_PlayAgainButton_pressed():
