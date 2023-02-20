@@ -17,6 +17,9 @@ onready var _left_player_score_label = find_node("LeftPlayerScore")
 onready var _right_player_score_label = find_node("RightPlayerScore")
 
 
+
+	
+
 func set_is_left_player_turn(value : bool) -> void:
 	if value:
 		_left_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -59,6 +62,7 @@ func _tween_alpha(node: Node, value: float):
 func update_score(is_player_turn_left : bool, left_score : int, right_score : int):
 	if is_player_turn_left:
 		_right_player_score_label.text = "%03d" % right_score
+#		
 	else:
 		_left_player_score_label.text = "%03d" % left_score
 		
