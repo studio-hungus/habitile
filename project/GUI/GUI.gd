@@ -13,6 +13,8 @@ onready var _left_player_fade = find_node("LeftOverlay")
 onready var _right_player_fade = find_node("RightOverlay")
 onready var _end_game_gui = preload("res://EndGameGUI/EndGameGUI.tscn")
 onready var _end_game_canvas = find_node("EndGameCanvas")
+onready var _left_player_score_label = find_node("LeftPlayerScore")
+onready var _right_player_score_label = find_node("RightPlayerScore")
 
 
 func set_is_left_player_turn(value : bool) -> void:
@@ -52,6 +54,14 @@ func _tween_alpha(node: Node, value: float):
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 
 		_tween.start()
+		
+		
+func update_score(is_player_turn_left : bool, left_score : int, right_score : int):
+	if is_player_turn_left:
+		_right_player_score_label.text = "%03d" % right_score
+	else:
+		_left_player_score_label.text = "%03d" % left_score
+		
 
 
 func _on_PlayAgainButton_pressed():

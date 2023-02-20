@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://GUI/wirefram_board_v2.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://GUI/border_bottom.png" type="Texture" id=6]
 [ext_resource path="res://Tile/Roboto-Medium.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://GUI/scoreboard.png" type="Texture" id=8]
+[ext_resource path="res://testfont.tres" type="DynamicFont" id=9]
 
 [sub_resource type="StreamTexture" id=3]
 
@@ -153,12 +154,47 @@ margin_bottom = 1080.0
 mouse_filter = 2
 color = Color( 0.270588, 0.305882, 0.188235, 0.498039 )
 
-[node name="LeftScoreboard" type="Sprite" parent="."]
+[node name="LeftPlayerScoreboard" type="Sprite" parent="."]
 position = Vector2( 229, 82 )
 texture = ExtResource( 8 )
 
-[node name="RightScoreboard" type="Sprite" parent="."]
+[node name="LeftPlayerLabel" type="Label" parent="LeftPlayerScoreboard"]
+margin_left = -93.0
+margin_top = -66.0
+margin_right = 19.0
+margin_bottom = -7.0
+custom_fonts/font = ExtResource( 9 )
+text = "Left Player
+SCORE"
+align = 1
+
+[node name="LeftPlayerScore" type="Label" parent="LeftPlayerScoreboard"]
+margin_left = -57.0
+margin_top = 6.0
+margin_right = -17.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 9 )
+text = "000"
+
+[node name="RightPlayerScoreboard" type="Sprite" parent="."]
 position = Vector2( 1688, 80 )
 texture = ExtResource( 8 )
 flip_h = true
 
+[node name="RightPlayerLabel" type="Label" parent="RightPlayerScoreboard"]
+margin_left = -16.0
+margin_top = -64.0
+margin_right = 96.0
+margin_bottom = -5.0
+custom_fonts/font = ExtResource( 9 )
+text = "Right Player
+SCORE"
+align = 1
+
+[node name="RightPlayerScore" type="Label" parent="RightPlayerScoreboard"]
+margin_left = 20.0
+margin_top = 8.0
+margin_right = 60.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 9 )
+text = "000"
