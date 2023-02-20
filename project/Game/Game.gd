@@ -2,7 +2,7 @@ class_name Game
 extends Node2D
 
 enum EndState {
-	LEFT_WIN, RIGHT_WIN, TIE
+	LEFT_WIN, RIGHT_WIN, DRAW
 }
 
 const SUPPLY_SIZE = 3
@@ -200,11 +200,12 @@ func _move_tile_to_supply(tile: Tile, position: Vector2):
 
 func _on_Board_board_filled():
 	_is_game_over = true
+
 	for tile in _tiles.get_children():
 		tile.set_interactable(false)
-	
-	var end_state = EndState.TIE
-	
+
+	var end_state = EndState.DRAW
+
 	if _left_score > _right_score:
 		end_state = EndState.LEFT_WIN
 	elif _left_score < _right_score:

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://EndGameGUI/PlayAgainButton.png" type="Texture" id=1]
 [ext_resource path="res://EndGameGUI/QuitGameButton.png" type="Texture" id=2]
 [ext_resource path="res://EndGameGUI/EndGameGUI.gd" type="Script" id=3]
 [ext_resource path="res://bigtestfont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://EndGameGUI/GL_Sting_Win.wav" type="AudioStream" id=5]
+[ext_resource path="res://EndGameGUI/GL_Stinger_Draw.wav" type="AudioStream" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.333333 )
@@ -38,6 +40,12 @@ margin_top = 283.0
 margin_right = 1453.0
 margin_bottom = 580.0
 custom_fonts/normal_font = ExtResource( 4 )
+
+[node name="DrawSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="QuitGame" to="." method="_on_QuitGame_pressed"]

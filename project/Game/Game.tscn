@@ -28,6 +28,8 @@ anchor_bottom = 0.0
 
 [node name="Board" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 540 )
+_width = 1
+_height = 1
 
 [node name="Tiles" type="Node2D" parent="."]
 
