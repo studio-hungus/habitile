@@ -101,11 +101,11 @@ func _enter_small_state():
 	_icons.visible = false
 	
 	
-func _show_score_modified(score : int, neighbor : Node2D):
-	var label = neighbor.find_node("Label")
+func _show_score_modified(score : int, label : Label):
+
 	var tween = create_tween()
 	tween.tween_property(label, "modulate", Color.white , 0.75)
-	neighbor.find_node("Label").text = str(score)
+	label.text = str(score)
 	tween.tween_property(label, "modulate", Color.transparent, 0.75)
 
 
@@ -114,13 +114,14 @@ func calculate_points(neighbors: Array) -> int:
 	for neighbor in neighbors:
 		if type.allergic_to_grass and neighbor is EmptySpace:
 			points += type.negative_score_modifier
+			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"))
 			continue
 
 		if type.positive_neighbor_tiles.has(neighbor.type):
-			_show_score_modified(type.positive_score_modifier, neighbor)
+			_show_score_modified(type.positive_score_modifier, neighbor.find_node("ScoreEarned"))
 			points += type.positive_score_modifier
 		elif neighbor.type.positive_neighbor_tiles.has(type):
-			_show_score_modified(type.negative_score_modifier, neighbor)
+			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"))
 			points += type.negative_score_modifier
 
 	return points

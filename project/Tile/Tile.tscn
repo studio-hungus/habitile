@@ -83,7 +83,7 @@ position = Vector2( -46, -7 )
 [node name="Icon5" type="Sprite" parent="Icons/NegativeIcons"]
 position = Vector2( -11, -7 )
 
-[node name="Label" type="Label" parent="."]
+[node name="ScoreEarned" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 40.0
 margin_bottom = 14.0
