@@ -83,4 +83,11 @@ position = Vector2( -46, -7 )
 [node name="Icon5" type="Sprite" parent="Icons/NegativeIcons"]
 position = Vector2( -11, -7 )
 
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "00"
+
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

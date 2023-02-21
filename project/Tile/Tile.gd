@@ -62,9 +62,11 @@ func initialize_type(init_type: TileType):
 	get_node("AnimalName/Plus").text = "+%s" % type.positive_score_modifier
 	get_node("AnimalName/Minus").text = "-%s" % abs(type.negative_score_modifier)
 	for i in len(type.postive_icons_textures):
-		$Icons/PositiveIcons.get_child(i).texture = type.postive_icons_textures[i]
+		var positive_icons = find_node("PositiveIcons")
+		positive_icons.get_child(i).texture = type.postive_icons_textures[i]
 	for i in len(type.negative_icons_textures):
-		$Icons/NegativeIcons.get_child(i).texture = type.negative_icons_textures[i]
+		var negative_icons = find_node("NegativeIcons")
+		negative_icons.get_child(i).texture = type.negative_icons_textures[i]
 
 func get_type():
 	return type
@@ -89,6 +91,14 @@ func _enter_small_state():
 	_board_sprite.visible = true
 	_name_label.visible = false
 	_icons.visible = false
+	
+	
+func _show_score_modified(score : int, neighbor : Node2D):
+	var label = neighbor.find_node("Label")
+	var tween = create_tween()
+	tween.tween_property(label, "modulate", Color.white , 0.75)
+	neighbor.find_node("Label").text = str(score)
+	tween.tween_property(label, "modulate", Color.transparent, 0.75)
 
 
 func calculate_points(neighbors: Array) -> int:
@@ -99,8 +109,10 @@ func calculate_points(neighbors: Array) -> int:
 			continue
 
 		if type.positive_neighbor_tiles.has(neighbor.type):
+			_show_score_modified(type.positive_score_modifier, neighbor)
 			points += type.positive_score_modifier
 		elif neighbor.type.positive_neighbor_tiles.has(type):
+			_show_score_modified(type.negative_score_modifier, neighbor)
 			points += type.negative_score_modifier
 
 	return points
