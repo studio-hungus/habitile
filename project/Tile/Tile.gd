@@ -22,6 +22,7 @@ onready var _board_sprite := get_node("BoardSprite")
 onready var _name_label := get_node("AnimalName")
 onready var _icons := get_node("Icons")
 
+
 func contains(mouse_position:Vector2) -> bool:
 	var center := global_position - size / 2
 	var rect = Rect2(center, size)
@@ -67,6 +68,13 @@ func initialize_type(init_type: TileType):
 	for i in len(type.negative_icons_textures):
 		var negative_icons = find_node("NegativeIcons")
 		negative_icons.get_child(i).texture = type.negative_icons_textures[i]
+	
+	#Hides UI elements for tiles that dont have it
+	if type.postive_icons_textures.size() == 0:
+		find_node("Plus").visible = false
+	if type.negative_icons_textures.size() == 0:
+		find_node("Minus").visible = false
+
 
 func get_type():
 	return type
