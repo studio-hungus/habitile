@@ -112,9 +112,9 @@ func _swap_turn() -> void:
 	_is_left_player_turn = !_is_left_player_turn
 	$GUI.update_score(_is_left_player_turn, _left_score, _right_score)
 	if _is_left_player_turn:
-		_left_player_turn_sting.play()
-	else:
 		_right_player_turn_sting.play()
+	else:
+		_left_player_turn_sting.play()
 	_update_turn_in_gui()
 	_display_stack_top()
 
