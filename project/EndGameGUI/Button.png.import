@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/QuitGameButton.png-55db16583b46572768852645acf2733f.stex"
+path="res://.import/Button.png-f32967aea0f5c8a98d8d5962852ce17a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EndGameGUI/QuitGameButton.png"
-dest_files=[ "res://.import/QuitGameButton.png-55db16583b46572768852645acf2733f.stex" ]
+source_file="res://EndGameGUI/Button.png"
+dest_files=[ "res://.import/Button.png-f32967aea0f5c8a98d8d5962852ce17a.stex" ]
 
 [params]
 
