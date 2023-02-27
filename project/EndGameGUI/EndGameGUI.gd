@@ -38,7 +38,3 @@ func _display_win(end_state):
 
 func _on_PlayAgain_pressed():
 	var _current_scene = get_tree().reload_current_scene()
-
-
-func _on_QuitGame_pressed():
-	get_tree().quit()
