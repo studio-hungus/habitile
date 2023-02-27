@@ -1,9 +1,6 @@
 extends Node2D
 
 
-signal board_filled
-
-
 export var _width := 6
 export var _height := 5
 export var _spacing := 192
@@ -68,9 +65,6 @@ func set_space(tile : Tile, index: int) -> int:
 	var y = index % _height
 	var x = (index - y) / _height
 	var neighbors := get_neighbors(x, y)
-	
-	if _number_of_empty_spaces == 0:
-		emit_signal("board_filled")
 
 	return tile.calculate_points(neighbors)
 

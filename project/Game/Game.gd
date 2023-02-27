@@ -35,8 +35,8 @@ onready var _left_stack_position := find_node("LeftStackPosition")
 onready var _right_stack_position := find_node("RightStackPosition")
 onready var _space_indicator := find_node("SpaceIndicator")
 
+
 func _ready() -> void:
-	
 	_create_stacks()
 	_shuffle_stacks()
 	_display_supply()
@@ -74,7 +74,6 @@ func _physics_process(_delta) -> void:
 
 
 func _on_Tile_pressed(tile) -> void:
-	
 	_pressed_tile = tile
 	_original_tile_position = tile.global_position
 
@@ -85,7 +84,6 @@ func _on_Tile_pressed(tile) -> void:
 
 
 func _on_Tile_released(tile) -> void:
-
 	_pressed_tile = null
 	tile.z_index = _original_tile_z_index
 	
@@ -110,11 +108,12 @@ func _update_turn_in_gui() -> void:
 
 func _swap_turn() -> void:
 	_is_left_player_turn = !_is_left_player_turn
-	$GUI.update_score(_is_left_player_turn, _left_score, _right_score)
+
 	if _is_left_player_turn:
 		_right_player_turn_sting.play()
 	else:
 		_left_player_turn_sting.play()
+
 	_update_turn_in_gui()
 	_display_stack_top()
 
@@ -122,6 +121,7 @@ func _swap_turn() -> void:
 # This creates a tile in the original tile position
 func _make_new_tile(tile_type) -> Node2D:
 	var tile : Node2D = preload("res://Tile/Tile.tscn").instance()
+
 	# Tile need to be added to scene tree before initialization of the type.
 	_tiles.add_child(tile)
 	tile.initialize_type(tile_type)
@@ -158,6 +158,7 @@ func _display_stack_top():
 	if not _left_stack.empty():
 		_left_stack[0].visible = true
 		_left_stack[0].modulate = Color.gray
+
 	if not _right_stack.empty():
 		_right_stack[0].visible = true
 		_right_stack[0].modulate = Color.gray
@@ -176,12 +177,17 @@ func _place_tile_on_board(tile : Tile):
 
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
 	var score_modifier = _board.set_space(tile, index_of_hovered_node)
+
 	if _is_left_player_turn:
 		_left_score += score_modifier
 	else:
 		_right_score += score_modifier
 
-	if _board.get_number_of_empty_spaces() != 0:
+	_gui.update_score(_left_score, _right_score)
+
+	if _board.get_number_of_empty_spaces() == 0:
+		_on_board_filled()
+	else:
 		_swap_turn()
 
 
@@ -197,7 +203,7 @@ func _move_tile_to_supply(tile: Tile, position: Vector2):
 	  .connect("finished", self, "_tween_end", [tile])
  
 
-func _on_Board_board_filled():
+func _on_board_filled():
 	_is_game_over = true
 
 	for tile in _tiles.get_children():
