@@ -51,6 +51,10 @@ func _physics_process(_delta) -> void:
 
 		if _pressed_tile != null:
 			_pressed_tile.global_position = current_mouse_position
+			
+		
+		if Input.is_action_just_pressed("debug_fill_board"):
+			_debug_fill_board()
 
 		# empty_space for loop needs to be first 
 		for space in _board.get_spaces():
@@ -222,3 +226,7 @@ func _on_board_filled():
 func _tween_end(tile: Tile):
 	tile.z_index = 0
 	tile.set_interactable(true)
+	
+
+func _debug_fill_board() -> void:
+	_on_board_filled()
