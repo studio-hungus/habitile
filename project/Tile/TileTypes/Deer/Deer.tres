@@ -1,16 +1,18 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
 [ext_resource path="res://Tile/TileTypes/Deer/tile_supply_deer.png" type="Texture" id=2]
 [ext_resource path="res://Tile/TileTypes/Deer/tile_board_deer.png" type="Texture" id=3]
 [ext_resource path="res://Tile/TileTypes/Coyote/Coyote_icon.png" type="Texture" id=4]
+[ext_resource path="res://Tile/TileTypes/Tree/Tree.tres" type="Resource" id=5]
+[ext_resource path="res://Tile/TileTypes/Bush/Bush.tres" type="Resource" id=6]
 
 [resource]
 script = ExtResource( 1 )
 name = "Deer"
 positive_score_modifier = 10
 negative_score_modifier = -15
-positive_neighbor_tiles = [  ]
+positive_neighbor_tiles = [ ExtResource( 5 ), ExtResource( 6 ) ]
 allergic_to_grass = false
 in_supply_texture = ExtResource( 2 )
 on_board_texture = ExtResource( 3 )

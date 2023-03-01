@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Tree"
+positive_score_modifier = 0
+negative_score_modifier = 0
+positive_neighbor_tiles = [  ]
+allergic_to_grass = false
+on_board_texture = ExtResource( 2 )
+postive_icons_textures = [  ]
+negative_icons_textures = [  ]

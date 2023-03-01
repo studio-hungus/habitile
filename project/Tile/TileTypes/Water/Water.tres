@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/icon3.png-43d2171f508ea7fdbd835324de92f715.stex"
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+positive_score_modifier = 0
+negative_score_modifier = 0
+positive_neighbor_tiles = [  ]
+allergic_to_grass = false
+on_board_texture = SubResource( 1 )
+postive_icons_textures = [  ]
+negative_icons_textures = [  ]

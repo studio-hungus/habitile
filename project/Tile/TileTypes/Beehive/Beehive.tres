@@ -1,16 +1,19 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=8 format=2]
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
 [ext_resource path="res://Tile/TileTypes/Beehive/tile_board_beehive.png" type="Texture" id=2]
 [ext_resource path="res://Tile/TileTypes/Beehive/tile_supply_beehive.png" type="Texture" id=3]
 [ext_resource path="res://Tile/TileTypes/Bullfrog/Bullfrog_icon.png" type="Texture" id=4]
+[ext_resource path="res://Tile/TileTypes/Tree/Tree.tres" type="Resource" id=5]
+[ext_resource path="res://Tile/TileTypes/Bush/Bush.tres" type="Resource" id=6]
+[ext_resource path="res://Tile/TileTypes/Wildflower/Wildflower.tres" type="Resource" id=7]
 
 [resource]
 script = ExtResource( 1 )
 name = "Beehive"
 positive_score_modifier = 10
 negative_score_modifier = -15
-positive_neighbor_tiles = [ null, null, null ]
+positive_neighbor_tiles = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ]
 allergic_to_grass = false
 in_supply_texture = ExtResource( 3 )
 on_board_texture = ExtResource( 2 )
