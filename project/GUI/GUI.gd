@@ -59,9 +59,9 @@ func _tween_alpha(node: Node, value: float) -> void:
 		_tween.start()
 		
 		
-func update_score(left_score : int, right_score : int) -> void:
-	_right_player_score_label.text = "%03d" % right_score
-	_left_player_score_label.text = "%03d" % left_score
+func update_score(left_score : int, right_score : int):
+	_right_player_score_label.text = "%d" % right_score
+	_left_player_score_label.text = "%d" % left_score
 
 
 func _on_PlayAgainButton_pressed() -> void:
