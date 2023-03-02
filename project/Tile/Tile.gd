@@ -68,7 +68,7 @@ func initialize_type(init_type: TileType):
 	for i in len(type.negative_icons_textures):
 		var negative_icons = find_node("NegativeIcons")
 		negative_icons.get_child(i).texture = type.negative_icons_textures[i]
-	
+
 	#Hides UI elements for tiles that dont have it
 	if type.postive_icons_textures.size() == 0:
 		find_node("Plus").visible = false
@@ -99,8 +99,8 @@ func _enter_small_state():
 	_board_sprite.visible = true
 	_name_label.visible = false
 	_icons.visible = false
-	
-	
+
+
 func _show_score_modified(score : int, label : Label):
 
 	var tween = create_tween()

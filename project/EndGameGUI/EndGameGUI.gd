@@ -1,4 +1,4 @@
-extends Control	
+extends Control
 
 
 onready var _win_state_text = find_node("WinState")
@@ -10,9 +10,7 @@ onready var _win_gradient := find_node("WinGradient")
 
 func display_gameover_screen(end_state):
 	if end_state == Game.EndState.DRAW:
-		
 		_display_draw()
-		
 	else:
 		_display_win(end_state)
 

@@ -18,7 +18,7 @@ onready var _right_player_score_label = find_node("RightPlayerScore")
 
 
 
-	
+
 
 func set_is_left_player_turn(value : bool) -> void:
 	if value:

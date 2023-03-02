@@ -51,8 +51,8 @@ func _physics_process(_delta) -> void:
 
 		if _pressed_tile != null:
 			_pressed_tile.global_position = current_mouse_position
-			
-		
+
+
 		if Input.is_action_just_pressed("debug_fill_board"):
 			_debug_fill_board()
 
@@ -61,7 +61,7 @@ func _physics_process(_delta) -> void:
 			if space.contains(current_mouse_position):
 				_hovered_node = space
 				found_hover = true
-				
+
 				if _pressed_tile != null:
 					_space_indicator.move(_hovered_node.global_position)
 				if _hovered_node is Tile:
@@ -90,7 +90,7 @@ func _on_Tile_pressed(tile) -> void:
 func _on_Tile_released(tile) -> void:
 	_pressed_tile = null
 	tile.z_index = _original_tile_z_index
-	
+
 	_space_indicator.hide()
 
 	if _hovered_node is Tile:
@@ -198,7 +198,7 @@ func _place_tile_on_board(tile : Tile):
 func _move_tile_to_supply(tile: Tile, position: Vector2):
 	var tween = get_tree().create_tween()
 	tile.modulate = Color.white
-	
+
 	tile.visible = true
 	tile.z_index = 2
 	tween.tween_property(tile, "global_position", position, 1)\
@@ -226,7 +226,7 @@ func _on_board_filled():
 func _tween_end(tile: Tile):
 	tile.z_index = 0
 	tile.set_interactable(true)
-	
+
 
 func _debug_fill_board() -> void:
 	_on_board_filled()
