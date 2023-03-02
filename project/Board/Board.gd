@@ -51,7 +51,7 @@ func get_neighbors(x: int, y: int) -> Array:
 			if i == 1 and j == 1:
 				continue
 
-			neighbors.append(get_space(x + i - 1, y + j - 1))
+			neighbors.append(get_space(x + j - 1, y + i - 1))
 
 	while neighbors.has(null):
 		neighbors.erase(null)
@@ -59,14 +59,18 @@ func get_neighbors(x: int, y: int) -> Array:
 	return neighbors
 
 
-func set_space(tile : Tile, index: int) -> int:
-	_spaces[index] = tile
-	_number_of_empty_spaces -= 1
+func get_points(tile : Tile, index: int) -> int:
+	set_space(tile, index)
 	var y = index % _height
 	var x = (index - y) / _height
 	var neighbors := get_neighbors(x, y)
 
 	return tile.calculate_points(neighbors)
+
+
+func set_space(tile :Tile, index: int) -> void:
+	_spaces[index] = tile
+	_number_of_empty_spaces -= 1
 
 
 func get_number_of_empty_spaces() -> int:

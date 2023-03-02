@@ -120,7 +120,7 @@ func _swap_turn() -> void:
 		_left_player_turn_sting.play()
 
 	_update_turn_in_gui()
-	_display_stack_top()
+	
 
 
 # This creates a tile in the original tile position
@@ -174,22 +174,28 @@ func _place_tile_on_board(tile : Tile) -> void:
 	tile.global_position = _hovered_node.global_position
 	tile.set_interactable(false)
 
+	#Add new tile to supply
 	if _is_left_player_turn and _left_stack.size() > 0:
 		_move_tile_to_supply(_left_stack.pop_front(), _original_tile_position)
 	elif not _is_left_player_turn and _right_stack.size() > 0:
 		_move_tile_to_supply(_right_stack.pop_front(), _original_tile_position)
+	#Make placed tile small
 	tile._set_state(1)
-
+	_display_stack_top()
+	# warning-ignore:return_value_discarded
+	tile.connect("score_displayed", self, "_on_Tile_score_displayed")
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
-	var score_modifier = _board.set_space(tile, index_of_hovered_node)
+	var score_modifier = _board.get_points(tile, index_of_hovered_node)
 
 	if _is_left_player_turn:
 		_left_score += score_modifier
 	else:
 		_right_score += score_modifier
-
 	_gui.update_score(_left_score, _right_score)
 
+
+
+func _on_Tile_score_displayed():
 	if _board.get_number_of_empty_spaces() == 0:
 		_on_board_filled()
 	else:
