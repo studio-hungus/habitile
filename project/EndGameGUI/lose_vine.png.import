@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LoseTree.png-8f168a551310cabdc81a16997a991a60.stex"
+path="res://.import/lose_vine.png-64e8f3117341ced2a448cf1c938fc5b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EndGameGUI/LoseTree.png"
-dest_files=[ "res://.import/LoseTree.png-8f168a551310cabdc81a16997a991a60.stex" ]
+source_file="res://EndGameGUI/lose_vine.png"
+dest_files=[ "res://.import/lose_vine.png-64e8f3117341ced2a448cf1c938fc5b0.stex" ]
 
 [params]
 

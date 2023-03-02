@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WinTree.png-32784825081d122a73cbacfb95e55e79.stex"
+path="res://.import/win_tree.png-600c5310bb4cbe225254ccbca8ff26f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EndGameGUI/WinTree.png"
-dest_files=[ "res://.import/WinTree.png-32784825081d122a73cbacfb95e55e79.stex" ]
+source_file="res://EndGameGUI/win_tree.png"
+dest_files=[ "res://.import/win_tree.png-600c5310bb4cbe225254ccbca8ff26f3.stex" ]
 
 [params]
 
