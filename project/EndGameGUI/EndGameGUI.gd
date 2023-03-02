@@ -8,20 +8,20 @@ onready var _animation_player = find_node("AnimationPlayer")
 onready var _win_gradient := find_node("WinGradient")
 
 
-func display_gameover_screen(end_state):
+func display_gameover_screen(end_state) -> void:
 	if end_state == Game.EndState.DRAW:
 		_display_draw()
 	else:
 		_display_win(end_state)
 
 
-func _display_draw():
+func _display_draw() -> void:
 	_win_gradient.visible = false
 	_win_state_text.bbcode_text = "[center]DRAW[/center]"
 	_draw_sound.play()
 
 
-func _display_win(end_state):
+func _display_win(end_state) -> void:
 	_win_gradient.visible = true
 	if end_state == Game.EndState.LEFT_WIN:
 		_win_state_text.bbcode_text = "[center]Left Player Wins![/center]"
@@ -34,5 +34,5 @@ func _display_win(end_state):
 	_win_sound.play()
 
 
-func _on_PlayAgain_pressed():
+func _on_PlayAgain_pressed() -> void:
 	var _current_scene = get_tree().reload_current_scene()

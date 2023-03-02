@@ -77,17 +77,18 @@ func _physics_process(_delta) -> void:
 			_space_indicator.hide()
 
 
-func _on_Tile_pressed(tile) -> void:
+func _on_Tile_pressed(tile : Tile) -> void:
 	_pressed_tile = tile
 	_original_tile_position = tile.global_position
 
 	_original_tile_z_index = tile.z_index
 	tile.z_index = _held_tile_z_index
 	_pick_up_sound.play(0.11)
+	# warning-ignore:return_value_discarded
 	tile.connect("released", self, "_on_Tile_released", [tile])
 
 
-func _on_Tile_released(tile) -> void:
+func _on_Tile_released(tile: Tile) -> void:
 	_pressed_tile = null
 	tile.z_index = _original_tile_z_index
 
@@ -135,12 +136,12 @@ func _make_new_tile(tile_type) -> Node2D:
 	return tile
 
 
-func _shuffle_stacks():
+func _shuffle_stacks() -> void:
 	_left_stack.shuffle()
 	_right_stack.shuffle()
 
 
-func _create_stacks():
+func _create_stacks() -> void:
 	for type in _initial_stack_tile_types:
 		var left_tile := _make_new_tile(type)
 		var right_tile := _make_new_tile(type)
@@ -152,13 +153,13 @@ func _create_stacks():
 		_right_stack.append(right_tile)
 
 
-func _display_supply():
+func _display_supply() -> void:
 	for i in SUPPLY_SIZE:
 		_move_tile_to_supply(_left_stack.pop_front(), _left_supply.get_children()[i].global_position)
 		_move_tile_to_supply(_right_stack.pop_front(), _right_supply.get_children()[i].global_position)
 
 
-func _display_stack_top():
+func _display_stack_top() -> void:
 	if not _left_stack.empty():
 		_left_stack[0].visible = true
 		_left_stack[0].modulate = Color.gray
@@ -168,7 +169,7 @@ func _display_stack_top():
 		_right_stack[0].modulate = Color.gray
 
 
-func _place_tile_on_board(tile : Tile):
+func _place_tile_on_board(tile : Tile) -> void:
 	_drop_sound.play()
 	tile.global_position = _hovered_node.global_position
 	tile.set_interactable(false)
@@ -195,7 +196,7 @@ func _place_tile_on_board(tile : Tile):
 		_swap_turn()
 
 
-func _move_tile_to_supply(tile: Tile, position: Vector2):
+func _move_tile_to_supply(tile: Tile, position: Vector2) -> void:
 	var tween = get_tree().create_tween()
 	tile.modulate = Color.white
 
@@ -207,7 +208,7 @@ func _move_tile_to_supply(tile: Tile, position: Vector2):
 	  .connect("finished", self, "_tween_end", [tile])
  
 
-func _on_board_filled():
+func _on_board_filled() -> void:
 	_is_game_over = true
 
 	for tile in _tiles.get_children():
@@ -223,7 +224,7 @@ func _on_board_filled():
 	_gui.display_gameover(end_state)
 
 
-func _tween_end(tile: Tile):
+func _tween_end(tile: Tile) -> void:
 	tile.z_index = 0
 	tile.set_interactable(true)
 

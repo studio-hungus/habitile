@@ -54,9 +54,9 @@ func set_interactable(interactable):
 
 func initialize_type(init_type: TileType):
 	assert(type == null)
-	
+
 	type = init_type
-	
+
 	_supply_sprite.texture = type.in_supply_texture
 	_board_sprite.texture = type.on_board_texture
 	_name_label.text = type.name
@@ -80,7 +80,7 @@ func get_type():
 	return type
 
 
-func _set_state(value):
+func _set_state(value) -> void:
 	state = value
 	if state == State.BIG:
 		_enter_big_state()
@@ -88,20 +88,20 @@ func _set_state(value):
 		_enter_small_state()
 
 
-func _enter_big_state():
+func _enter_big_state() -> void:
 	_supply_sprite.visible = true
 	_board_sprite.visible = false
 	_name_label.visible = true
 
 
-func _enter_small_state():
+func _enter_small_state() -> void:
 	_supply_sprite.visible = false
 	_board_sprite.visible = true
 	_name_label.visible = false
 	_icons.visible = false
 
 
-func _show_score_modified(score : int, label : Label):
+func _show_score_modified(score : int, label : Label) -> void:
 
 	var tween = create_tween()
 	tween.tween_property(label, "modulate", Color.white , 0.75)

@@ -19,7 +19,7 @@ func _ready():
 	_number_of_empty_spaces = _spaces.size()
 
 
-func _add_node(x:float, y:float):
+func _add_node(x:float, y:float) -> void:
 	var _empty_space = _empty_space_scene.instance()
 
 	_empty_space.position.x = x * _spacing

@@ -39,7 +39,7 @@ func set_is_left_player_turn(value : bool) -> void:
 		_tween_alpha(_right_player_indicator, 1.0)
 
 
-func display_gameover(end_state):
+func display_gameover(end_state) -> void:
 	_left_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	_right_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	_tween_alpha(_left_player_indicator, 0.0)
@@ -50,7 +50,7 @@ func display_gameover(end_state):
 	_end_game_gui_instance.display_gameover_screen(end_state)
 
 
-func _tween_alpha(node: Node, value: float):
+func _tween_alpha(node: Node, value: float) -> void:
 	if node.modulate[3] != value:
 		_tween.interpolate_property(node, "modulate",
 			Color(1.0, 1.0, 1.0, 1.0 - value), Color(1.0, 1.0, 1.0, value), 0.5,
@@ -59,10 +59,10 @@ func _tween_alpha(node: Node, value: float):
 		_tween.start()
 		
 		
-func update_score(left_score : int, right_score : int):
+func update_score(left_score : int, right_score : int) -> void:
 	_right_player_score_label.text = "%03d" % right_score
 	_left_player_score_label.text = "%03d" % left_score
 
 
-func _on_PlayAgainButton_pressed():
+func _on_PlayAgainButton_pressed() -> void:
 	emit_signal("play_again_button_pressed")
