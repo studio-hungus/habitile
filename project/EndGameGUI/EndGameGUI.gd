@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var _win_state_text = find_node("WinState")
+onready var _game_over_label = find_node("GameOverLabel")
 onready var _draw_sound = find_node("DrawSound")
 onready var _win_sound = find_node("WinSound")
 onready var _animation_player = find_node("AnimationPlayer")
@@ -17,19 +17,18 @@ func display_gameover_screen(end_state) -> void:
 
 func _display_draw() -> void:
 	_win_gradient.visible = false
-	_win_state_text.bbcode_text = "[center]DRAW[/center]"
+	_game_over_label.text = "DRAW"
 	_draw_sound.play()
 
 
 func _display_win(end_state) -> void:
 	_win_gradient.visible = true
+	_game_over_label.text = "Congratulations"
 	if end_state == Game.EndState.LEFT_WIN:
-		_win_state_text.bbcode_text = "[center]Left Player Wins![/center]"
 		_animation_player.play("LeftWin")
 		_win_gradient.rect_scale = Vector2(1,1)
 	elif end_state == Game.EndState.RIGHT_WIN:
 		_win_gradient.rect_scale = Vector2(-1,1)
-		_win_state_text.bbcode_text = "[center]Right Player Wins![/center]"
 		_animation_player.play("RightWin")
 	_win_sound.play()
 
