@@ -9,3 +9,53 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.294118 )
 texture = ExtResource( 2 )
+
+[node name="SpaceIndicators" type="Node2D" parent="."]
+
+[node name="SpaceIndicator" type="Sprite" parent="SpaceIndicators"]
+visible = false
+modulate = Color( 1, 0, 1, 0.396078 )
+position = Vector2( 0, -200 )
+texture = ExtResource( 2 )
+
+[node name="SpaceIndicator2" type="Sprite" parent="SpaceIndicators"]
+visible = false
+modulate = Color( 1, 0, 1, 0.396078 )
+position = Vector2( 200, -200 )
+texture = ExtResource( 2 )
+
+[node name="SpaceIndicator3" type="Sprite" parent="SpaceIndicators"]
+visible = false
+modulate = Color( 1, 0, 1, 0.396078 )
+position = Vector2( 200, 0 )
+texture = ExtResource( 2 )
+
+[node name="SpaceIndicator4" type="Sprite" parent="SpaceIndicators"]
+visible = false
+modulate = Color( 1, 0, 1, 0.396078 )
+position = Vector2( 200, 200 )
+texture = ExtResource( 2 )
+
+[node name="SpaceIndicator5" type="Sprite" parent="SpaceIndicators"]
+visible = false
+modulate = Color( 1, 0, 1, 0.396078 )
+position = Vector2( 0, 200 )
+texture = ExtResource( 2 )
+
+[node name="SpaceIndicator6" type="Sprite" parent="SpaceIndicators"]
+visible = false
+modulate = Color( 1, 0, 1, 0.396078 )
+position = Vector2( -200, 200 )
+texture = ExtResource( 2 )
+
+[node name="SpaceIndicator7" type="Sprite" parent="SpaceIndicators"]
+visible = false
+modulate = Color( 1, 0, 1, 0.396078 )
+position = Vector2( -200, 0 )
+texture = ExtResource( 2 )
+
+[node name="SpaceIndicator8" type="Sprite" parent="SpaceIndicators"]
+visible = false
+modulate = Color( 1, 0, 1, 0.396078 )
+position = Vector2( -200, -200 )
+texture = ExtResource( 2 )
