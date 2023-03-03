@@ -115,7 +115,6 @@ func calculate_points(neighbors: Array) -> int:
 	var delay_increment = .15
 	#sequence determines the popup order of scores
 	var sequence = [1,2,4,7,6,5,3,0]
-	print(neighbors)
 	var neighbor
 	for i in range(0,neighbors.size()):
 		neighbor = neighbors[sequence[i]]
