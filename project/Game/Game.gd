@@ -182,8 +182,7 @@ func _place_tile_on_board(tile : Tile) -> void:
 	#Make placed tile small
 	tile._set_state(1)
 	_display_stack_top()
-	# warning-ignore:return_value_discarded
-	tile.connect("score_displayed", self, "_on_Tile_score_displayed")
+
 	var index_of_hovered_node = _board.get_spaces().find(_hovered_node)
 	var score_modifier = _board.get_points(tile, index_of_hovered_node)
 
@@ -193,9 +192,6 @@ func _place_tile_on_board(tile : Tile) -> void:
 		_right_score += score_modifier
 	_gui.update_score(_left_score, _right_score)
 
-
-
-func _on_Tile_score_displayed():
 	if _board.get_number_of_empty_spaces() == 0:
 		_on_board_filled()
 	else:

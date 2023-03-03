@@ -4,7 +4,7 @@ extends Node2D
 
 signal pressed
 signal released
-signal score_displayed
+
 
 enum State{
 	BIG, SMALL
@@ -102,42 +102,35 @@ func _enter_small_state() -> void:
 	_icons.visible = false
 
 
-func _show_score_modified(score : int, label : Label, delay : float) -> Tweener:
+func _show_score_modified(score : int, label : Label, delay : float) -> void:
 	var tween = create_tween()
 	tween.tween_property(label, "modulate", Color.white , 0.75).set_delay(delay)
 	label.text = str(score)
-	tween.tween_property(label, "modulate", Color.transparent, 0.75)
-	return tween
-
+	tween.tween_property(label, "modulate", Color.transparent, 0.5)
 
 
 func calculate_points(neighbors: Array) -> int:
 	var points := 0
 	var delay_time = 0
 	var delay_increment = .15
-	var tween = null
 
 	for neighbor in neighbors:
 		if type.allergic_to_grass and neighbor is EmptySpace:
 			points += type.negative_score_modifier
-			tween = _show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
-			delay_time+=delay_increment
+			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
+			#play bad noise here
+			delay_time += delay_increment
 			continue
 
 		if type.positive_neighbor_tiles.has(neighbor.type):
-			tween = _show_score_modified(type.positive_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
+			_show_score_modified(type.positive_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
 			points += type.positive_score_modifier
-			delay_time+=delay_increment
+			#play good noise here
+			delay_time += delay_increment
 		elif neighbor.type.positive_neighbor_tiles.has(type):
-			tween = _show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
+			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
 			points += type.negative_score_modifier
-			delay_time+=delay_increment
+			#play bad noise here
+			delay_time += delay_increment
 
-		if neighbors.find(neighbor) == neighbors.size()-1 and tween != null:
-			tween.connect("finished", self, "on_tweening_score_modifier_finished")
-	if tween == null:
-		emit_signal("score_displayed")
 	return points
-
-func on_tweening_score_modifier_finished():
-	emit_signal("score_displayed")
