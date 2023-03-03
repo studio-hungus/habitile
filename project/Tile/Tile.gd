@@ -113,24 +113,29 @@ func calculate_points(neighbors: Array) -> int:
 	var points := 0
 	var delay_time = 0
 	var delay_increment = .15
+	#sequence determines the popup order of scores
+	var sequence = [1,2,4,7,6,5,3,0]
+	print(neighbors)
+	var neighbor
+	for i in range(0,neighbors.size()):
+		neighbor = neighbors[sequence[i]]
+		if neighbor != null:
+			if type.allergic_to_grass and neighbor is EmptySpace:
+				points += type.negative_score_modifier
+				_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
+				#play bad noise here
+				delay_time += delay_increment
+				continue
 
-	for neighbor in neighbors:
-		if type.allergic_to_grass and neighbor is EmptySpace:
-			points += type.negative_score_modifier
-			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
-			#play bad noise here
-			delay_time += delay_increment
-			continue
-
-		if type.positive_neighbor_tiles.has(neighbor.type):
-			_show_score_modified(type.positive_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
-			points += type.positive_score_modifier
-			#play good noise here
-			delay_time += delay_increment
-		elif neighbor.type.positive_neighbor_tiles.has(type):
-			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
-			points += type.negative_score_modifier
-			#play bad noise here
-			delay_time += delay_increment
+			if type.positive_neighbor_tiles.has(neighbor.type):
+				_show_score_modified(type.positive_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
+				points += type.positive_score_modifier
+				#play good noise here
+				delay_time += delay_increment
+			elif neighbor.type.positive_neighbor_tiles.has(type):
+				_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
+				points += type.negative_score_modifier
+				#play bad noise here
+				delay_time += delay_increment
 
 	return points

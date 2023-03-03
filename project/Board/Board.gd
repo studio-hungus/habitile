@@ -46,15 +46,12 @@ func get_space(x: int, y: int) -> Node2D:
 func get_neighbors(x: int, y: int) -> Array:
 	var neighbors := []
 
-	for i in 3:
-		for j in 3:
-			if i == 1 and j == 1:
+	for row in 3:
+		for column in 3:
+			if row == 1 and column == 1:
 				continue
 
-			neighbors.append(get_space(x + j - 1, y + i - 1))
-
-	while neighbors.has(null):
-		neighbors.erase(null)
+			neighbors.append(get_space(x + column - 1, y + row - 1))
 
 	return neighbors
 
