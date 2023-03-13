@@ -43,24 +43,33 @@ func get_space(x: int, y: int) -> Node2D:
 
 # This solution assumes that the board is being represented as a one dimensional
 # in-placement array to work.
-func get_neighbors(x: int, y: int) -> Array:
+func get_neighbors(tile: Node2D) -> Array:
+	var index = _spaces.find(tile)
+	var y = index % _height
+	var x = (index - y) / _height
 	var neighbors := []
-
+	var sequence = [1,2,4,7,6,5,3,0]
 	for row in 3:
 		for column in 3:
 			if row == 1 and column == 1:
 				continue
 
 			neighbors.append(get_space(x + column - 1, y + row - 1))
+	var result := []
 
-	return neighbors
+	for i in range(neighbors.size()):
+		result.append(neighbors[sequence[i]])
+
+	while result.has(null):
+		result.erase(null)
+		
+	return result
 
 
 func get_points(tile : Tile, index: int) -> int:
 	set_space(tile, index)
-	var y = index % _height
-	var x = (index - y) / _height
-	var neighbors := get_neighbors(x, y)
+	
+	var neighbors := get_neighbors(tile)
 
 	return tile.calculate_points(neighbors)
 

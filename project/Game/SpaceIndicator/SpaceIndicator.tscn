@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/SpaceIndicator/SpaceIndicator.gd" type="Script" id=1]
 [ext_resource path="res://Game/SpaceIndicator/space_indicator.png" type="Texture" id=2]
+[ext_resource path="res://Game/SpaceIndicator/Fireflies.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0391061, 0.290503, 0.709497, 0.98324 )
+colors = PoolColorArray( 1, 0.952941, 0.501961, 0, 1, 0.956863, 0.721569, 0.745098, 0.941176, 0.870588, 0.27451, 0.745098, 1, 1, 1, 0 )
 
 [node name="SpaceIndicator" type="Node2D"]
 script = ExtResource( 1 )
@@ -9,3 +14,117 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.294118 )
 texture = ExtResource( 2 )
+
+[node name="SpaceIndicators" type="Node2D" parent="."]
+
+[node name="Fireflies1" type="CPUParticles2D" parent="SpaceIndicators"]
+visible = false
+amount = 4
+lifetime = 2.0
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 90, 90 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color_ramp = SubResource( 1 )
+
+[node name="Fireflies2" type="CPUParticles2D" parent="SpaceIndicators"]
+visible = false
+amount = 4
+lifetime = 2.0
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 90, 90 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color_ramp = SubResource( 1 )
+
+[node name="Fireflies3" type="CPUParticles2D" parent="SpaceIndicators"]
+visible = false
+amount = 4
+lifetime = 2.0
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 90, 90 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color_ramp = SubResource( 1 )
+
+[node name="Fireflies4" type="CPUParticles2D" parent="SpaceIndicators"]
+visible = false
+amount = 4
+lifetime = 2.0
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 90, 90 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color_ramp = SubResource( 1 )
+
+[node name="Fireflies5" type="CPUParticles2D" parent="SpaceIndicators"]
+visible = false
+amount = 4
+lifetime = 2.0
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 90, 90 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color_ramp = SubResource( 1 )
+
+[node name="Fireflies6" type="CPUParticles2D" parent="SpaceIndicators"]
+visible = false
+amount = 4
+lifetime = 2.0
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 90, 90 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color_ramp = SubResource( 1 )
+
+[node name="Fireflies7" type="CPUParticles2D" parent="SpaceIndicators"]
+visible = false
+amount = 4
+lifetime = 2.0
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 90, 90 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color_ramp = SubResource( 1 )
+
+[node name="Fireflies8" type="CPUParticles2D" parent="SpaceIndicators"]
+visible = false
+amount = 4
+lifetime = 2.0
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 90, 90 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+angle_random = 1.0
+scale_amount = 2.0
+color_ramp = SubResource( 1 )

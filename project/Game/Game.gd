@@ -59,6 +59,7 @@ func _physics_process(_delta) -> void:
 		# empty_space for loop needs to be first 
 		for space in _board.get_spaces():
 			if space.contains(current_mouse_position):
+				_space_indicator.neighbors = _board.get_neighbors(space)
 				_hovered_node = space
 				found_hover = true
 
