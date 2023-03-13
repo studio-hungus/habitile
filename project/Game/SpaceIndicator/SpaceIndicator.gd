@@ -5,6 +5,7 @@ onready var space_indicators := $SpaceIndicators
 
 var neighbors := []
 
+
 func _process(_delta):
 	if neighbors.size() > 0:
 		for i in range(space_indicators.get_child_count()):
