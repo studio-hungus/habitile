@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
 [ext_resource path="res://Tile/TileTypes/Beehive/tile_board_beehive.png" type="Texture" id=2]
-[ext_resource path="res://Tile/TileTypes/Beehive/tile_supply_beehive.png" type="Texture" id=3]
+[ext_resource path="res://Tile/TileTypes/Beehive/tile_revamp_test_variant_1.png" type="Texture" id=3]
 [ext_resource path="res://Tile/TileTypes/Bullfrog/Bullfrog_icon.png" type="Texture" id=4]
 [ext_resource path="res://Tile/TileTypes/Tree/Tree.tres" type="Resource" id=5]
 [ext_resource path="res://Tile/TileTypes/Bush/Bush.tres" type="Resource" id=6]

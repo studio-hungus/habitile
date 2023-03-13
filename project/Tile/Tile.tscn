@@ -17,6 +17,7 @@ shape = SubResource( 2 )
 [node name="SupplySprite" type="Sprite" parent="."]
 
 [node name="AnimalName" type="Label" parent="."]
+visible = false
 margin_left = -95.0
 margin_top = -81.0
 margin_right = 31.0
@@ -45,6 +46,7 @@ text = "-10"
 visible = false
 
 [node name="Icons" type="Node2D" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.866667 )
 
 [node name="PositiveIcons" type="Node2D" parent="Icons"]
