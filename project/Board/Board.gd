@@ -1,9 +1,9 @@
 extends Node2D
 
 
-export var _width := 6
-export var _height := 5
-export var _spacing := 192
+export var _width := 10
+export var _height := 4
+export var _spacing := 144
 export(Array, Resource) var _obstacle_types := []
 
 var _empty_space_scene := load("res://Board/EmptySpace/EmptySpace.tscn")

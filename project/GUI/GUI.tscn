@@ -48,9 +48,8 @@ script = ExtResource( 1 )
 layer = -1
 
 [node name="BoardSquare" type="TextureRect" parent="CanvasLayer"]
-margin_top = -34.0
 margin_right = 1920.0
-margin_bottom = 792.0
+margin_bottom = 824.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 
