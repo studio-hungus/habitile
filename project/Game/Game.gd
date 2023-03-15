@@ -20,7 +20,7 @@ var _is_game_over := false
 var _left_score := 0
 var _right_score := 0
 
-
+onready var _music_manager := find_node("AudioManager")
 onready var _tiles := find_node("Tiles")
 onready var _board := find_node("Board")
 onready var _no_drop_sound := find_node("NoDropSound")
@@ -36,7 +36,9 @@ onready var _right_stack_position := find_node("RightStackPosition")
 onready var _space_indicator := find_node("SpaceIndicator")
 
 
+
 func _ready() -> void:
+	_music_manager.play_main_theme()
 	_create_stacks()
 	_shuffle_stacks()
 	_display_supply()
@@ -222,7 +224,8 @@ func _on_board_filled() -> void:
 		end_state = EndState.LEFT_WIN
 	elif _left_score < _right_score:
 		end_state = EndState.RIGHT_WIN
-
+	
+	_music_manager.play_gameover()
 	_gui.display_gameover(end_state)
 
 
