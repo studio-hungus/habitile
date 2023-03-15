@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Game/GL_Sting_Left_Player_Turn.wav" type="AudioStream" id=1]
 [ext_resource path="res://Board/Board.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Tile/TileTypes/Coyote/Coyote.tres" type="Resource" id=15]
 [ext_resource path="res://Tile/TileTypes/Beehive/Beehive.tres" type="Resource" id=16]
 [ext_resource path="res://Tile/TileTypes/Bullfrog/Bullfrog.tres" type="Resource" id=17]
+[ext_resource path="res://Soundtrack/AudioManager.tscn" type="PackedScene" id=18]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -79,3 +80,5 @@ position = Vector2( 1728, 928 )
 
 [node name="SpaceIndicator" parent="." instance=ExtResource( 10 )]
 visible = false
+
+[node name="AudioManager" parent="." instance=ExtResource( 18 )]

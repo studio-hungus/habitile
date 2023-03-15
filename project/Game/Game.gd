@@ -36,7 +36,9 @@ onready var _right_stack_position := find_node("RightStackPosition")
 onready var _space_indicator := find_node("SpaceIndicator")
 
 
+
 func _ready() -> void:
+	$AudioManager.play_main_theme()
 	_create_stacks()
 	_shuffle_stacks()
 	_display_supply()
