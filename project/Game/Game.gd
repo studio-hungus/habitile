@@ -78,7 +78,7 @@ func _physics_process(_delta) -> void:
 			_space_indicator.hide()
 
 
-func _on_Tile_pressed(tile : Tile) -> void:
+func _on_Tile_pressed(tile: Tile) -> void:
 	_pressed_tile = tile
 	_original_tile_position = tile.global_position
 
@@ -121,7 +121,6 @@ func _swap_turn() -> void:
 		_left_player_turn_sting.play()
 
 	_update_turn_in_gui()
-	
 
 
 # This creates a tile in the original tile position
@@ -170,7 +169,7 @@ func _display_stack_top() -> void:
 		_right_stack[0].modulate = Color.gray
 
 
-func _place_tile_on_board(tile : Tile) -> void:
+func _place_tile_on_board(tile: Tile) -> void:
 	_drop_sound.play()
 	tile.global_position = _hovered_node.global_position
 	tile.set_interactable(false)
