@@ -6,6 +6,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "GameOver"
+length = 5.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("MainTheme")
 tracks/0/interp = 1
@@ -27,7 +28,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0.0 ],
@@ -41,10 +42,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -80.0, 0.0 ]
+"values": [ -24.0, -24.0, 0.0 ]
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath("GameOverStinger")
