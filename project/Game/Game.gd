@@ -222,10 +222,13 @@ func _on_board_filled() -> void:
 
 	if _left_score > _right_score:
 		end_state = EndState.LEFT_WIN
+		_music_manager.play_gameover_win()
 	elif _left_score < _right_score:
 		end_state = EndState.RIGHT_WIN
+		_music_manager.play_gameover_win()
+	else:
+		_music_manager.play_gameover_tie()
 	
-	_music_manager.play_gameover()
 	_gui.display_gameover(end_state)
 
 
