@@ -17,24 +17,23 @@ func _ready():
 		for y in _height:
 			var y_offset = (_height - 1) / 2.0 - y
 			var node
-			if x % 2 == 0:
-				node = _make_new_tile(_obstacle_types[0])
+
+			if x % 3 == 1 and y % 2 == 0:
+				node = _make_new_tile(_obstacle_types[randi() % _obstacle_types.size()])
 			else:
 				node = _empty_space_scene.instance()
 				add_child(node)
+
 			_add_node(-x_offset,  -y_offset, node)
 
 	_number_of_empty_spaces = _spaces.size()
 
 
 func _add_node(x: float, y: float, node: Node2D) -> void:
-	
-
 	node.position.x = x * _spacing
 	node.position.y = y * _spacing
 
 	_spaces.append(node)
-	
 
 
 func _make_new_tile(tile_type) -> Node2D:
@@ -82,7 +81,7 @@ func get_neighbors(tile: Node2D) -> Array:
 
 	while result.has(null):
 		result.erase(null)
-		
+
 	return result
 
 

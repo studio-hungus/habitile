@@ -113,14 +113,14 @@ func calculate_points(neighbors: Array) -> int:
 	var delay_increment = .15
 
 	for neighbor in neighbors:
-
+		
 		if type.allergic_to_grass and neighbor is EmptySpace:
 			points += type.negative_score_modifier
 			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
 			#play bad noise here
 			delay_time += delay_increment
 
-		if type.positive_neighbor_tiles.has(neighbor.type):
+		elif type.positive_neighbor_tiles.has(neighbor.type):
 			_show_score_modified(type.positive_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
 			points += type.positive_score_modifier
 			#play good noise here
