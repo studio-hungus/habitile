@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wildflower_icon.png-0df5d545b854528d49cbfa93a998c581.stex"
+path="res://.import/Wildflower_tile.png-31749c2def6584ac8ff7d8f2b80df847.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Wildflower/wildflower_icon.png"
-dest_files=[ "res://.import/wildflower_icon.png-0df5d545b854528d49cbfa93a998c581.stex" ]
+source_file="res://Tile/TileTypes/Wildflower/Wildflower_tile.png"
+dest_files=[ "res://.import/Wildflower_tile.png-31749c2def6584ac8ff7d8f2b80df847.stex" ]
 
 [params]
 
