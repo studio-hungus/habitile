@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water.png-aa20e8e53d923bdb3975ae0359e67e88.stex"
+path="res://.import/Pond_Tile.png-855c1f46f07792cabb2e150a1264cf77.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Water/water.png"
-dest_files=[ "res://.import/water.png-aa20e8e53d923bdb3975ae0359e67e88.stex" ]
+source_file="res://Tile/TileTypes/Water/Pond_Tile.png"
+dest_files=[ "res://.import/Pond_Tile.png-855c1f46f07792cabb2e150a1264cf77.stex" ]
 
 [params]
 
