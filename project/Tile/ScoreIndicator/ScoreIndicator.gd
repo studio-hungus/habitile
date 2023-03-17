@@ -1,21 +1,24 @@
 extends Node2D
 
 
-onready var label = $ScoreEarned
-
-func _ready():
-	pass 
+onready var _label := find_node("ScoreEarned")
+onready var _score_audio := find_node("ScoreAudio")
+onready var _timer := find_node("Timer")
+onready var _animation_player := find_node("AnimationPlayer")
 
 
 func show_score_modified(score : int, delay : float) -> void:
-	var tween = create_tween()
+	_timer.wait_time += delay
 	if score > 0:
-		tween.tween_property($GoodScoreAudio, "playing", true, 0).set_delay(delay)
-	elif score == 0:
-		tween.tween_property($NeutralScoreAudio, "playing", true, 0).set_delay(delay)
+		_score_audio.stream = load("res://Tile/ScoreIndicator/GL_SFX_GoodScore.wav")
+	elif score < 0:
+		_score_audio.bus = "Lulu (BdScore)"
+		_score_audio.stream = load("res://Tile/ScoreIndicator/GL_SFX_BadScore.wav")
 	else:
-		tween.tween_property($BadScoreAudio, "playing", true, 0).set_delay(delay)
+		_score_audio.stream = load("res://Tile/ScoreIndicator/GL_SFX_Click.wav")
+	_label.text = ("+" if (score >= 0) else "") + str(score)
+	_timer.start()
 
-	tween.tween_property(label, "modulate", Color.white , 0.75)
-	label.text = ("+" if (score >= 0) else "") + str(score)
-	tween.tween_property(label, "modulate", Color.transparent, 0.5)
+
+func _on_Timer_timeout():
+	_animation_player.play("IndicateScore")

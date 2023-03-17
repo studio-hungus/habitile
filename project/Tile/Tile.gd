@@ -100,9 +100,6 @@ func _enter_small_state() -> void:
 	_icons.visible = false
 
 
-
-
-
 func calculate_points(neighbors: Array) -> int:
 	var points := 0
 	var delay_time = 0
@@ -110,23 +107,22 @@ func calculate_points(neighbors: Array) -> int:
 
 	for neighbor in neighbors:
 		var score_indicator = load("res://Tile/ScoreIndicator/ScoreIndicator.tscn").instance()
+		var _score_modifier := 0
+
 		add_child(score_indicator)
 		score_indicator.global_position = neighbor.global_position
+
 		if type.allergic_to_grass and neighbor is EmptySpace:
-			points += type.negative_score_modifier
-			score_indicator.show_score_modified(type.negative_score_modifier, delay_time)
+			_score_modifier = type.negative_score_modifier
 
 		elif type.positive_neighbor_tiles.has(neighbor.type):
-			score_indicator.show_score_modified(type.positive_score_modifier, delay_time)
-			points += type.positive_score_modifier
+			_score_modifier = type.positive_score_modifier
 
 		elif neighbor.type.positive_neighbor_tiles.has(type):
-			score_indicator.show_score_modified(type.negative_score_modifier, delay_time)
-			points += type.negative_score_modifier
+			_score_modifier = type.negative_score_modifier
 
-		else:
-			score_indicator.show_score_modified(0, delay_time)
-
+		points += _score_modifier
+		score_indicator.show_score_modified(_score_modifier, delay_time)
 		delay_time += delay_increment
 
 	return points
