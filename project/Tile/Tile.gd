@@ -100,11 +100,7 @@ func _enter_small_state() -> void:
 	_icons.visible = false
 
 
-func _show_score_modified(score : int, label : Label, delay : float) -> void:
-	var tween = create_tween()
-	tween.tween_property(label, "modulate", Color.white , 0.75).set_delay(delay)
-	label.text = str(score)
-	tween.tween_property(label, "modulate", Color.transparent, 0.5)
+
 
 
 func calculate_points(neighbors: Array) -> int:
@@ -113,26 +109,24 @@ func calculate_points(neighbors: Array) -> int:
 	var delay_increment = .15
 
 	for neighbor in neighbors:
-		
+		var score_indicator = load("res://Tile/ScoreIndicator/ScoreIndicator.tscn").instance()
+		add_child(score_indicator)
+		score_indicator.global_position = neighbor.global_position
 		if type.allergic_to_grass and neighbor is EmptySpace:
 			points += type.negative_score_modifier
-			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
-			#play bad noise here
-			delay_time += delay_increment
+			score_indicator.show_score_modified(type.negative_score_modifier, delay_time)
 
 		elif type.positive_neighbor_tiles.has(neighbor.type):
-			_show_score_modified(type.positive_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
+			score_indicator.show_score_modified(type.positive_score_modifier, delay_time)
 			points += type.positive_score_modifier
-			#play good noise here
-			delay_time += delay_increment
+
 		elif neighbor.type.positive_neighbor_tiles.has(type):
-			_show_score_modified(type.negative_score_modifier, neighbor.find_node("ScoreEarned"), delay_time)
+			score_indicator.show_score_modified(type.negative_score_modifier, delay_time)
 			points += type.negative_score_modifier
-			#play bad noise here
-			delay_time += delay_increment
+
 		else:
-			_show_score_modified(0, neighbor.find_node("ScoreEarned"), delay_time)
-			delay_time += delay_increment
-			continue
+			score_indicator.show_score_modified(0, delay_time)
+
+		delay_time += delay_increment
 
 	return points

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Tile/ScoreIndicator/ScoreIndicator.gd" type="Script" id=2]
+[ext_resource path="res://Tile/ScoreIndicator/GL_SFX_GoodScore.wav" type="AudioStream" id=3]
+[ext_resource path="res://Tile/ScoreIndicator/GL_SFX_BadScore.wav" type="AudioStream" id=4]
+[ext_resource path="res://Tile/ScoreIndicator/GL_SFX_Click.wav" type="AudioStream" id=5]
+
+[node name="ScoreIndicator" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ScoreEarned" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.0
+margin_top = -28.5
+margin_right = 29.0
+margin_bottom = 28.5
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 1 )
+text = "00"
+align = 1
+
+[node name="GoodScoreAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="BadScoreAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Lulu (BdScore)"
+
+[node name="NeutralScoreAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
