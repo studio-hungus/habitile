@@ -20,8 +20,8 @@ colors = PoolColorArray( 0, 0, 0, 0.00392157, 0.0396476, 0.0396476, 0.0396476, 0
 
 [sub_resource type="GradientTexture2D" id=6]
 gradient = SubResource( 7 )
-width = 384
-height = 1080
+width = 960
+height = 304
 fill_to = Vector2( 0, 1 )
 
 [sub_resource type="DynamicFont" id=8]
@@ -66,18 +66,21 @@ texture = ExtResource( 2 )
 
 [node name="LeftTurnIndicator" type="TextureRect" parent="CanvasLayer/LeftPanel"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 48.0
-margin_top = -56.0
-margin_right = 432.0
-margin_bottom = 1024.0
+margin_right = 960.0
+margin_bottom = 304.0
 mouse_filter = 2
 texture = SubResource( 6 )
 
+[node name="UpNextBackground" type="Sprite" parent="CanvasLayer/LeftPanel"]
+position = Vector2( 850, -6 )
+scale = Vector2( 0.75, 0.25 )
+texture = ExtResource( 8 )
+
 [node name="UpNextLabel" type="RichTextLabel" parent="CanvasLayer/LeftPanel"]
-margin_left = 632.0
-margin_top = -24.0
-margin_right = 1016.0
-margin_bottom = 10.0
+margin_left = 765.0
+margin_top = -20.0
+margin_right = 942.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 1035, -60 )
 input_pass_on_modal_close_click = false
 custom_colors/default_color = Color( 1, 1, 1, 1 )
@@ -102,16 +105,21 @@ texture = ExtResource( 2 )
 
 [node name="RightTurnIndicator" type="TextureRect" parent="CanvasLayer/RightPanel"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 384.0
-margin_bottom = 1080.0
+margin_right = 960.0
+margin_bottom = 304.0
 mouse_filter = 2
 texture = SubResource( 6 )
 
+[node name="UpNextBackground" type="Sprite" parent="CanvasLayer/RightPanel"]
+position = Vector2( 110, -6 )
+scale = Vector2( 0.75, 0.25 )
+texture = ExtResource( 8 )
+
 [node name="UpNextLabel" type="RichTextLabel" parent="CanvasLayer/RightPanel"]
-margin_left = -72.0
-margin_top = -24.0
-margin_right = 312.0
-margin_bottom = 10.0
+margin_left = 18.0
+margin_top = -20.0
+margin_right = 198.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 1035, -60 )
 input_pass_on_modal_close_click = false
 custom_colors/default_color = Color( 1, 1, 1, 1 )
@@ -146,7 +154,7 @@ __meta__ = {
 }
 
 [node name="LeftOverlay" type="ColorRect" parent="Overlays"]
-margin_top = 774.0
+margin_top = 776.0
 margin_right = 960.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -154,7 +162,7 @@ color = Color( 0.270588, 0.305882, 0.188235, 0.498039 )
 
 [node name="RightOverlay" type="ColorRect" parent="Overlays"]
 margin_left = 960.0
-margin_top = 779.0
+margin_top = 776.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
