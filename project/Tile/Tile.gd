@@ -18,7 +18,7 @@ var type: TileType
 
 var state = State.BIG setget set_state
 
-onready var _supply_sprite := get_node("SupplySprite")
+onready var _supply_sprite := find_node("TextureRect")
 onready var _board_sprite := get_node("BoardSprite")
 onready var _name_label := get_node("AnimalName")
 onready var _icons := get_node("Icons")
@@ -58,9 +58,10 @@ func initialize_type(init_type: TileType):
 	_supply_sprite.texture = type.in_supply_texture
 	_board_sprite.texture = type.on_board_texture
 	_name_label.text = type.name
-
-	get_node("AnimalName/Plus").text = "+%s" % type.positive_score_modifier
-	get_node("AnimalName/Minus").text = "-%s" % abs(type.negative_score_modifier)
+	
+	find_node("PositivePoints").text = "+%s" % type.positive_score_modifier
+	find_node("NegativePoints").text = "-%s" % abs(type.negative_score_modifier)
+	
 	for i in len(type.postive_icons_textures):
 		var positive_icons = find_node("PositiveIcons")
 		positive_icons.get_child(i).texture = type.postive_icons_textures[i]
