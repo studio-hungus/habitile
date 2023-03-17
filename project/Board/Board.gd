@@ -4,6 +4,7 @@ extends Node2D
 export var _width := 6
 export var _height := 5
 export var _spacing := 192
+export(Array, Resource) var _obstacle_types := []
 
 var _empty_space_scene := load("res://Board/EmptySpace/EmptySpace.tscn")
 var _spaces := []
@@ -15,18 +16,37 @@ func _ready():
 		var x_offset = (_width - 1) / 2.0 - x
 		for y in _height:
 			var y_offset = (_height - 1) / 2.0 - y
-			_add_node(-x_offset,  -y_offset)
+			var node
+			if x % 2 == 0:
+				node = _make_new_tile(_obstacle_types[0])
+			else:
+				node = _empty_space_scene.instance()
+				add_child(node)
+			_add_node(-x_offset,  -y_offset, node)
+
 	_number_of_empty_spaces = _spaces.size()
 
 
-func _add_node(x: float, y: float) -> void:
-	var _empty_space = _empty_space_scene.instance()
+func _add_node(x: float, y: float, node: Node2D) -> void:
+	
 
-	_empty_space.position.x = x * _spacing
-	_empty_space.position.y = y * _spacing
+	node.position.x = x * _spacing
+	node.position.y = y * _spacing
 
-	_spaces.append(_empty_space)
-	add_child(_empty_space)
+	_spaces.append(node)
+	
+
+
+func _make_new_tile(tile_type) -> Node2D:
+	var tile : Tile = preload("res://Tile/Tile.tscn").instance()
+
+	# Tile need to be added to scene tree before initialization of the type.
+	add_child(tile)
+	tile.initialize_type(tile_type)
+
+	tile.set_state(1)
+	
+	return tile
 
 
 func get_spaces() -> Array:

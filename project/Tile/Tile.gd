@@ -16,7 +16,7 @@ var _interactable = false
 var _pressed = false
 var type: TileType
 
-var state = State.BIG setget _set_state
+var state = State.BIG setget set_state
 
 onready var _supply_sprite := get_node("SupplySprite")
 onready var _board_sprite := get_node("BoardSprite")
@@ -79,7 +79,7 @@ func get_type():
 	return type
 
 
-func _set_state(value) -> void:
+func set_state(value) -> void:
 	state = value
 	if state == State.BIG:
 		_enter_big_state()
