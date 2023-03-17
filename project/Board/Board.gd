@@ -18,6 +18,7 @@ func _ready():
 			var y_offset = (_height - 1) / 2.0 - y
 			var node
 
+			#Static obstacle placement, replace with random later
 			if x % 3 == 1 and y % 2 == 0:
 				node = _make_new_tile(_obstacle_types[randi() % _obstacle_types.size()])
 			else:
