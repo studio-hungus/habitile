@@ -8,7 +8,7 @@ export(Array, Resource) var _obstacle_types := []
 
 var _empty_space_scene := load("res://Board/EmptySpace/EmptySpace.tscn")
 var _spaces := []
-var _number_of_empty_spaces : int
+var _number_of_empty_spaces := 0
 
 
 func _ready():
@@ -18,16 +18,16 @@ func _ready():
 			var y_offset = (_height - 1) / 2.0 - y
 			var node
 
-			#Static obstacle placement, replace with random later
+			# Static obstacle placement, replace with random later
 			if x % 3 == 1 and y % 2 == 0:
 				node = _make_new_tile(_obstacle_types[randi() % _obstacle_types.size()])
 			else:
 				node = _empty_space_scene.instance()
 				add_child(node)
 
-			_add_node(-x_offset,  -y_offset, node)
+				_number_of_empty_spaces += 1
 
-	_number_of_empty_spaces = _spaces.size()
+			_add_node(-x_offset,  -y_offset, node)
 
 
 func _add_node(x: float, y: float, node: Node2D) -> void:
