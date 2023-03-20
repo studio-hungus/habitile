@@ -62,6 +62,9 @@ func initialize_type(init_type: TileType):
 	find_node("PositivePoints").text = "+%s" % type.positive_score_modifier
 	find_node("NegativePoints").text = "-%s" % abs(type.negative_score_modifier)
 
+	find_node("PositiveCreatures").text = ", ".join(type.positive_neighbor_names)
+	find_node("NegativeCreatures").text = ", ".join(type.negative_neighbor_names)
+
 
 func get_type():
 	return type
@@ -99,13 +102,16 @@ func calculate_points(neighbors: Array) -> int:
 		add_child(score_indicator)
 		score_indicator.global_position = neighbor.global_position
 
-		if type.allergic_to_grass and neighbor is EmptySpace:
-			_score_modifier = type.negative_score_modifier
-
-		elif type.positive_neighbor_tiles.has(neighbor.type):
+		if "Grass" in type.positive_neighbor_names and neighbor is EmptySpace:
 			_score_modifier = type.positive_score_modifier
 
-		elif neighbor.type.positive_neighbor_tiles.has(type):
+		elif "Grass" in type.negative_neighbor_names and neighbor is EmptySpace:
+			_score_modifier = type.negative_score_modifier
+
+		elif neighbor.type.name in type.positive_neighbor_names:
+			_score_modifier = type.positive_score_modifier
+
+		elif neighbor.type.name in type.negative_neighbor_names:
 			_score_modifier = type.negative_score_modifier
 
 		points += _score_modifier
