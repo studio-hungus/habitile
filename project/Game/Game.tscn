@@ -28,7 +28,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 
 [node name="Board" parent="." instance=ExtResource( 2 )]
-position = Vector2( 960, 540 )
+position = Vector2( 960, 400 )
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -53,30 +53,30 @@ volume_db = 3.0
 [node name="LeftSupply" type="Node2D" parent="."]
 
 [node name="LeftPlayerPosition1" type="Position2D" parent="LeftSupply"]
-position = Vector2( 192, 256 )
+position = Vector2( 117, 930 )
 
 [node name="LeftPlayerPosition2" type="Position2D" parent="LeftSupply"]
-position = Vector2( 192, 480 )
+position = Vector2( 354, 930 )
 
 [node name="LeftPlayerPosition3" type="Position2D" parent="LeftSupply"]
-position = Vector2( 192, 704 )
+position = Vector2( 591, 930 )
 
 [node name="RightSupply" type="Node2D" parent="."]
 
 [node name="RightPlayerPosition1" type="Position2D" parent="RightSupply"]
-position = Vector2( 1730, 256 )
+position = Vector2( 1322, 930 )
 
 [node name="RightPlayerPosition2" type="Position2D" parent="RightSupply"]
-position = Vector2( 1730, 480 )
+position = Vector2( 1559, 930 )
 
 [node name="RightPlayerPosition3" type="Position2D" parent="RightSupply"]
-position = Vector2( 1730, 706 )
+position = Vector2( 1796, 930 )
 
 [node name="LeftStackPosition" type="Position2D" parent="."]
-position = Vector2( 192, 928 )
+position = Vector2( 828, 926 )
 
 [node name="RightStackPosition" type="Position2D" parent="."]
-position = Vector2( 1728, 928 )
+position = Vector2( 1085, 930 )
 
 [node name="SpaceIndicator" parent="." instance=ExtResource( 10 )]
 visible = false

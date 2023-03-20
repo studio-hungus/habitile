@@ -1,24 +1,15 @@
-[gd_resource type="Resource" load_steps=11 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Tile/TileTypes/NortherHarrier/tile_supply_northern_harrier.png" type="Texture" id=1]
 [ext_resource path="res://Tile/TileTypes/NortherHarrier/tile_board_northern_harrier.png" type="Texture" id=2]
-[ext_resource path="res://Tile/TileTypes/Salamander/Salamander.tres" type="Resource" id=3]
-[ext_resource path="res://Tile/TileTypes/Vole/Vole.tres" type="Resource" id=4]
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=5]
-[ext_resource path="res://Tile/TileTypes/Bullfrog/Bullfrog.tres" type="Resource" id=6]
-[ext_resource path="res://Tile/TileTypes/Bullfrog/Bullfrog_icon.png" type="Texture" id=7]
-[ext_resource path="res://Tile/TileTypes/Salamander/Salamander_icon.png" type="Texture" id=8]
-[ext_resource path="res://Tile/TileTypes/Vole/Vole_icon.png" type="Texture" id=9]
-[ext_resource path="res://Tile/TileTypes/Worms/Worms.tres" type="Resource" id=10]
 
 [resource]
 script = ExtResource( 5 )
 name = "Northern Harrier"
 positive_score_modifier = 15
 negative_score_modifier = -20
-positive_neighbor_tiles = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 10 ) ]
-allergic_to_grass = false
+positive_neighbor_names = [ "Bullfrog", "Salamander", "Vole", "Worms" ]
+negative_neighbor_names = [  ]
 in_supply_texture = ExtResource( 1 )
 on_board_texture = ExtResource( 2 )
-postive_icons_textures = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
-negative_icons_textures = [  ]

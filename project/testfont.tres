@@ -3,7 +3,8 @@
 [ext_resource path="res://Common/Roboto-Medium.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 22
-outline_size = 3
+size = 20
+outline_size = 2
 outline_color = Color( 0.745098, 0.498039, 0.498039, 1 )
+use_filter = true
 font_data = ExtResource( 1 )

@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://testfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Tile/Tile.gd" type="Script" id=2]
+[ext_resource path="res://Tile/vole_placeholder.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 87.5, 87.5 )
+extents = Vector2( 100, 139.5 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.988235, 0.843137, 0.788235, 1 )
 
 [node name="Tile" type="Node2D"]
 script = ExtResource( 2 )
@@ -12,6 +16,7 @@ script = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -0.5 )
 shape = SubResource( 2 )
 
 [node name="SupplySprite" type="Sprite" parent="."]
@@ -45,44 +50,116 @@ text = "-10"
 [node name="BoardSprite" type="Sprite" parent="."]
 visible = false
 
-[node name="Icons" type="Node2D" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0.866667 )
+[node name="ScoreEarned" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "00"
 
-[node name="PositiveIcons" type="Node2D" parent="Icons"]
-position = Vector2( 8, 0 )
+[node name="SupplyTile" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -140.0
+margin_right = 100.0
+margin_bottom = 140.0
+mouse_filter = 2
+color = Color( 0.376471, 0.219608, 0.0745098, 1 )
 
-[node name="Icon" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -48, -39 )
+[node name="TexturePanel" type="Panel" parent="SupplyTile"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 6.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 188, 106 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="Icon2" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -14, -40 )
+[node name="SupplyTexture" type="TextureRect" parent="SupplyTile/TexturePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
 
-[node name="Icon3" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -81, -7 )
+[node name="PositivePointsPanel" type="Panel" parent="SupplyTile"]
+margin_left = 6.0
+margin_top = 116.0
+margin_right = 41.0
+margin_bottom = 193.0
+rect_min_size = Vector2( 35, 77 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="Icon4" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -46, -7 )
+[node name="PositivePoints" type="Label" parent="SupplyTile/PositivePointsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "+20"
+valign = 1
 
-[node name="Icon5" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -11, -7 )
+[node name="PositiveCreaturesPanel" type="Panel" parent="SupplyTile"]
+margin_left = 45.0
+margin_top = 116.0
+margin_right = 85.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 149, 77 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="NegativeIcons" type="Node2D" parent="Icons"]
-position = Vector2( 8, 72 )
+[node name="PositiveCreatures" type="Label" parent="SupplyTile/PositiveCreaturesPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "bees, coyotes, harriers, grass"
+align = 1
+valign = 1
+autowrap = true
 
-[node name="Icon" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -48, -39 )
+[node name="NegativePointsPanel" type="Panel" parent="SupplyTile"]
+margin_left = 6.0
+margin_top = 197.0
+margin_right = 41.0
+margin_bottom = 274.0
+rect_min_size = Vector2( 35, 77 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="Icon2" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -14, -40 )
+[node name="NegativePoints" type="Label" parent="SupplyTile/NegativePointsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "-10"
+valign = 1
 
-[node name="Icon3" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -81, -7 )
+[node name="NegativeCreaturePanel" type="Panel" parent="SupplyTile"]
+margin_left = 45.0
+margin_top = 197.0
+margin_right = 45.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 149, 77 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="Icon4" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -46, -7 )
-
-[node name="Icon5" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -11, -7 )
+[node name="NegativeCreatures" type="Label" parent="SupplyTile/NegativeCreaturePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "grass, water, wildflowers, harriers"
+align = 1
+valign = 1
+autowrap = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

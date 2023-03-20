@@ -1,15 +1,13 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
-[ext_resource path="res://Tile/TileTypes/Wildflower/Wildflower_tile.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/Wildflowers/Wildflower_tile.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-name = "Wildflower"
+name = "Wildflowers"
 positive_score_modifier = 0
 negative_score_modifier = 0
-positive_neighbor_tiles = [  ]
-allergic_to_grass = false
+positive_neighbor_names = [  ]
+negative_neighbor_names = [  ]
 on_board_texture = ExtResource( 2 )
-postive_icons_textures = [  ]
-negative_icons_textures = [  ]
