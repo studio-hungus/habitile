@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GL_SFX_BadScore.wav-371c9d5b97285d459fc4611047526713.sample"
+
+[deps]
+
+source_file="res://Tile/ScoreIndicator/GL_SFX_BadScore.wav"
+dest_files=[ "res://.import/GL_SFX_BadScore.wav-371c9d5b97285d459fc4611047526713.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
