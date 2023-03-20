@@ -1,14 +1,8 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
 [ext_resource path="res://Tile/TileTypes/Worms/tile_board_worms.png" type="Texture" id=2]
 [ext_resource path="res://Tile/TileTypes/Worms/tile_supply_worms.png" type="Texture" id=3]
-[ext_resource path="res://Tile/TileTypes/Salamander/Salamander_icon.png" type="Texture" id=4]
-[ext_resource path="res://Tile/TileTypes/Bullfrog/Bullfrog_icon.png" type="Texture" id=5]
-[ext_resource path="res://Tile/TileTypes/NortherHarrier/Harrier_icon.png" type="Texture" id=6]
-[ext_resource path="res://Tile/TileTypes/Vole/Vole_icon.png" type="Texture" id=7]
-[ext_resource path="res://Tile/TileTypes/Wildflower/Wildflower.tres" type="Resource" id=8]
-[ext_resource path="res://Tile/TileTypes/Water/Water.tres" type="Resource" id=9]
 
 [resource]
 resource_local_to_scene = true
@@ -16,9 +10,7 @@ script = ExtResource( 1 )
 name = "Worms"
 positive_score_modifier = 5
 negative_score_modifier = -10
-positive_neighbor_tiles = [ ExtResource( 8 ), ExtResource( 9 ) ]
-allergic_to_grass = false
+positive_neighbor_names = [ "Wildflowers", "Water" ]
+negative_neighbor_names = [ "Bullfrog", "Northern Harrier", "Vole", "Salamander" ]
 in_supply_texture = ExtResource( 3 )
 on_board_texture = ExtResource( 2 )
-postive_icons_textures = [  ]
-negative_icons_textures = [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ) ]

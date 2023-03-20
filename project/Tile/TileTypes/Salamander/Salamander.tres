@@ -1,25 +1,15 @@
-[gd_resource type="Resource" load_steps=9 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Tile/TileTypes/Salamander/tile_supply_salamander.png" type="Texture" id=1]
 [ext_resource path="res://Tile/TileTypes/Salamander/tile_board_salamander.png" type="Texture" id=2]
-[ext_resource path="res://Tile/TileTypes/Worms/Worms.tres" type="Resource" id=3]
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=4]
-[ext_resource path="res://Tile/TileTypes/Coyote/Coyote_icon.png" type="Texture" id=5]
-[ext_resource path="res://Tile/TileTypes/Water/Water.tres" type="Resource" id=6]
-[ext_resource path="res://Tile/TileTypes/NortherHarrier/Harrier_icon.png" type="Texture" id=7]
-
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/Worms_icon.png-360188192d8f6ca4a0e78b35802b2e93.stex"
 
 [resource]
 script = ExtResource( 4 )
 name = "Salamander"
 positive_score_modifier = 15
 negative_score_modifier = -20
-positive_neighbor_tiles = [ ExtResource( 3 ), ExtResource( 6 ) ]
-allergic_to_grass = false
+positive_neighbor_names = [ "Water", "Worms" ]
+negative_neighbor_names = [ "Coyote", "Northern Harrier" ]
 in_supply_texture = ExtResource( 1 )
 on_board_texture = ExtResource( 2 )
-postive_icons_textures = [ SubResource( 1 ) ]
-negative_icons_textures = [ ExtResource( 5 ), ExtResource( 7 ) ]
