@@ -238,4 +238,5 @@ func _tween_end(tile: Tile) -> void:
 
 
 func _debug_fill_board() -> void:
+
 	_on_board_filled()

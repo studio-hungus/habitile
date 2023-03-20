@@ -52,6 +52,10 @@ window/dpi/allow_hidpi=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[global]
+
+animation=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
