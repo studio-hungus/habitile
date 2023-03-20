@@ -14,6 +14,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -0.5 )
+z_index = 2
 shape = SubResource( 2 )
 
 [node name="SupplySprite" type="Sprite" parent="."]
@@ -47,46 +48,6 @@ text = "-10"
 [node name="BoardSprite" type="Sprite" parent="."]
 visible = false
 
-[node name="Icons" type="Node2D" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0.866667 )
-
-[node name="PositiveIcons" type="Node2D" parent="Icons"]
-position = Vector2( 8, 0 )
-
-[node name="Icon" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -48, -39 )
-
-[node name="Icon2" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -14, -40 )
-
-[node name="Icon3" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -81, -7 )
-
-[node name="Icon4" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -46, -7 )
-
-[node name="Icon5" type="Sprite" parent="Icons/PositiveIcons"]
-position = Vector2( -11, -7 )
-
-[node name="NegativeIcons" type="Node2D" parent="Icons"]
-position = Vector2( 8, 72 )
-
-[node name="Icon" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -48, -39 )
-
-[node name="Icon2" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -14, -40 )
-
-[node name="Icon3" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -81, -7 )
-
-[node name="Icon4" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -46, -7 )
-
-[node name="Icon5" type="Sprite" parent="Icons/NegativeIcons"]
-position = Vector2( -11, -7 )
-
 [node name="ScoreEarned" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 40.0
@@ -103,6 +64,7 @@ margin_left = -100.0
 margin_top = -140.0
 margin_right = 100.0
 margin_bottom = 140.0
+mouse_filter = 2
 color = Color( 0.878431, 0.733333, 0.623529, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SupplyTile"]
@@ -110,11 +72,13 @@ margin_left = 1.0
 margin_top = 2.0
 margin_right = 200.0
 margin_bottom = 279.0
+mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="SupplyTile/VBoxContainer"]
+[node name="SupplyTexture" type="TextureRect" parent="SupplyTile/VBoxContainer"]
 margin_right = 199.0
 margin_bottom = 140.0
 rect_clip_content = true
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 3 )
@@ -124,6 +88,7 @@ expand = true
 margin_top = 144.0
 margin_right = 199.0
 margin_bottom = 195.0
+mouse_filter = 2
 
 [node name="PositivePoints" type="Label" parent="SupplyTile/VBoxContainer/HBoxContainer"]
 margin_top = 13.0
@@ -148,6 +113,7 @@ autowrap = true
 margin_top = 199.0
 margin_right = 199.0
 margin_bottom = 277.0
+mouse_filter = 2
 
 [node name="NegativePoints" type="Label" parent="SupplyTile/VBoxContainer/HBoxContainer2"]
 margin_top = 27.0

@@ -18,10 +18,10 @@ var type: TileType
 
 var state = State.BIG setget set_state
 
-onready var _supply_sprite := find_node("TextureRect")
+onready var _supply_sprite := find_node("SupplyTexture")
+onready var _supply_tile := find_node("SupplyTile")
 onready var _board_sprite := get_node("BoardSprite")
 onready var _name_label := get_node("AnimalName")
-onready var _icons := get_node("Icons")
 
 
 func contains(mouse_position:Vector2) -> bool:
@@ -61,19 +61,6 @@ func initialize_type(init_type: TileType):
 	
 	find_node("PositivePoints").text = "+%s" % type.positive_score_modifier
 	find_node("NegativePoints").text = "-%s" % abs(type.negative_score_modifier)
-	
-	for i in len(type.postive_icons_textures):
-		var positive_icons = find_node("PositiveIcons")
-		positive_icons.get_child(i).texture = type.postive_icons_textures[i]
-	for i in len(type.negative_icons_textures):
-		var negative_icons = find_node("NegativeIcons")
-		negative_icons.get_child(i).texture = type.negative_icons_textures[i]
-
-	#Hides UI elements for tiles that dont have it
-	if type.postive_icons_textures.size() == 0:
-		find_node("Plus").visible = false
-	if type.negative_icons_textures.size() == 0:
-		find_node("Minus").visible = false
 
 
 func get_type():
@@ -89,16 +76,15 @@ func set_state(value) -> void:
 
 
 func _enter_big_state() -> void:
-	_supply_sprite.visible = true
+	_supply_tile.visible = true
 	_board_sprite.visible = false
 	_name_label.visible = true
 
 
 func _enter_small_state() -> void:
-	_supply_sprite.visible = false
+	_supply_tile.visible = false
 	_board_sprite.visible = true
 	_name_label.visible = false
-	_icons.visible = false
 
 
 func calculate_points(neighbors: Array) -> int:
