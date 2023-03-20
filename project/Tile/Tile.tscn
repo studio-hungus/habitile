@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://testfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Tile/Tile.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 100, 139.5 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.988235, 0.843137, 0.788235, 1 )
 
 [node name="Tile" type="Node2D"]
 script = ExtResource( 2 )
@@ -64,18 +67,20 @@ margin_top = -140.0
 margin_right = 100.0
 margin_bottom = 140.0
 mouse_filter = 2
-color = Color( 0.878431, 0.733333, 0.623529, 1 )
+color = Color( 0.376471, 0.219608, 0.0745098, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SupplyTile"]
-margin_left = 1.0
-margin_top = 2.0
-margin_right = 200.0
-margin_bottom = 279.0
+[node name="TexturePanel" type="Panel" parent="SupplyTile"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 6.0
+margin_bottom = 6.0
+rect_min_size = Vector2( 188, 106 )
 mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="SupplyTexture" type="TextureRect" parent="SupplyTile/VBoxContainer"]
-margin_right = 199.0
-margin_bottom = 140.0
+[node name="SupplyTexture" type="TextureRect" parent="SupplyTile/TexturePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_clip_content = true
 mouse_filter = 2
 size_flags_horizontal = 3
@@ -83,55 +88,78 @@ size_flags_vertical = 3
 texture = ExtResource( 3 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SupplyTile/VBoxContainer"]
-margin_top = 144.0
-margin_right = 199.0
-margin_bottom = 195.0
+[node name="PositivePointsPanel" type="Panel" parent="SupplyTile"]
+margin_left = 6.0
+margin_top = 116.0
+margin_right = 41.0
+margin_bottom = 193.0
+rect_min_size = Vector2( 35, 77 )
 mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="PositivePoints" type="Label" parent="SupplyTile/VBoxContainer/HBoxContainer"]
-margin_top = 13.0
-margin_right = 33.0
-margin_bottom = 37.0
+[node name="PositivePoints" type="Label" parent="SupplyTile/PositivePointsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 1 )
 text = "+20"
+valign = 1
 
-[node name="PositiveCreatures" type="Label" parent="SupplyTile/VBoxContainer/HBoxContainer"]
-margin_left = 37.0
-margin_right = 199.0
-margin_bottom = 51.0
+[node name="PositiveCreaturesPanel" type="Panel" parent="SupplyTile"]
+margin_left = 45.0
+margin_top = 116.0
+margin_right = 85.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 149, 77 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+
+[node name="PositiveCreatures" type="Label" parent="SupplyTile/PositiveCreaturesPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "bees, coyotes, harriers, grass"
 align = 1
+valign = 1
 autowrap = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="SupplyTile/VBoxContainer"]
-margin_top = 199.0
-margin_right = 199.0
-margin_bottom = 277.0
+[node name="NegativePointsPanel" type="Panel" parent="SupplyTile"]
+margin_left = 6.0
+margin_top = 197.0
+margin_right = 41.0
+margin_bottom = 274.0
+rect_min_size = Vector2( 35, 77 )
 mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
 
-[node name="NegativePoints" type="Label" parent="SupplyTile/VBoxContainer/HBoxContainer2"]
-margin_top = 27.0
-margin_right = 29.0
-margin_bottom = 51.0
+[node name="NegativePoints" type="Label" parent="SupplyTile/NegativePointsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 1 )
 text = "-10"
+valign = 1
 
-[node name="NegativeCreatures" type="Label" parent="SupplyTile/VBoxContainer/HBoxContainer2"]
-margin_left = 33.0
-margin_right = 199.0
-margin_bottom = 78.0
+[node name="NegativeCreaturePanel" type="Panel" parent="SupplyTile"]
+margin_left = 45.0
+margin_top = 197.0
+margin_right = 45.0
+margin_bottom = 197.0
+rect_min_size = Vector2( 149, 77 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+
+[node name="NegativeCreatures" type="Label" parent="SupplyTile/NegativeCreaturePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "grass, water, wildflowers, harriers"
 align = 1
+valign = 1
 autowrap = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
