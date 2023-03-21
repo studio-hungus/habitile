@@ -4,10 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-name = ""
+name = "Grass"
 positive_score_modifier = 0
 negative_score_modifier = 0
-positive_neighbor_tiles = [  ]
-allergic_to_grass = false
-postive_icons_textures = [  ]
-negative_icons_textures = [  ]
+positive_neighbor_names = [  ]
+negative_neighbor_names = [  ]
