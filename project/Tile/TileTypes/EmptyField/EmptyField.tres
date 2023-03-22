@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Grass"
+name = "Empty Field"
 positive_score_modifier = 0
 negative_score_modifier = 0
 positive_neighbor_names = [  ]

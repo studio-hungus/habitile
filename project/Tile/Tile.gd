@@ -102,10 +102,10 @@ func calculate_points(neighbors: Array) -> int:
 		add_child(score_indicator)
 		score_indicator.global_position = neighbor.global_position
 
-		if "Grass" in type.positive_neighbor_names and neighbor is EmptySpace:
+		if "Empty Field" in type.positive_neighbor_names and neighbor is EmptySpace:
 			_score_modifier = type.positive_score_modifier
 
-		elif "Grass" in type.negative_neighbor_names and neighbor is EmptySpace:
+		elif "Empty Field" in type.negative_neighbor_names and neighbor is EmptySpace:
 			_score_modifier = type.negative_score_modifier
 
 		elif neighbor.type.name in type.positive_neighbor_names:

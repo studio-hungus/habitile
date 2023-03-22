@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass_icon.png-4c496ca9aa9dcb972f2a90e1d78e2539.stex"
+path="res://.import/tile_board_kestral.png-f0961b4bc65659db949fc8ddd3589d77.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Grass/grass_icon.png"
-dest_files=[ "res://.import/grass_icon.png-4c496ca9aa9dcb972f2a90e1d78e2539.stex" ]
+source_file="res://Tile/TileTypes/Kestral/tile_board_kestral.png"
+dest_files=[ "res://.import/tile_board_kestral.png-f0961b4bc65659db949fc8ddd3589d77.stex" ]
 
 [params]
 

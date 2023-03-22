@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_board_northern_harrier.png-018caeb78007bd37d17405d1feac0b35.stex"
+path="res://.import/Kestral_icon.png-0c6103418c9ec24d9a113b174ae07711.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/NortherHarrier/tile_board_northern_harrier.png"
-dest_files=[ "res://.import/tile_board_northern_harrier.png-018caeb78007bd37d17405d1feac0b35.stex" ]
+source_file="res://Tile/TileTypes/Kestral/Kestral_icon.png"
+dest_files=[ "res://.import/Kestral_icon.png-0c6103418c9ec24d9a113b174ae07711.stex" ]
 
 [params]
 

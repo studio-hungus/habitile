@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_supply_northern_harrier.png-a66fdffad62830d5a54656ef43089c38.stex"
+path="res://.import/Skink_icon.png-3d9adffdec3d8941d17eb1813f2028ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/NortherHarrier/tile_supply_northern_harrier.png"
-dest_files=[ "res://.import/tile_supply_northern_harrier.png-a66fdffad62830d5a54656ef43089c38.stex" ]
+source_file="res://Tile/TileTypes/Skink/Skink_icon.png"
+dest_files=[ "res://.import/Skink_icon.png-3d9adffdec3d8941d17eb1813f2028ef.stex" ]
 
 [params]
 

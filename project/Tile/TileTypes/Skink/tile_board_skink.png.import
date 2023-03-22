@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_board_salamander.png-5e921cabc58ca9548fbdeb4965dbc84e.stex"
+path="res://.import/tile_board_skink.png-db6c0e4514576d3a1b3536c5f29023d3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Salamander/tile_board_salamander.png"
-dest_files=[ "res://.import/tile_board_salamander.png-5e921cabc58ca9548fbdeb4965dbc84e.stex" ]
+source_file="res://Tile/TileTypes/Skink/tile_board_skink.png"
+dest_files=[ "res://.import/tile_board_skink.png-db6c0e4514576d3a1b3536c5f29023d3.stex" ]
 
 [params]
 
