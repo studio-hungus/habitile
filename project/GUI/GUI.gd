@@ -17,7 +17,16 @@ onready var _left_player_score_label = find_node("LeftPlayerScore")
 onready var _right_player_score_label = find_node("RightPlayerScore")
 
 
+var is_updating_score := false
+var _left_target := 0
+var _right_target := 0
+var _left_displayed := 0.0
+var _right_displayed := 0.0
 
+
+func _process(_delta):
+	if is_updating_score:
+		_display_score()
 
 
 func set_is_left_player_turn(value : bool) -> void:
@@ -57,11 +66,22 @@ func _tween_alpha(node: Node, value: float) -> void:
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 
 		_tween.start()
-		
-		
+
+
 func update_score(left_score : int, right_score : int):
-	_right_player_score_label.text = "%d" % right_score
-	_left_player_score_label.text = "%d" % left_score
+	_left_target = left_score
+	_right_target = right_score
+	is_updating_score = true
+
+
+func _display_score():
+	_left_displayed = lerp(_left_displayed, _left_target, 0.1)
+	_left_player_score_label.text = "%d" % round(_left_displayed)
+	_right_displayed = lerp(_right_displayed, _right_target, 0.1)
+	_right_player_score_label.text = "%d" % round(_right_displayed)
+	if round(_left_displayed) == _left_target and round(_right_displayed) == _right_target:
+		is_updating_score = false
+
 
 
 func _on_PlayAgainButton_pressed() -> void:
