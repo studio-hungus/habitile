@@ -32,7 +32,7 @@ func contains(mouse_position:Vector2) -> bool:
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if _interactable and event is InputEventMouseButton:
-		if event.is_pressed():
+		if event.is_pressed() and Input.is_mouse_button_pressed(BUTTON_LEFT):
 			_pressed = true
 			emit_signal("pressed")
 		else:
