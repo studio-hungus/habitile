@@ -19,6 +19,7 @@ func display_gameover_screen(end_state, left_score: String, right_score: String)
 
 func _display_draw() -> void:
 	_win_gradient.visible = false
+	_animation_player.play("TieWin")
 	_game_over_label.text = "DRAW"
 
 
