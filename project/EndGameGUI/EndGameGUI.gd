@@ -4,9 +4,13 @@ extends Control
 onready var _game_over_label = find_node("GameOverLabel")
 onready var _animation_player = find_node("AnimationPlayer")
 onready var _win_gradient := find_node("WinGradient")
+onready var _left_score_label := find_node("ScoreLeftLabel")
+onready var _right_score_label := find_node("ScoreRightLabel")
 
 
-func display_gameover_screen(end_state) -> void:
+func display_gameover_screen(end_state, left_score: String, right_score: String) -> void:
+	_left_score_label.text = left_score
+	_right_score_label.text = right_score
 	if end_state == Game.EndState.DRAW:
 		_display_draw()
 	else:

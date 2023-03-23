@@ -1013,7 +1013,6 @@ margin_right = 876.0
 margin_bottom = 388.0
 rect_rotation = -5.0
 custom_fonts/font = ExtResource( 9 )
-text = "hahaa hee hee"
 align = 1
 
 [node name="ScoreRightSprite" type="Sprite" parent="."]
@@ -1031,7 +1030,6 @@ margin_right = 1420.0
 margin_bottom = 340.0
 rect_rotation = 5.0
 custom_fonts/font = ExtResource( 9 )
-text = "hahaa hee hee"
 align = 1
 
 [node name="WinLabel" type="Label" parent="."]
