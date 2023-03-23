@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Kestral_icon.png-0c6103418c9ec24d9a113b174ae07711.stex"
+path="res://.import/tile_board_hawk.png-1abc6cbf8537eca5fc72e41f83b4f450.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Kestral/Kestral_icon.png"
-dest_files=[ "res://.import/Kestral_icon.png-0c6103418c9ec24d9a113b174ae07711.stex" ]
+source_file="res://Tile/TileTypes/Hawk/tile_board_hawk.png"
+dest_files=[ "res://.import/tile_board_hawk.png-1abc6cbf8537eca5fc72e41f83b4f450.stex" ]
 
 [params]
 
