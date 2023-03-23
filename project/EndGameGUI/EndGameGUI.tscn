@@ -953,7 +953,6 @@ margin_left = -452.0
 margin_top = -6.0
 margin_right = 452.0
 margin_bottom = 212.0
-disabled = true
 texture_normal = ExtResource( 1 )
 
 [node name="PlayAgainLabel" type="Label" parent="PlayAgainButton"]
