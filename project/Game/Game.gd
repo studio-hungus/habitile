@@ -87,11 +87,13 @@ func _on_Tile_pressed(tile: Tile) -> void:
 	_original_tile_z_index = tile.z_index
 	tile.z_index = _held_tile_z_index
 	_pick_up_sound.play(0.11)
+
 	# warning-ignore:return_value_discarded
 	tile.connect("released", self, "_on_Tile_released", [tile])
 
 
 func _on_Tile_released(tile: Tile) -> void:
+	tile.disconnect("released", self, "_on_Tile_released")
 	_pressed_tile = null
 	tile.z_index = _original_tile_z_index
 
@@ -106,8 +108,6 @@ func _on_Tile_released(tile: Tile) -> void:
 
 	else:
 		tile.global_position = _original_tile_position
-
-	tile.disconnect("released", self, "_on_Tile_released")
 
 
 func _update_turn_in_gui() -> void:

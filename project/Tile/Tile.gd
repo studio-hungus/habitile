@@ -30,20 +30,16 @@ func contains(mouse_position:Vector2) -> bool:
 	return rect.has_point(mouse_position)
 
 
-func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if _interactable and event is InputEventMouseButton:
-		if event.is_pressed() and Input.is_mouse_button_pressed(BUTTON_LEFT):
+func _on_Area2D_input_event(_viewport, _event, _shape_idx):
+	if _interactable and Input.is_action_just_pressed("hold_tile") and not _pressed:
 			_pressed = true
 			emit_signal("pressed")
-		else:
-			_pressed = false
-			emit_signal("released")
 
 
 func _process(_delta):
-	if not Input.is_mouse_button_pressed(BUTTON_LEFT) and _pressed:
-		_pressed = false
-		emit_signal("released")
+	if _interactable and Input.is_action_just_released("hold_tile") and _pressed:
+			_pressed = false
+			emit_signal("released")
 
 
 func set_interactable(interactable):
