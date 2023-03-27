@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 4 )
-name = "Kestral"
+name = "Skink"
 positive_score_modifier = 15
 negative_score_modifier = -20
 positive_neighbor_names = [ "Water", "Worms" ]
