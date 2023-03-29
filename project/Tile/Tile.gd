@@ -89,10 +89,10 @@ func _enter_small_state() -> void:
 func calculate_points(neighbors: Array) -> int:
 	var points := 0
 	var delay_time = 0
-	var delay_increment = .15
+	var delay_increment = .30
 
 	for neighbor in neighbors:
-		var score_indicator = load("res://Tile/ScoreIndicator/ScoreIndicator.tscn").instance()
+		var score_indicator = preload("res://Tile/ScoreIndicator/ScoreIndicator.tscn").instance()
 		var _score_modifier := 0
 
 		add_child(score_indicator)

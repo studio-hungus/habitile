@@ -10,12 +10,12 @@ onready var _animation_player := find_node("AnimationPlayer")
 func show_score_modified(score : int, delay : float) -> void:
 	_timer.wait_time += delay
 	if score > 0:
-		_score_audio.stream = load("res://Tile/ScoreIndicator/GL_SFX_GoodScore.wav")
+		_score_audio.stream = preload("res://Tile/ScoreIndicator/GL_SFX_GoodScore.wav")
 	elif score < 0:
 		_score_audio.bus = "Lulu (BdScore)"
-		_score_audio.stream = load("res://Tile/ScoreIndicator/GL_SFX_BadScore.wav")
+		_score_audio.stream = preload("res://Tile/ScoreIndicator/GL_SFX_BadScore.wav")
 	else:
-		_score_audio.stream = load("res://Tile/ScoreIndicator/GL_SFX_Click.wav")
+		_score_audio.stream = preload("res://Tile/ScoreIndicator/GL_SFX_Click.wav")
 	_label.text = ("+" if (score >= 0) else "") + str(score)
 	_timer.start()
 
