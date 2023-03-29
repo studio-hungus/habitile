@@ -81,15 +81,16 @@ func _physics_process(_delta) -> void:
 
 
 func _on_Tile_pressed(tile: Tile) -> void:
-	_pressed_tile = tile
-	_original_tile_position = tile.global_position
+	if _pressed_tile == null:
+		_pressed_tile = tile
+		_original_tile_position = tile.global_position
 
-	_original_tile_z_index = tile.z_index
-	tile.z_index = _held_tile_z_index
-	_pick_up_sound.play(0.11)
+		_original_tile_z_index = tile.z_index
+		tile.z_index = _held_tile_z_index
+		_pick_up_sound.play(0.11)
 
-	# warning-ignore:return_value_discarded
-	tile.connect("released", self, "_on_Tile_released", [tile])
+		# warning-ignore:return_value_discarded
+		tile.connect("released", self, "_on_Tile_released", [tile])
 
 
 func _on_Tile_released(tile: Tile) -> void:
