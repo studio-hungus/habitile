@@ -7,8 +7,8 @@ onready var _timer := find_node("Timer")
 onready var _animation_player := find_node("AnimationPlayer")
 
 
-func show_score_modified(score : int, delay : float) -> void:
-	_timer.wait_time += delay
+func show_score_modified(score : int) -> void:
+
 	if score > 0:
 		_score_audio.stream = preload("res://Tile/ScoreIndicator/GL_SFX_GoodScore.wav")
 	elif score < 0:
@@ -17,8 +17,8 @@ func show_score_modified(score : int, delay : float) -> void:
 	else:
 		_score_audio.stream = preload("res://Tile/ScoreIndicator/GL_SFX_Click.wav")
 	_label.text = ("+" if (score >= 0) else "") + str(score)
-	_timer.start()
 
 
-func _on_Timer_timeout():
+
+func play_indicate_score():
 	_animation_player.play("IndicateScore")

@@ -111,7 +111,14 @@ func calculate_points(neighbors: Array) -> int:
 			_score_modifier = type.negative_score_modifier
 
 		points += _score_modifier
-		score_indicator.show_score_modified(_score_modifier, delay_time)
+		score_indicator.show_score_modified(_score_modifier)
+		wait_for_it(score_indicator,delay_time)
 		delay_time += delay_increment
 
 	return points
+
+
+func wait_for_it(score_indicator,delay_time):
+	yield(get_tree().create_timer(delay_time), "timeout")
+	score_indicator.play_indicate_score()
+	
