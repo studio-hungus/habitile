@@ -4,6 +4,7 @@ extends Node2D
 
 signal pressed
 signal released
+signal animation_finished
 
 
 enum State{
@@ -112,13 +113,18 @@ func calculate_points(neighbors: Array) -> int:
 
 		points += _score_modifier
 		score_indicator.show_score_modified(_score_modifier)
-		wait_for_it(score_indicator,delay_time)
+		if neighbors.find(neighbor)==neighbors.size()-1:
+			delay_indicator_animation(score_indicator,delay_time,true)
+		else:
+			delay_indicator_animation(score_indicator,delay_time,false)
 		delay_time += delay_increment
 
 	return points
 
 
-func wait_for_it(score_indicator,delay_time):
+func delay_indicator_animation(score_indicator,delay_time,is_last_neighbor):
 	yield(get_tree().create_timer(delay_time), "timeout")
 	score_indicator.play_indicate_score()
-	
+	if is_last_neighbor: 
+		yield(get_tree().create_timer(0.2), "timeout")
+		emit_signal("animation_finished")

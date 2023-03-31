@@ -25,8 +25,7 @@ onready var _tiles := find_node("Tiles")
 onready var _board := find_node("Board")
 onready var _no_drop_sound := find_node("NoDropSound")
 onready var _drop_sound := find_node("DropSound")
-onready var _left_player_turn_sting := find_node("LeftPlayerTurnSound")
-onready var _right_player_turn_sting := find_node("RightPlayerTurnSound")
+onready var _turn_sting := find_node("PlayerTurnSound")
 onready var _pick_up_sound := find_node("PickUpSound")
 onready var _gui := find_node("GUI")
 onready var _left_supply := find_node("LeftSupply")
@@ -119,9 +118,9 @@ func _swap_turn() -> void:
 	_is_left_player_turn = !_is_left_player_turn
 
 	if _is_left_player_turn:
-		_right_player_turn_sting.play()
+		_turn_sting.play()
 	else:
-		_left_player_turn_sting.play()
+		_turn_sting.play()
 
 	_update_turn_in_gui()
 
@@ -176,6 +175,8 @@ func _place_tile_on_board(tile: Tile) -> void:
 	_drop_sound.play()
 	tile.global_position = _hovered_node.global_position
 	tile.set_interactable(false)
+# warning-ignore:return_value_discarded
+	tile.connect("animation_finished",self,"_on_Tile_animation_finished")
 
 	#Add new tile to supply
 	if _is_left_player_turn and _left_stack.size() > 0:
@@ -195,6 +196,8 @@ func _place_tile_on_board(tile: Tile) -> void:
 		_right_score += score_modifier
 	_gui.update_score(_left_score, _right_score)
 
+
+func _on_Tile_animation_finished():
 	if _board.get_number_of_empty_spaces() == 0:
 		_on_board_filled()
 	else:

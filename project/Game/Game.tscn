@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Game/GL_Sting_Left_Player_Turn.wav" type="AudioStream" id=1]
 [ext_resource path="res://Board/Board.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Game/GL_SFX_Nope.wav" type="AudioStream" id=4]
 [ext_resource path="res://Tile/GL_SFX_Tile-Place.wav" type="AudioStream" id=5]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Game/GL_Sting_Right_Player_Turn.wav" type="AudioStream" id=7]
 [ext_resource path="res://Game/GL_SFX_Pickup.wav" type="AudioStream" id=8]
 [ext_resource path="res://Tile/TileTypes/Mouse/Mouse.tres" type="Resource" id=9]
 [ext_resource path="res://Game/SpaceIndicator/SpaceIndicator.tscn" type="PackedScene" id=10]
@@ -33,13 +32,8 @@ position = Vector2( 960, 400 )
 
 [node name="Tiles" type="Node2D" parent="."]
 
-[node name="LeftPlayerTurnSound" type="AudioStreamPlayer" parent="."]
+[node name="PlayerTurnSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-volume_db = -80.0
-
-[node name="RightPlayerTurnSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = -80.0
 
 [node name="PickUpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
