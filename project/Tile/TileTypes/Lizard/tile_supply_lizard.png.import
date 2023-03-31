@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_supply_skink.png-49095381c19608514c1ab521564fd343.stex"
+path="res://.import/tile_supply_lizard.png-aceea5f6ad1c3889abd4142996bfda39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Skink/tile_supply_skink.png"
-dest_files=[ "res://.import/tile_supply_skink.png-49095381c19608514c1ab521564fd343.stex" ]
+source_file="res://Tile/TileTypes/Lizard/tile_supply_lizard.png"
+dest_files=[ "res://.import/tile_supply_lizard.png-aceea5f6ad1c3889abd4142996bfda39.stex" ]
 
 [params]
 

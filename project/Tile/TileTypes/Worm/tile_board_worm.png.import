@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_board_vole.png-1eb7c7883c927b2247b5f340bafdce68.stex"
+path="res://.import/tile_board_worm.png-8db64d40b51b389a1b6141983ac9680f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Vole/tile_board_vole.png"
-dest_files=[ "res://.import/tile_board_vole.png-1eb7c7883c927b2247b5f340bafdce68.stex" ]
+source_file="res://Tile/TileTypes/Worm/tile_board_worm.png"
+dest_files=[ "res://.import/tile_board_worm.png-8db64d40b51b389a1b6141983ac9680f.stex" ]
 
 [params]
 

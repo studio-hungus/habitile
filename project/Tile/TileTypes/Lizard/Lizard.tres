@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Tile/TileTypes/Lizard/tile_board_lizard.png" type="Texture" id=1]
+[ext_resource path="res://Tile/TileTypes/Lizard/tile_supply_lizard.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileType.gd" type="Script" id=4]
+
+[resource]
+script = ExtResource( 4 )
+name = "Lizard"
+positive_score_modifier = 15
+negative_score_modifier = -20
+positive_neighbor_names = [ "Water", "Worm" ]
+negative_neighbor_names = [ "Coyote", "Hawk" ]
+in_supply_texture = ExtResource( 2 )
+on_board_texture = ExtResource( 1 )

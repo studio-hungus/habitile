@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_board_worms.png-0ffb00c2be78eff66041bd1c0b764581.stex"
+path="res://.import/Skink_icon.png-ed59199d46023d91d0f891740099a27f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Worms/tile_board_worms.png"
-dest_files=[ "res://.import/tile_board_worms.png-0ffb00c2be78eff66041bd1c0b764581.stex" ]
+source_file="res://Tile/TileTypes/Lizard/Skink_icon.png"
+dest_files=[ "res://.import/Skink_icon.png-ed59199d46023d91d0f891740099a27f.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Vole_icon.png-4fc0667161e4c528ad236eabc93b19c2.stex"
+path="res://.import/Vole_icon.png-6b4e2a038b9b50a8ed37a8c53aa50aab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Vole/Vole_icon.png"
-dest_files=[ "res://.import/Vole_icon.png-4fc0667161e4c528ad236eabc93b19c2.stex" ]
+source_file="res://Tile/TileTypes/Mouse/Vole_icon.png"
+dest_files=[ "res://.import/Vole_icon.png-6b4e2a038b9b50a8ed37a8c53aa50aab.stex" ]
 
 [params]
 

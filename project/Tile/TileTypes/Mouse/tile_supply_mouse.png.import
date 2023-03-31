@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Worms_icon.png-360188192d8f6ca4a0e78b35802b2e93.stex"
+path="res://.import/tile_supply_mouse.png-5a03fa58f1712897b91302db9ac104f0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Worms/Worms_icon.png"
-dest_files=[ "res://.import/Worms_icon.png-360188192d8f6ca4a0e78b35802b2e93.stex" ]
+source_file="res://Tile/TileTypes/Mouse/tile_supply_mouse.png"
+dest_files=[ "res://.import/tile_supply_mouse.png-5a03fa58f1712897b91302db9ac104f0.stex" ]
 
 [params]
 
