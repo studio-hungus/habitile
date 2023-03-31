@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://testfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Tile/Tile.gd" type="Script" id=2]
 [ext_resource path="res://Tile/vole_placeholder.png" type="Texture" id=3]
+[ext_resource path="res://Common/TileFont.tres" type="DynamicFont" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 100, 139.5 )
@@ -100,7 +101,7 @@ custom_styles/panel = SubResource( 3 )
 [node name="PositivePoints" type="Label" parent="SupplyTile/PositivePointsPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "+20"
 valign = 1
 
@@ -119,7 +120,7 @@ anchor_bottom = 1.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "bees, coyotes, harriers, grass"
 align = 1
 valign = 1
@@ -137,7 +138,7 @@ custom_styles/panel = SubResource( 3 )
 [node name="NegativePoints" type="Label" parent="SupplyTile/NegativePointsPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "-10"
 valign = 1
 
@@ -156,7 +157,7 @@ anchor_bottom = 1.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "grass, water, wildflowers, harriers"
 align = 1
 valign = 1

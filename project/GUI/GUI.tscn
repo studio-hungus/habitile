@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://GUI/board_v2.png" type="Texture" id=2]
 [ext_resource path="res://GUI/wirefram_board_v4.png" type="Texture" id=3]
+[ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://GUI/border_top.png" type="Texture" id=5]
 [ext_resource path="res://GUI/border_bottom.png" type="Texture" id=6]
-[ext_resource path="res://Common/Roboto-Medium.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://GUI/scoreboard.png" type="Texture" id=8]
 [ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=9]
 
@@ -23,17 +23,6 @@ gradient = SubResource( 7 )
 width = 960
 height = 304
 fill_to = Vector2( 0, 1 )
-
-[sub_resource type="DynamicFont" id=8]
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=9]
-size = 30
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-extra_spacing_char = 2
-font_data = ExtResource( 7 )
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -194,14 +183,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -90.0
-margin_top = -17.0
+margin_top = -20.0
 margin_right = 90.0
-margin_bottom = 17.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 1035, -60 )
 input_pass_on_modal_close_click = false
 custom_colors/default_color = Color( 1, 1, 1, 1 )
-custom_fonts/mono_font = SubResource( 8 )
-custom_fonts/normal_font = SubResource( 9 )
+custom_fonts/mono_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
@@ -222,15 +211,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -90.0
-margin_top = -17.0
-margin_right = 90.0
-margin_bottom = 17.0
+margin_left = -89.0
+margin_top = -20.0
+margin_right = 91.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 1035, -60 )
 input_pass_on_modal_close_click = false
 custom_colors/default_color = Color( 1, 1, 1, 1 )
-custom_fonts/mono_font = SubResource( 8 )
-custom_fonts/normal_font = SubResource( 9 )
+custom_fonts/mono_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
