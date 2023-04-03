@@ -24,22 +24,35 @@ onready var _board_sprite := get_node("BoardSprite")
 onready var _name_label := get_node("AnimalName")
 
 
-func contains(mouse_position:Vector2) -> bool:
+func contains(mouse_position: Vector2) -> bool:
 	var center := global_position - size / 2
 	var rect = Rect2(center, size)
 	return rect.has_point(mouse_position)
 
 
-func _on_Area2D_input_event(_viewport, _event, _shape_idx):
-	if _interactable and Input.is_action_just_pressed("hold_tile") and not _pressed:
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
+	if _interactable and _is_touched(event) and not _pressed:
 			_pressed = true
 			emit_signal("pressed")
+	elif _interactable and _is_released(event) and _pressed:
+		_pressed = false
+		emit_signal("released")
 
 
-func _process(_delta):
-	if _interactable and Input.is_action_just_released("hold_tile") and _pressed:
-			_pressed = false
-			emit_signal("released")
+func _is_touched(event: InputEvent) -> bool:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			if event.button_index == 1:
+				return true
+	return false
+
+
+func _is_released(event: InputEvent) -> bool:
+	if event is InputEventMouseButton:
+		if not event.pressed:
+			if event.button_index == 1:
+				return true
+	return false
 
 
 func set_interactable(interactable):
