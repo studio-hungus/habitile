@@ -61,6 +61,8 @@ func initialize_type(init_type: TileType):
 
 	find_node("PositiveCreatures").text = ", ".join(type.positive_neighbor_names)
 	find_node("NegativeCreatures").text = ", ".join(type.negative_neighbor_names)
+	
+	find_node("Name").text = type.name
 
 
 func get_type():
