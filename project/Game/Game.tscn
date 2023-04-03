@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Game/GL_Sting_Left_Player_Turn.wav" type="AudioStream" id=1]
 [ext_resource path="res://Board/Board.tscn" type="PackedScene" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Tile/TileTypes/Beehive/Beehive.tres" type="Resource" id=16]
 [ext_resource path="res://Tile/TileTypes/Bullfrog/Bullfrog.tres" type="Resource" id=17]
 [ext_resource path="res://Soundtrack/AudioManager.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Settings/Settings.tscn" type="PackedScene" id=19]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -49,34 +48,32 @@ volume_db = -80.0
 [node name="LeftSupply" type="Node2D" parent="."]
 
 [node name="LeftPlayerPosition1" type="Position2D" parent="LeftSupply"]
-position = Vector2( 110, 930 )
+position = Vector2( 775, 930 )
 
 [node name="LeftPlayerPosition2" type="Position2D" parent="LeftSupply"]
-position = Vector2( 325, 930 )
+position = Vector2( 340, 930 )
 
 [node name="LeftPlayerPosition3" type="Position2D" parent="LeftSupply"]
-position = Vector2( 540, 930 )
+position = Vector2( 555, 930 )
 
 [node name="RightSupply" type="Node2D" parent="."]
 
 [node name="RightPlayerPosition1" type="Position2D" parent="RightSupply"]
-position = Vector2( 1380, 930 )
+position = Vector2( 1365, 930 )
 
 [node name="RightPlayerPosition2" type="Position2D" parent="RightSupply"]
-position = Vector2( 1595, 930 )
+position = Vector2( 1580, 930 )
 
 [node name="RightPlayerPosition3" type="Position2D" parent="RightSupply"]
-position = Vector2( 1810, 930 )
+position = Vector2( 1145, 930 )
 
 [node name="LeftStackPosition" type="Position2D" parent="."]
-position = Vector2( 775, 930 )
+position = Vector2( 110, 930 )
 
 [node name="RightStackPosition" type="Position2D" parent="."]
-position = Vector2( 1145, 930 )
+position = Vector2( 1810, 930 )
 
 [node name="SpaceIndicator" parent="." instance=ExtResource( 10 )]
 visible = false
 
 [node name="AudioManager" parent="." instance=ExtResource( 18 )]
-
-[node name="Settings" parent="." instance=ExtResource( 19 )]
