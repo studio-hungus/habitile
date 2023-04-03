@@ -49,30 +49,30 @@ volume_db = -80.0
 [node name="LeftSupply" type="Node2D" parent="."]
 
 [node name="LeftPlayerPosition1" type="Position2D" parent="LeftSupply"]
-position = Vector2( 117, 930 )
+position = Vector2( 110, 930 )
 
 [node name="LeftPlayerPosition2" type="Position2D" parent="LeftSupply"]
-position = Vector2( 354, 930 )
+position = Vector2( 325, 930 )
 
 [node name="LeftPlayerPosition3" type="Position2D" parent="LeftSupply"]
-position = Vector2( 591, 930 )
+position = Vector2( 540, 930 )
 
 [node name="RightSupply" type="Node2D" parent="."]
 
 [node name="RightPlayerPosition1" type="Position2D" parent="RightSupply"]
-position = Vector2( 1322, 930 )
+position = Vector2( 1380, 930 )
 
 [node name="RightPlayerPosition2" type="Position2D" parent="RightSupply"]
-position = Vector2( 1559, 930 )
+position = Vector2( 1595, 930 )
 
 [node name="RightPlayerPosition3" type="Position2D" parent="RightSupply"]
-position = Vector2( 1796, 930 )
+position = Vector2( 1810, 930 )
 
 [node name="LeftStackPosition" type="Position2D" parent="."]
-position = Vector2( 828, 926 )
+position = Vector2( 775, 930 )
 
 [node name="RightStackPosition" type="Position2D" parent="."]
-position = Vector2( 1085, 930 )
+position = Vector2( 1145, 930 )
 
 [node name="SpaceIndicator" parent="." instance=ExtResource( 10 )]
 visible = false

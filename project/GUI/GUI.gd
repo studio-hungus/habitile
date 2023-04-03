@@ -86,3 +86,7 @@ func _display_score():
 
 func _on_PlayAgainButton_pressed() -> void:
 	emit_signal("play_again_button_pressed")
+
+
+func _on_FullscreenButton_pressed():
+	OS.window_fullscreen = !OS.window_fullscreen
