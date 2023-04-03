@@ -175,8 +175,7 @@ func _place_tile_on_board(tile: Tile) -> void:
 	_drop_sound.play()
 	tile.global_position = _hovered_node.global_position
 	tile.set_interactable(false)
-# warning-ignore:return_value_discarded
-	tile.connect("animation_finished",self,"_on_Tile_animation_finished")
+
 
 	#Add new tile to supply
 	if _is_left_player_turn and _left_stack.size() > 0:
@@ -195,13 +194,12 @@ func _place_tile_on_board(tile: Tile) -> void:
 	else:
 		_right_score += score_modifier
 	_gui.update_score(_left_score, _right_score)
-
-
-func _on_Tile_animation_finished():
+	
 	if _board.get_number_of_empty_spaces() == 0:
 		_on_board_filled()
 	else:
 		_swap_turn()
+
 
 
 func _move_tile_to_supply(tile: Tile, position: Vector2) -> void:
