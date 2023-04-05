@@ -6,12 +6,12 @@
 [ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://GUI/border_top.png" type="Texture" id=5]
 [ext_resource path="res://GUI/border_bottom.png" type="Texture" id=6]
-[ext_resource path="res://GUI/fullscreen_shrink_icon.png" type="Texture" id=7]
+[ext_resource path="res://GUI/button_fullscreen_expand.png" type="Texture" id=7]
 [ext_resource path="res://GUI/scoreboard.png" type="Texture" id=8]
 [ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=9]
-[ext_resource path="res://GUI/fullscreen_expand_icon.png" type="Texture" id=10]
-[ext_resource path="res://GUI/mutebutton_off.png" type="Texture" id=11]
-[ext_resource path="res://GUI/mutebutton_on.png" type="Texture" id=12]
+[ext_resource path="res://GUI/button_fullscreen_shrink.png" type="Texture" id=10]
+[ext_resource path="res://GUI/button_sound_on.png" type="Texture" id=11]
+[ext_resource path="res://GUI/button_sound_off.png" type="Texture" id=12]
 
 [sub_resource type="StreamTexture" id=3]
 
@@ -266,8 +266,8 @@ alignment = 1
 margin_right = 80.0
 margin_bottom = 80.0
 toggle_mode = true
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 7 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 10 )
 stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/HBoxContainer/VBoxContainer"]
