@@ -9,6 +9,7 @@ env:
   GODOT_VERSION: 3.5.1 # Remember to manually set image to this version below.
 
 on:
+  workflow-dispatch:
   push:
     branches:
       - master
