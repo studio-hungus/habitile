@@ -1,8 +1,8 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
-[ext_resource path="res://Tile/TileTypes/Coyote/tile_supply_coyote.png" type="Texture" id=2]
-[ext_resource path="res://Tile/TileTypes/Coyote/tile_board_coyote.png" type="Texture" id=8]
+[ext_resource path="res://Tile/TileTypes/Coyote/Coyete_hand_tile_image.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/Coyote/Coyete_hand_tile_trans.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )
@@ -12,4 +12,4 @@ negative_score_modifier = -25
 positive_neighbor_names = [ "Deer", "Lizard", "Mouse", "Bullfrog" ]
 negative_neighbor_names = [ "Empty Field" ]
 in_supply_texture = ExtResource( 2 )
-on_board_texture = ExtResource( 8 )
+on_board_texture = ExtResource( 3 )

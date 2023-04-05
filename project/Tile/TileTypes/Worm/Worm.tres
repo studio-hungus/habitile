@@ -1,8 +1,8 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
-[ext_resource path="res://Tile/TileTypes/Worm/tile_board_worm.png" type="Texture" id=2]
-[ext_resource path="res://Tile/TileTypes/Worm/tile_supply_worm.png" type="Texture" id=3]
+[ext_resource path="res://Tile/TileTypes/Worm/Worm_hand_tile_image.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/Worm/Worm_hand_tile_trans.png" type="Texture" id=3]
 
 [resource]
 resource_local_to_scene = true
@@ -12,5 +12,5 @@ positive_score_modifier = 5
 negative_score_modifier = -10
 positive_neighbor_names = [ "Wildflowers", "Water" ]
 negative_neighbor_names = [ "Bullfrog", "Mouse", "Hawk", "Lizard" ]
-in_supply_texture = ExtResource( 3 )
-on_board_texture = ExtResource( 2 )
+in_supply_texture = ExtResource( 2 )
+on_board_texture = ExtResource( 3 )

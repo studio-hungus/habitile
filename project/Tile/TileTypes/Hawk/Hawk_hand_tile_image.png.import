@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_revamp_test_variant_1.png-b4705f9fe74dbd4daa63805daa8976d3.stex"
+path="res://.import/Hawk_hand_tile_image.png-4ce21651782db1236e31ef5549ade6fd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Beehive/tile_revamp_test_variant_1.png"
-dest_files=[ "res://.import/tile_revamp_test_variant_1.png-b4705f9fe74dbd4daa63805daa8976d3.stex" ]
+source_file="res://Tile/TileTypes/Hawk/Hawk_hand_tile_image.png"
+dest_files=[ "res://.import/Hawk_hand_tile_image.png-4ce21651782db1236e31ef5549ade6fd.stex" ]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=1]
-[ext_resource path="res://Tile/TileTypes/Mouse/tile_board_mouse.png" type="Texture" id=2]
-[ext_resource path="res://Tile/TileTypes/Mouse/tile_supply_mouse.png" type="Texture" id=3]
+[ext_resource path="res://Tile/TileTypes/Mouse/Mouse_hand_tile_trans.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/Mouse/Mouse_hand_tile_image.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )

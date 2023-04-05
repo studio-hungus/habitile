@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://Tile/TileTypes/Hawk/tile_board_hawk.png" type="Texture" id=1]
-[ext_resource path="res://Tile/TileTypes/Hawk/tile_supply_hawk.png" type="Texture" id=2]
+[ext_resource path="res://Tile/TileTypes/Hawk/Hawk_hand_tile_image.png" type="Texture" id=1]
+[ext_resource path="res://Tile/TileTypes/Hawk/Hawk_hand_tile_trans.png" type="Texture" id=2]
 [ext_resource path="res://Tile/TileType.gd" type="Script" id=5]
 
 [resource]
@@ -11,5 +11,5 @@ positive_score_modifier = 15
 negative_score_modifier = -20
 positive_neighbor_names = [ "Bullfrog", "Lizard", "Mouse", "Worm" ]
 negative_neighbor_names = [  ]
-in_supply_texture = ExtResource( 2 )
-on_board_texture = ExtResource( 1 )
+in_supply_texture = ExtResource( 1 )
+on_board_texture = ExtResource( 2 )

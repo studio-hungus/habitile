@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile_revamp_test_variant_2.png-148d679578da169b0c0ce62bd9ebdaff.stex"
+path="res://.import/Deer_hand_tile_trans.png-0a0c25837c4413990eff1eb946e25c08.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile/TileTypes/Beehive/tile_revamp_test_variant_2.png"
-dest_files=[ "res://.import/tile_revamp_test_variant_2.png-148d679578da169b0c0ce62bd9ebdaff.stex" ]
+source_file="res://Tile/TileTypes/Deer/Deer_hand_tile_trans.png"
+dest_files=[ "res://.import/Deer_hand_tile_trans.png-0a0c25837c4413990eff1eb946e25c08.stex" ]
 
 [params]
 
