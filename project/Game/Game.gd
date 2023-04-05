@@ -193,6 +193,7 @@ func _place_tile_on_board(tile: Tile) -> void:
 		_left_score += score_modifier
 	else:
 		_right_score += score_modifier
+
 	_gui.update_score(_left_score, _right_score)
 	
 	if _board.get_number_of_empty_spaces() == 0:

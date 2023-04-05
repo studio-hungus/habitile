@@ -56,7 +56,7 @@ func display_gameover(end_state) -> void:
 
 	var _end_game_gui_instance = _end_game_gui.instance()
 	_end_game_canvas.add_child(_end_game_gui_instance)
-	_end_game_gui_instance.display_gameover_screen(end_state, _left_player_score_label.text, _right_player_score_label.text)
+	_end_game_gui_instance.display_gameover_screen(end_state, str(_left_target), str(_right_target))
 
 
 func _tween_alpha(node: Node, value: float) -> void:
