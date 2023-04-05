@@ -164,11 +164,11 @@ func _display_supply() -> void:
 func _display_stack_top() -> void:
 	if not _left_stack.empty():
 		_left_stack[0].visible = true
-		_left_stack[0].modulate = Color.gray
+		_left_stack[0].modulate = Color("#666")
 
 	if not _right_stack.empty():
 		_right_stack[0].visible = true
-		_right_stack[0].modulate = Color.gray
+		_right_stack[0].modulate = Color("#666")
 
 
 func _place_tile_on_board(tile: Tile) -> void:
