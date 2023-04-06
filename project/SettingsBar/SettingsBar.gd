@@ -1,5 +1,12 @@
 extends Control
 
+onready var fullscreen_button := find_node("FullscreenButton")
+
+
+func _ready():
+	if OS.window_fullscreen:
+		fullscreen_button.pressed = true
+
 
 func _on_FullscreenButton_pressed():
 	OS.window_fullscreen = !OS.window_fullscreen
