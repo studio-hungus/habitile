@@ -41,6 +41,7 @@ margin_bottom = 54.0
 rect_pivot_offset = Vector2( -148, -10 )
 custom_fonts/font = ExtResource( 1 )
 text = "+5"
+align = 2
 
 [node name="Minus" type="Label" parent="AnimalName"]
 margin_left = 2.0
@@ -49,6 +50,7 @@ margin_right = 42.0
 margin_bottom = 128.0
 custom_fonts/font = ExtResource( 1 )
 text = "-10"
+align = 2
 
 [node name="BoardSprite" type="Sprite" parent="."]
 visible = false
@@ -78,18 +80,33 @@ margin_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource( 5 )
 
-[node name="PositivePoints" type="Label" parent="SupplyTile"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 152.0
-margin_top = 139.0
-margin_right = -8.0
-margin_bottom = -108.0
+[node name="lkajsdlkgja" type="VBoxContainer" parent="SupplyTile"]
+margin_left = 145.0
+margin_top = 113.0
+margin_right = 189.0
+margin_bottom = 280.0
+custom_constants/separation = 55
+alignment = 1
+
+[node name="PositivePoints" type="Label" parent="SupplyTile/lkajsdlkgja"]
+margin_top = 27.0
+margin_right = 44.0
+margin_bottom = 56.0
 custom_colors/font_color = Color( 0.231373, 0.196078, 0.196078, 1 )
 custom_colors/font_outline_modulate = Color( 0.870588, 0.870588, 0.866667, 1 )
 custom_fonts/font = ExtResource( 6 )
-text = "+20"
-valign = 1
+text = "+25"
+align = 2
+
+[node name="NegativePoints" type="Label" parent="SupplyTile/lkajsdlkgja"]
+margin_top = 111.0
+margin_right = 44.0
+margin_bottom = 140.0
+custom_colors/font_color = Color( 0.231373, 0.196078, 0.196078, 1 )
+custom_colors/font_outline_modulate = Color( 0.870588, 0.870588, 0.866667, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "-25"
+align = 2
 
 [node name="PositiveCreatures" type="Label" parent="SupplyTile"]
 anchor_right = 1.0
@@ -106,19 +123,6 @@ custom_fonts/font = ExtResource( 4 )
 text = "bees, coyotes, harriers, grass"
 valign = 1
 autowrap = true
-
-[node name="NegativePoints" type="Label" parent="SupplyTile"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 158.0
-margin_top = 225.0
-margin_right = -16.0
-margin_bottom = -31.0
-custom_colors/font_color = Color( 0.231373, 0.196078, 0.196078, 1 )
-custom_colors/font_outline_modulate = Color( 0.870588, 0.870588, 0.866667, 1 )
-custom_fonts/font = ExtResource( 6 )
-text = "-10"
-valign = 1
 
 [node name="NegativeCreatures" type="Label" parent="SupplyTile"]
 anchor_top = 0.5
