@@ -36,3 +36,6 @@ func _display_win(end_state) -> void:
 
 func _on_PlayAgain_pressed() -> void:
 	var _current_scene = get_tree().reload_current_scene()
+
+func _on_FullscreenButton_pressed():
+	OS.window_fullscreen = !OS.window_fullscreen

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://GUI/board_v2.png" type="Texture" id=2]
@@ -6,12 +6,12 @@
 [ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://GUI/border_top.png" type="Texture" id=5]
 [ext_resource path="res://GUI/border_bottom.png" type="Texture" id=6]
-[ext_resource path="res://GUI/button_fullscreen_expand.png" type="Texture" id=7]
+[ext_resource path="res://SettingsBar/SettingsBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GUI/scoreboard.png" type="Texture" id=8]
 [ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=9]
-[ext_resource path="res://GUI/button_fullscreen_shrink.png" type="Texture" id=10]
-[ext_resource path="res://GUI/button_sound_on.png" type="Texture" id=11]
-[ext_resource path="res://GUI/button_sound_off.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.717647, 0.803922, 0.301961, 1 )
 
 [sub_resource type="StreamTexture" id=3]
 
@@ -28,9 +28,6 @@ width = 920
 height = 304
 fill_to = Vector2( 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.717647, 0.803922, 0.301961, 1 )
-
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,6 +39,13 @@ script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+
+[node name="SettingsBackground" type="Panel" parent="CanvasLayer"]
+margin_left = 920.0
+margin_top = 780.0
+margin_right = 1000.0
+margin_bottom = 1080.0
+custom_styles/panel = SubResource( 8 )
 
 [node name="BoardSquare" type="TextureRect" parent="CanvasLayer"]
 margin_right = 1920.0
@@ -234,55 +238,7 @@ bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
 scroll_active = false
 
-[node name="TextureRect" type="Panel" parent="."]
-margin_left = 920.0
-margin_top = 780.0
-margin_right = 1000.0
-margin_bottom = 1080.0
-custom_styles/panel = SubResource( 8 )
+[node name="SettingsBarCanvas" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
-margin_top = 32.0
-margin_right = 80.0
-margin_bottom = 267.0
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/VBoxContainer/HBoxContainer"]
-margin_right = 80.0
-margin_bottom = 235.0
-custom_constants/separation = 75
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 80.0
-margin_bottom = 80.0
-alignment = 1
-
-[node name="FullscreenButton" type="TextureButton" parent="TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
-margin_right = 80.0
-margin_bottom = 80.0
-toggle_mode = true
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 10 )
-stretch_mode = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 155.0
-margin_right = 80.0
-margin_bottom = 235.0
-alignment = 1
-
-[node name="MuteButton" type="TextureButton" parent="TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_right = 80.0
-margin_bottom = 80.0
-toggle_mode = true
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 12 )
-stretch_mode = 3
-
-[connection signal="pressed" from="TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]
-[connection signal="toggled" from="TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/MuteButton" to="." method="_on_MuteButton_toggled"]
+[node name="SettingsBar" parent="SettingsBarCanvas" instance=ExtResource( 7 )]
