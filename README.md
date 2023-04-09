@@ -3,4 +3,6 @@
 Play [here](https://spring2023gamestudio.github.io/CS_490_GAME/)!
 
 ## 3rd Party Assets
-Roboto-Medium from [google fonts](https://fonts.google.com/specimen/Roboto/about?query=roboto) licensed under the [Apache license](licenses\LICENSE.txt)
+AveriaLibre - Bold from [google fonts](https://fonts.google.com/specimen/Averia+Libre?query=averia+libre) licensed under the [SIL Open Font Liscence](licenses/Averia_Libre_OFL.txt)
+
+Barlow - SemiBold from [google fonts](https://fonts.google.com/specimen/Barlow?query=barlow) licensed under the [SIL Open Font Liscence](licenses/Barlow_OFL.txt)
