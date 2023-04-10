@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://GUI/board_v2.png" type="Texture" id=2]
 [ext_resource path="res://GUI/wirefram_board_v4.png" type="Texture" id=3]
 [ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://GUI/border_top.png" type="Texture" id=5]
-[ext_resource path="res://GUI/border_bottom.png" type="Texture" id=6]
 [ext_resource path="res://SettingsBar/SettingsBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GUI/scoreboard.png" type="Texture" id=8]
 [ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=9]
@@ -92,21 +90,6 @@ margin_right = 920.0
 margin_bottom = 304.0
 mouse_filter = 2
 texture = SubResource( 6 )
-
-[node name="TopBorder" type="TextureRect" parent="CanvasLayer"]
-visible = false
-margin_left = 384.0
-margin_right = 1536.0
-margin_bottom = 60.0
-texture = ExtResource( 5 )
-
-[node name="BottomBorder" type="TextureRect" parent="CanvasLayer"]
-visible = false
-margin_left = 384.0
-margin_top = 1024.0
-margin_right = 1536.0
-margin_bottom = 1084.0
-texture = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
 

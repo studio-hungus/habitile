@@ -21,7 +21,6 @@ var state = State.BIG setget set_state
 onready var _supply_sprite := find_node("SupplyTexture")
 onready var _supply_tile := find_node("SupplyTile")
 onready var _board_sprite := get_node("BoardSprite")
-onready var _name_label := get_node("AnimalName")
 
 
 func contains(mouse_position: Vector2) -> bool:
@@ -66,7 +65,6 @@ func initialize_type(init_type: TileType):
 
 	_supply_sprite.texture = type.in_supply_texture
 	_board_sprite.texture = type.on_board_texture
-	_name_label.text = type.name
 	
 	find_node("PositivePoints").text = "+%s" % type.positive_score_modifier
 	find_node("NegativePoints").text = "-%s" % abs(type.negative_score_modifier)
@@ -92,13 +90,11 @@ func set_state(value) -> void:
 func _enter_big_state() -> void:
 	_supply_tile.visible = true
 	_board_sprite.visible = false
-	_name_label.visible = true
 
 
 func _enter_small_state() -> void:
 	_supply_tile.visible = false
 	_board_sprite.visible = true
-	_name_label.visible = false
 
 
 func calculate_points(neighbors: Array) -> int:
