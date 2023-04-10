@@ -1,8 +1,8 @@
-extends Control
+extends Node
 
 onready var fullscreen_button := find_node("FullscreenButton")
 onready var mute_button := find_node("MuteButton")
-
+onready var resign_dialog := find_node("ResignDialogLayer")
 
 
 func _ready():
@@ -19,3 +19,15 @@ func _on_FullscreenButton_pressed():
 
 func _on_MuteButton_toggled(button_pressed):
 	AudioServer.set_bus_mute(0, button_pressed)
+
+
+func _on_ResignButton_pressed():
+	resign_dialog.visible = true
+
+
+func _on_ConfirmButton_pressed():
+	var _current_scene = get_tree().reload_current_scene()
+
+
+func _on_CancelButton_pressed():
+	resign_dialog.visible = false

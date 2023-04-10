@@ -221,7 +221,4 @@ bbcode_text = "[center]UP NEXT[/center]"
 text = "UP NEXT"
 scroll_active = false
 
-[node name="SettingsBarCanvas" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="SettingsBar" parent="SettingsBarCanvas" instance=ExtResource( 7 )]
+[node name="SettingsBar" parent="." instance=ExtResource( 7 )]
