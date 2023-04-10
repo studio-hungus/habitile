@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GUI/button_fullscreen_expand.png" type="Texture" id=2]
+[ext_resource path="res://Common/Size100Font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://TitleScreen/Credits/Credits.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.627451, 0.427451, 0.152941, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.376471, 0.282353, 0.0470588, 1 )
+expand_margin_left = 32.0
+expand_margin_right = 32.0
+expand_margin_top = 32.0
+expand_margin_bottom = 32.0
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = 501.0
+margin_top = 227.0
+margin_right = 1418.0
+margin_bottom = 852.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 909.0
+margin_bottom = 617.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 901.0
+margin_bottom = 121.0
+custom_fonts/font = ExtResource( 3 )
+text = "The Team"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 125.0
+margin_right = 901.0
+margin_bottom = 609.0
+custom_constants/margin_right = 96
+custom_constants/margin_top = 64
+custom_constants/margin_left = 96
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer"]
+margin_left = 96.0
+margin_top = 64.0
+margin_right = 805.0
+margin_bottom = 484.0
+custom_constants/separation = 192
+
+[node name="LeftColumn" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_right = 259.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_constants/line_spacing = 12
+custom_fonts/font = ExtResource( 1 )
+text = "Paul Gestwicki
+Rachel Berg
+Lyle Dotson
+Victoria Granger
+Jeffrey Harmon
+Kira Kasdorf
+Karim Mahfouz
+"
+
+[node name="RightColumn" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 451.0
+margin_right = 709.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_constants/line_spacing = 12
+custom_fonts/font = ExtResource( 1 )
+text = "Jadi Miller
+Tyler Newlin
+Pandora Roberts
+Max Stephens
+Robin Walma
+Noah Williams
+Brooke Wright"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 909.0
+margin_bottom = 617.0
+alignment = 2
+
+[node name="ExitButton" type="TextureButton" parent="CenterContainer/PanelContainer/HBoxContainer"]
+margin_left = 821.0
+margin_right = 901.0
+margin_bottom = 609.0
+texture_normal = ExtResource( 2 )
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/HBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
