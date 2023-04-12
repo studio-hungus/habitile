@@ -15,7 +15,7 @@ onready var _end_game_gui = load("res://EndGameGUI/EndGameGUI.tscn")
 onready var _end_game_canvas = find_node("EndGameCanvas")
 onready var _left_player_score_label = find_node("LeftPlayerScore")
 onready var _right_player_score_label = find_node("RightPlayerScore")
-onready var _settings_bar_canvas = find_node("SettingsBarCanvas")
+
 
 
 var is_updating_score := false
@@ -60,7 +60,7 @@ func display_gameover(end_state) -> void:
 	_end_game_gui_instance.display_gameover_screen(end_state, str(_left_target), str(_right_target))
 	_end_game_canvas.move_child(_end_game_gui_instance,0)
 	
-	_settings_bar_canvas.layer = 1
+
 
 
 func _tween_alpha(node: Node, value: float) -> void:
