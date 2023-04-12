@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://GUI/button_fullscreen_expand.png" type="Texture" id=2]
+[ext_resource path="res://SettingsBar/button_x.png" type="Texture" id=2]
 [ext_resource path="res://Common/Size100Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://TitleScreen/Credits/Credits.gd" type="Script" id=4]
 
