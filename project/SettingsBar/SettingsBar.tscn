@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://SettingsBar/SettingsBar.gd" type="Script" id=1]
 [ext_resource path="res://GUI/button_fullscreen_expand.png" type="Texture" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://GUI/button_fullscreen_shrink.png" type="Texture" id=4]
 [ext_resource path="res://GUI/button_sound_off.png" type="Texture" id=5]
 [ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://SettingsBar/button_flag.png" type="Texture" id=7]
+[ext_resource path="res://SettingsBar/button_flag_press.png" type="Texture" id=8]
+[ext_resource path="res://SettingsBar/button_check.png" type="Texture" id=9]
+[ext_resource path="res://SettingsBar/button_x.png" type="Texture" id=10]
 
 [node name="SettingsBar" type="CanvasLayer"]
 layer = -1
@@ -57,13 +61,13 @@ alignment = 1
 margin_left = 164.0
 margin_right = 244.0
 margin_bottom = 80.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 9 )
 
 [node name="CancelButton" type="TextureButton" parent="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer"]
 margin_left = 268.0
 margin_right = 348.0
 margin_bottom = 80.0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 10 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -98,8 +102,8 @@ stretch_mode = 3
 margin_top = 212.0
 margin_right = 81.0
 margin_bottom = 292.0
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
 stretch_mode = 3
 
 [connection signal="pressed" from="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
