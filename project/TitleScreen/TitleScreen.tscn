@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://GUI/button_fullscreen_shrink.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://EndGameGUI/Button.png" type="Texture" id=12]
 [ext_resource path="res://Common/Size100Font.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Common/AveriaLibre-Bold.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://TitleScreen/Sunset.ogg" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 46
@@ -105,7 +106,7 @@ margin_top = -60.5
 margin_right = 175.0
 margin_bottom = 60.5
 custom_fonts/font = ExtResource( 13 )
-text = "CREDIT"
+text = "CREDITS"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.5
@@ -146,6 +147,10 @@ margin_left = -960.0
 margin_top = -540.0
 margin_right = 960.0
 margin_bottom = 540.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sunset.ogg-38dafcc78a6801ac5483126f9b05b4ce.oggstr"
+
+[deps]
+
+source_file="res://TitleScreen/Sunset.ogg"
+dest_files=[ "res://.import/Sunset.ogg-38dafcc78a6801ac5483126f9b05b4ce.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
