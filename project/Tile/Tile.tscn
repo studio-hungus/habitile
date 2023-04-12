@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://testfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Tile/Tile.gd" type="Script" id=2]
 [ext_resource path="res://Tile/vole_placeholder.png" type="Texture" id=3]
 [ext_resource path="res://Common/TileFont.tres" type="DynamicFont" id=4]
@@ -30,7 +29,6 @@ shape = SubResource( 2 )
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 1 )
 text = "00"
 
 [node name="SupplyTile" type="ColorRect" parent="."]
