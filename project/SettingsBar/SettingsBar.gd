@@ -5,7 +5,11 @@ onready var mute_button := find_node("MuteButton")
 onready var resign_dialog := find_node("ResignDialogLayer")
 
 
+var _start_screen := load("res://TitleScreen/TitleScreen.tscn")
+
+
 func _ready():
+	
 	if OS.window_fullscreen:
 		fullscreen_button.pressed = true
 
@@ -26,7 +30,7 @@ func _on_ResignButton_pressed():
 
 
 func _on_ConfirmButton_pressed():
-	var _current_scene = get_tree().reload_current_scene()
+	var _current_scene = get_tree().change_scene_to(_start_screen)
 
 
 func _on_CancelButton_pressed():
