@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="CardOverlay" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 199 117.11">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #603913;
+      }
+
+      .cls-2 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-3" x="-.5" width="200" height="280" rx="10" ry="10"/>
+    </clipPath>
+  </defs>
+  <g class="cls-2">
+    <path class="cls-1" d="m-.5-4.11v287.34h200V-4.11H-.5Zm194.99,112.09c0,2.76-2.24,5-5,5H9.47c-2.76,0-5-2.24-5-5V11.92c0-2.76,2.24-5,5-5h180.02c2.76,0,5,2.24,5,5v96.07Z"/>
+  </g>
+</svg>
