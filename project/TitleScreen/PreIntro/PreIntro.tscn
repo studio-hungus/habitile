@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://TitleScreen/PreIntro/PreIntro.gd" type="Script" id=1]
+[ext_resource path="res://TitleScreen/PreIntro/preIntro.png" type="Texture" id=2]
+[ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade"
@@ -46,6 +48,34 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../OpenImage/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "TextFadeIn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../OpenImage/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="PreIntro" type="Control"]
 anchor_right = 1.0
@@ -56,10 +86,58 @@ script = ExtResource( 1 )
 root_node = NodePath("../Fade")
 anims/Fade = SubResource( 1 )
 anims/RESET = SubResource( 2 )
+anims/TextFadeIn = SubResource( 3 )
 
 [node name="Fade" type="ColorRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="OpenImage" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 2 )
+
+[node name="Tablet" type="Label" parent="OpenImage"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1103.0
+margin_top = 988.0
+margin_right = -661.0
+margin_bottom = -34.0
+custom_fonts/font = ExtResource( 3 )
+text = "Tablet"
+
+[node name="Computer" type="Label" parent="OpenImage"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 488.0
+margin_top = 988.0
+margin_right = -1242.0
+margin_bottom = -34.0
+custom_fonts/font = ExtResource( 3 )
+text = "PC/Mac"
+
+[node name="OptimizedFor" type="Label" parent="OpenImage"]
+margin_left = 728.0
+margin_top = 631.0
+margin_right = 1080.0
+margin_bottom = 689.0
+custom_fonts/font = ExtResource( 3 )
+text = "Optimized for"
+
+[node name="Label" type="Label" parent="OpenImage"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -330.0
+margin_top = -118.0
+margin_right = 241.0
+margin_bottom = -60.0
+custom_fonts/font = ExtResource( 3 )
+text = "Click here to continue"
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )

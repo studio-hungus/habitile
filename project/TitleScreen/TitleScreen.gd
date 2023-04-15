@@ -32,3 +32,7 @@ func _on_FullscreenButton_toggled(_button_pressed):
 
 func _on_MuteButton_toggled(button_pressed):
 	AudioServer.set_bus_mute(0, button_pressed)
+
+
+func _on_PreIntro_play_music():
+	$AudioStreamPlayer.play()
