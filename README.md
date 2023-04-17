@@ -1,6 +1,6 @@
-# CS 490 Game - Grasslands
+# HabiTile
 
-Play [here](https://spring2023gamestudio.github.io/CS_490_GAME/)!
+Play [here](https://studio-hungus.github.io/habitile/)!
 
 ## 3rd Party Assets
 AveriaLibre - Bold from [google fonts](https://fonts.google.com/specimen/Averia+Libre?query=averia+libre) licensed under the [SIL Open Font Liscence](licenses/Averia_Libre_OFL.txt)
