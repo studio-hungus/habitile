@@ -1,6 +1,6 @@
 extends Control
 
-
+onready var _game = preload("res://Game/Game.tscn")
 onready var _fullscreen_button := find_node("FullscreenButton")
 onready var _mute_button := find_node("MuteButton")
 onready var _resign_dialog := find_node("ResignDialogLayer")
@@ -18,7 +18,7 @@ func _ready():
 
 func _on_Play_pressed():
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Game/Game.tscn")
+	get_tree().change_scene_to(_game)
 
 
 func _on_Credits_pressed():
