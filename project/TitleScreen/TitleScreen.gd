@@ -8,8 +8,7 @@ onready var _resign_dialog := find_node("ResignDialogLayer")
 
 func _ready():
 	
-	if OS.window_fullscreen:
-		_fullscreen_button.pressed = true
+	_fullscreen_button.pressed = OS.window_fullscreen
 
 	if AudioServer.is_bus_mute(0):
 		_mute_button.pressed = true
@@ -26,8 +25,8 @@ func _on_Credits_pressed():
 	$CreditScreen.visible = !$CreditScreen.visible
 
 
-func _on_FullscreenButton_toggled(_button_pressed):
-	OS.window_fullscreen = !OS.window_fullscreen
+func _on_FullscreenButton_toggled(button_pressed):
+	OS.window_fullscreen = button_pressed
 
 
 func _on_MuteButton_toggled(button_pressed):

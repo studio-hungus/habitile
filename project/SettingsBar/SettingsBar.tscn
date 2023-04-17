@@ -108,6 +108,6 @@ stretch_mode = 3
 
 [connection signal="pressed" from="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
 [connection signal="pressed" from="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]
+[connection signal="toggled" from="VBoxContainer/FullscreenButton" to="." method="_on_FullscreenButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/MuteButton" to="." method="_on_MuteButton_toggled"]
 [connection signal="pressed" from="VBoxContainer/ResignButton" to="." method="_on_ResignButton_pressed"]
