@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://GUI/button_fullscreen_shrink.png" type="Texture" id=2]
@@ -11,10 +11,13 @@
 [ext_resource path="res://TitleScreen/Mouse_cards.png" type="Texture" id=9]
 [ext_resource path="res://TitleScreen/main_screen_Grass.png" type="Texture" id=10]
 [ext_resource path="res://TitleScreen/GameLogo.png" type="Texture" id=11]
-[ext_resource path="res://EndGameGUI/Button.png" type="Texture" id=12]
+[ext_resource path="res://TitleScreen/button_board_dark.png" type="Texture" id=12]
 [ext_resource path="res://Common/Size100Font.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Common/AveriaLibre-Bold.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://TitleScreen/Sunset.ogg" type="AudioStream" id=15]
+[ext_resource path="res://TitleScreen/button_board.png" type="Texture" id=16]
+[ext_resource path="res://TitleScreen/button_twoplayer.png" type="Texture" id=17]
+[ext_resource path="res://Common/PlayButtonFont.tres" type="DynamicFont" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 46
@@ -69,7 +72,7 @@ margin_left = -350.0
 margin_top = -95.5
 margin_right = 350.0
 margin_bottom = 79.5
-texture_normal = ExtResource( 12 )
+texture_normal = ExtResource( 16 )
 expand = true
 
 [node name="Label" type="Label" parent="Play"]
@@ -77,13 +80,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -71.5
-margin_right = 95.9998
-margin_bottom = 49.5
-rect_scale = Vector2( 1.2, 1.2 )
-custom_fonts/font = ExtResource( 13 )
+margin_left = -92.0003
+margin_top = -84.5
+margin_right = 256.0
+margin_bottom = 88.5
+custom_fonts/font = ExtResource( 18 )
 text = "PLAY"
+
+[node name="TwoPlayers" type="TextureRect" parent="Play"]
+margin_left = 57.0
+margin_top = 20.5
+margin_right = 210.0
+margin_bottom = 151.5
+mouse_filter = 2
+texture = ExtResource( 17 )
 
 [node name="Credits" type="TextureButton" parent="."]
 anchor_left = 0.5
@@ -109,15 +119,23 @@ margin_bottom = 60.5
 custom_fonts/font = ExtResource( 13 )
 text = "CREDITS"
 
+[node name="Backboard" type="TextureRect" parent="."]
+margin_left = 713.0
+margin_top = 835.0
+margin_right = 1207.0
+margin_bottom = 959.0
+texture = ExtResource( 16 )
+expand = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -100.0
-margin_top = 311.0
+margin_top = 319.0
 margin_right = 100.0
-margin_bottom = 391.0
+margin_bottom = 399.0
 rect_pivot_offset = Vector2( 100, 40 )
 custom_constants/separation = 40
 
