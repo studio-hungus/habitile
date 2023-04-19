@@ -39,3 +39,7 @@ func _on_PlayAgain_pressed() -> void:
 
 func _on_FullscreenButton_pressed():
 	OS.window_fullscreen = !OS.window_fullscreen
+
+
+func _on_QuitGameButton_pressed():
+	var _current_scene = get_tree().change_scene("res://TitleScreen/TitleScreen.tscn")

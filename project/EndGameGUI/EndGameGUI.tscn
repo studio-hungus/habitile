@@ -308,7 +308,43 @@ tracks/23/keys = {
 "times": PoolRealArray( 1.1, 1.33333 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 508, 542 ), Vector2( 508, 614 ) ]
+"values": [ Vector2( 508, 542 ), Vector2( 508, 554 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("QuitGameButton:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 1.155 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("QuitGameButton:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 1.155, 1.386 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("QuitGameButton:rect_position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 1.155, 1.386 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 508, 806 ), Vector2( 508, 818 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -673,6 +709,42 @@ tracks/29/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/30/type = "value"
+tracks/30/path = NodePath("QuitGameButton:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("QuitGameButton:modulate")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("QuitGameButton:rect_position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 508, 818 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "RightWin"
@@ -772,7 +844,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 1.1, 1.33333 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 508, 542 ), Vector2( 508, 614 ) ]
+"values": [ Vector2( 508, 542 ), Vector2( 508, 554 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("PlayAgainButton:modulate")
@@ -965,6 +1037,42 @@ tracks/23/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 5.0 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("QuitGameButton:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 1.155 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("QuitGameButton:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 1.155, 1.386 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("QuitGameButton:rect_position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 1.155, 1.386 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 508, 806 ), Vector2( 508, 818 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -1173,7 +1281,7 @@ tracks/16/keys = {
 "times": PoolRealArray( 1.1, 1.33333 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 508, 542 ), Vector2( 508, 614 ) ]
+"values": [ Vector2( 508, 542 ), Vector2( 508, 554 ) ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("TieTree:scale")
@@ -1210,6 +1318,42 @@ tracks/19/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("QuitGameButton:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 1.155 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("QuitGameButton:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 1.155, 1.386 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("QuitGameButton:rect_position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 1.155, 1.386 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 508, 806 ), Vector2( 508, 818 ) ]
 }
 
 [node name="EndGameGUI" type="Control"]
@@ -1253,10 +1397,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 508.0
-margin_top = 534.0
-margin_right = 1412.0
-margin_bottom = 752.0
+margin_left = -452.0
+margin_top = -6.0
+margin_right = 452.0
+margin_bottom = 212.0
 texture_normal = ExtResource( 1 )
 
 [node name="PlayAgainLabel" type="Label" parent="PlayAgainButton"]
@@ -1271,6 +1415,31 @@ margin_bottom = 59.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 4 )
 text = "Play Again"
+
+[node name="QuitGameButton" type="TextureButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -452.0
+margin_top = 278.0
+margin_right = 452.0
+margin_bottom = 496.002
+texture_normal = ExtResource( 1 )
+
+[node name="QuitGameLabel" type="Label" parent="QuitGameButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -59.0
+margin_right = 20.0
+margin_bottom = 59.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 4 )
+text = "Main Menu"
 
 [node name="Grass1" type="Sprite" parent="."]
 position = Vector2( -424, 1080 )
@@ -1375,3 +1544,4 @@ text = "TIE"
 align = 1
 
 [connection signal="pressed" from="PlayAgainButton" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]
