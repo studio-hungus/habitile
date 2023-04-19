@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="HabiTile"
-run/main_scene="res://TitleScreen/TitleScreen.tscn"
+run/main_scene="res://Root/Root.tscn"
 config/icon="res://icon.png"
 
 [display]
