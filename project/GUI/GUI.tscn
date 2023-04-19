@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://GUI/GUI.gd" type="Script" id=1]
 [ext_resource path="res://GUI/board_v2.png" type="Texture" id=2]
 [ext_resource path="res://GUI/wirefram_board_v4.png" type="Texture" id=3]
 [ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://GUI/upnextboard.png" type="Texture" id=5]
 [ext_resource path="res://SettingsBar/SettingsBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GUI/scoreboard.png" type="Texture" id=8]
 [ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=9]
@@ -120,7 +121,7 @@ z_index = 22
 
 [node name="LeftPlayerScoreboard" type="TextureRect" parent="Scoreboards"]
 light_mask = 2
-margin_right = 228.0
+margin_right = 229.0
 margin_bottom = 60.0
 texture = ExtResource( 8 )
 expand = true
@@ -141,9 +142,9 @@ align = 1
 valign = 1
 
 [node name="RightPlayerScoreboard" type="TextureRect" parent="Scoreboards"]
-margin_left = 1696.0
-margin_right = 1924.0
-margin_bottom = 60.0
+margin_left = 1691.0
+margin_right = 1919.0
+margin_bottom = 61.0
 texture = ExtResource( 8 )
 expand = true
 
@@ -169,7 +170,7 @@ z_index = 21
 [node name="UpNextBackground" type="TextureRect" parent="LeftUpNext"]
 margin_right = 210.0
 margin_bottom = 38.0
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 expand = true
 
 [node name="UpNextLabel" type="RichTextLabel" parent="LeftUpNext/UpNextBackground"]
@@ -199,7 +200,7 @@ z_index = 21
 margin_left = 732.0
 margin_right = 942.0
 margin_bottom = 38.0
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 expand = true
 
 [node name="UpNextLabel" type="RichTextLabel" parent="RightUpNext/UpNextBackground"]
