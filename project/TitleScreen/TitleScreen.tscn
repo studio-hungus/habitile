@@ -1,7 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://TitleScreen/menuTheme.tres" type="Theme" id=3]
+[ext_resource path="res://SettingsBar/button_fullscreen_expand_nobg.png" type="Texture" id=4]
+[ext_resource path="res://SettingsBar/button_sound_on_nobg.png" type="Texture" id=5]
 [ext_resource path="res://TitleScreen/Credits/Credits.tscn" type="PackedScene" id=6]
 [ext_resource path="res://TitleScreen/frog_cards.png" type="Texture" id=8]
 [ext_resource path="res://TitleScreen/Mouse_cards.png" type="Texture" id=9]
@@ -10,51 +13,6 @@
 [ext_resource path="res://Common/AveriaLibre-Bold.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://TitleScreen/Sunset.ogg" type="AudioStream" id=15]
 [ext_resource path="res://TitleScreen/button_twoplayer.png" type="Texture" id=17]
-[ext_resource path="res://Common/PlayButtonFont.tres" type="DynamicFont" id=18]
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
-draw_center = false
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 0.878431, 0.72549, 0.72549, 1 )
-border_blend = true
-corner_radius_top_left = 36
-corner_radius_top_right = 36
-corner_radius_bottom_right = 36
-corner_radius_bottom_left = 36
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.37, 0.2405, 0.2405, 1 )
-corner_radius_top_left = 36
-corner_radius_top_right = 36
-corner_radius_bottom_right = 36
-corner_radius_bottom_left = 36
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.372549, 0.0862745, 0.0862745, 1 )
-corner_radius_top_left = 36
-corner_radius_top_right = 36
-corner_radius_bottom_right = 36
-corner_radius_bottom_left = 36
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
-corner_radius_top_left = 36
-corner_radius_top_right = 36
-corner_radius_bottom_right = 36
-corner_radius_bottom_left = 36
-
-[sub_resource type="Theme" id=2]
-Button/colors/font_color = Color( 1, 1, 1, 1 )
-Button/constants/hseparation = -47
-Button/fonts/font = ExtResource( 18 )
-Button/styles/focus = SubResource( 5 )
-Button/styles/hover = SubResource( 4 )
-Button/styles/normal = SubResource( 3 )
-Button/styles/pressed = SubResource( 6 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 46
@@ -66,7 +24,7 @@ font_data = ExtResource( 14 )
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = SubResource( 2 )
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 
 [node name="Grass" type="Sprite" parent="."]
@@ -121,25 +79,27 @@ anchor_bottom = 0.5
 margin_left = -300.0
 margin_top = 120.0
 margin_right = 300.0
-margin_bottom = 270.0
+margin_bottom = 295.0
 text = "CREDITS"
 
 [node name="FullscreenButton" type="Button" parent="."]
-margin_left = 688.0
-margin_top = 857.0
-margin_right = 908.0
-margin_bottom = 1028.0
+margin_left = 731.0
+margin_top = 875.0
+margin_right = 906.0
+margin_bottom = 1050.0
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = true
-text = "Full Screen"
+icon = ExtResource( 4 )
+expand_icon = true
 
 [node name="MuteButton" type="Button" parent="."]
-margin_left = 929.0
-margin_top = 855.0
-margin_right = 1257.0
-margin_bottom = 1023.0
+margin_left = 1014.0
+margin_top = 875.0
+margin_right = 1189.0
+margin_bottom = 1050.0
 toggle_mode = true
-text = "Mute"
+icon = ExtResource( 5 )
+expand_icon = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )

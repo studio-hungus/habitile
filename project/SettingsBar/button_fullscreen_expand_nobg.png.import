@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_flag.png-0a87349ea13c06fbbb8c565cc29ba2c7.stex"
+path="res://.import/button_fullscreen_expand_nobg.png-fff8d8924736670d476db02a7c14b268.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SettingsBar/button_flag.png"
-dest_files=[ "res://.import/button_flag.png-0a87349ea13c06fbbb8c565cc29ba2c7.stex" ]
+source_file="res://SettingsBar/button_fullscreen_expand_nobg.png"
+dest_files=[ "res://.import/button_fullscreen_expand_nobg.png-fff8d8924736670d476db02a7c14b268.stex" ]
 
 [params]
 

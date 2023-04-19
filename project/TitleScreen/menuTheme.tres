@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://Common/PlayButtonFont.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.878431, 0.72549, 0.72549, 1 )
+border_blend = true
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.37, 0.2405, 0.2405, 1 )
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.372549, 0.0862745, 0.0862745, 1 )
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[resource]
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = -47
+Button/fonts/font = ExtResource( 1 )
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 5 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 6 )

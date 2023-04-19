@@ -1,8 +1,17 @@
 extends Node
 
-onready var fullscreen_button := find_node("FullscreenButton")
-onready var mute_button := find_node("MuteButton")
-onready var resign_dialog := find_node("ResignDialogLayer")
+const FULLSCREEN_PRESSED_ICON := preload("res://SettingsBar/button_fullscreen_shrink_nobg.png")
+const FULLSCREEN_UNPRESSED_ICON := preload("res://SettingsBar/button_fullscreen_expand_nobg.png")
+const MUTE_PRESSED_ICON := preload("res://SettingsBar/button_sound_off_nobg.png")
+const MUTE_UNPRESSED_ICON := preload("res://SettingsBar/button_sound_on_nobg.png")
+const RESIGN_PRESSED_ICON := preload("res://SettingsBar/button_flag_press_nobg.png")
+const RESIGN_UNPRESSED_ICON := preload("res://SettingsBar/button_flag_nobg.png")
+
+
+onready var _fullscreen_button := find_node("FullscreenButton")
+onready var _mute_button := find_node("MuteButton")
+onready var _resign_dialog := find_node("ResignDialogLayer")
+onready var _resign_button := find_node("ResignButton")
 
 
 var _start_screen := load("res://TitleScreen/TitleScreen.tscn")
@@ -10,18 +19,25 @@ var _start_screen := load("res://TitleScreen/TitleScreen.tscn")
 
 func _ready():
 	
-	fullscreen_button.pressed = OS.window_fullscreen
-
+	_fullscreen_button.pressed = OS.window_fullscreen
+	_update_fullscreen_button()
+	
 	if AudioServer.is_bus_mute(0):
-		mute_button.pressed = true
+		_mute_button.pressed = true
+	_update_mute_button()
 
 
 func _on_MuteButton_toggled(button_pressed):
 	AudioServer.set_bus_mute(0, button_pressed)
+	_update_mute_button()
 
 
-func _on_ResignButton_pressed():
-	resign_dialog.visible = true
+func _update_mute_button():
+	if _mute_button.pressed:
+		_mute_button.icon = MUTE_PRESSED_ICON
+	else:
+		_mute_button.icon = MUTE_UNPRESSED_ICON
+
 
 
 func _on_ConfirmButton_pressed():
@@ -29,8 +45,26 @@ func _on_ConfirmButton_pressed():
 
 
 func _on_CancelButton_pressed():
-	resign_dialog.visible = false
+	_resign_dialog.visible = false
+	_resign_button.pressed = !_resign_button.pressed
 
 
 func _on_FullscreenButton_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed
+	_update_fullscreen_button()
+
+
+func _update_fullscreen_button():
+	if _fullscreen_button.pressed:
+		_fullscreen_button.icon = FULLSCREEN_PRESSED_ICON
+	else:
+		_fullscreen_button.icon = FULLSCREEN_UNPRESSED_ICON
+
+
+func _on_ResignButton_toggled(button_pressed):
+	if button_pressed:
+		_resign_dialog.visible = true
+		_resign_button.icon = RESIGN_PRESSED_ICON
+	else:
+		_resign_dialog.visible = false
+		_resign_button.icon = RESIGN_UNPRESSED_ICON

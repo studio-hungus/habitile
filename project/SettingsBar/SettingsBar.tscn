@@ -1,20 +1,76 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://SettingsBar/SettingsBar.gd" type="Script" id=1]
-[ext_resource path="res://GUI/button_fullscreen_expand.png" type="Texture" id=2]
-[ext_resource path="res://GUI/button_sound_on.png" type="Texture" id=3]
-[ext_resource path="res://GUI/button_fullscreen_shrink.png" type="Texture" id=4]
-[ext_resource path="res://GUI/button_sound_off.png" type="Texture" id=5]
+[ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://TitleScreen/menuTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Common/Size100Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://SettingsBar/button_fullscreen_expand_nobg.png" type="Texture" id=5]
 [ext_resource path="res://Common/SignFont.tres" type="DynamicFont" id=6]
-[ext_resource path="res://SettingsBar/button_flag.png" type="Texture" id=7]
-[ext_resource path="res://SettingsBar/button_flag_press.png" type="Texture" id=8]
-[ext_resource path="res://SettingsBar/button_check.png" type="Texture" id=9]
-[ext_resource path="res://SettingsBar/button_x.png" type="Texture" id=10]
+[ext_resource path="res://SettingsBar/button_sound_on_nobg.png" type="Texture" id=7]
+[ext_resource path="res://SettingsBar/button_flag_nobg.png" type="Texture" id=8]
+[ext_resource path="res://Common/PlayButtonFont.tres" type="DynamicFont" id=9]
 [ext_resource path="res://SettingsBar/Surrender.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 600, 300 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.878431, 0.72549, 0.72549, 1 )
+border_blend = true
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.37, 0.2405, 0.2405, 1 )
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.372549, 0.0862745, 0.0862745, 1 )
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="Theme" id=7]
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = -47
+Button/fonts/font = ExtResource( 9 )
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 5 )
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 6 )
 
 [node name="SettingsBar" type="CanvasLayer"]
 layer = -1
@@ -33,6 +89,7 @@ margin_left = -300.0
 margin_top = -210.0
 margin_right = 300.0
 margin_bottom = 90.0
+theme = ExtResource( 3 )
 custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ResignDialogLayer/PanelContainer"]
@@ -51,38 +108,40 @@ margin_bottom = 268.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer"]
 margin_right = 536.0
-margin_bottom = 152.0
+margin_bottom = 111.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 11.0
-margin_top = 55.0
+margin_top = 34.0
 margin_right = 524.0
-margin_bottom = 97.0
+margin_bottom = 76.0
 custom_fonts/font = ExtResource( 6 )
 text = "Are you sure you want to resign?"
 align = 1
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer"]
-margin_top = 156.0
+margin_top = 115.0
 margin_right = 536.0
 margin_bottom = 236.0
-custom_constants/separation = 24
+custom_constants/separation = 161
 alignment = 1
 
-[node name="ConfirmButton" type="TextureButton" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 176.0
-margin_right = 256.0
-margin_bottom = 80.0
-texture_normal = ExtResource( 9 )
+[node name="ConfirmButton" type="Button" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 46.0
+margin_right = 201.0
+margin_bottom = 121.0
+custom_fonts/font = ExtResource( 4 )
+text = "Yes"
 
-[node name="CancelButton" type="TextureButton" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 280.0
-margin_right = 360.0
-margin_bottom = 80.0
-texture_normal = ExtResource( 10 )
+[node name="CancelButton" type="Button" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 362.0
+margin_right = 489.0
+margin_bottom = 121.0
+custom_fonts/font = ExtResource( 4 )
+text = "No"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -92,37 +151,36 @@ anchor_bottom = 1.0
 margin_left = -40.5
 margin_top = -304.0
 margin_right = 40.5
+theme = SubResource( 7 )
 custom_constants/separation = 20
 alignment = 1
 
-[node name="FullscreenButton" type="TextureButton" parent="VBoxContainer"]
+[node name="FullscreenButton" type="Button" parent="VBoxContainer"]
 margin_top = 12.0
 margin_right = 81.0
 margin_bottom = 92.0
+custom_fonts/font = ExtResource( 2 )
 toggle_mode = true
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-stretch_mode = 3
+icon = ExtResource( 5 )
 
-[node name="MuteButton" type="TextureButton" parent="VBoxContainer"]
+[node name="MuteButton" type="Button" parent="VBoxContainer"]
 margin_top = 112.0
 margin_right = 81.0
 margin_bottom = 192.0
+custom_fonts/font = ExtResource( 2 )
 toggle_mode = true
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 5 )
-stretch_mode = 3
+icon = ExtResource( 7 )
 
-[node name="ResignButton" type="TextureButton" parent="VBoxContainer"]
+[node name="ResignButton" type="Button" parent="VBoxContainer"]
 margin_top = 212.0
 margin_right = 81.0
 margin_bottom = 292.0
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
-stretch_mode = 3
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+icon = ExtResource( 8 )
 
 [connection signal="pressed" from="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
 [connection signal="pressed" from="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
 [connection signal="toggled" from="VBoxContainer/FullscreenButton" to="." method="_on_FullscreenButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/MuteButton" to="." method="_on_MuteButton_toggled"]
-[connection signal="pressed" from="VBoxContainer/ResignButton" to="." method="_on_ResignButton_pressed"]
+[connection signal="toggled" from="VBoxContainer/ResignButton" to="." method="_on_ResignButton_toggled"]

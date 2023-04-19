@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_x.png-ad101e0cce8ab53e897940304ffe259e.stex"
+path="res://.import/button_fullscreen_shrink_nobg.png-aa811f919b2941b05291d6cfc7f06242.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SettingsBar/button_x.png"
-dest_files=[ "res://.import/button_x.png-ad101e0cce8ab53e897940304ffe259e.stex" ]
+source_file="res://SettingsBar/button_fullscreen_shrink_nobg.png"
+dest_files=[ "res://.import/button_fullscreen_shrink_nobg.png-aa811f919b2941b05291d6cfc7f06242.stex" ]
 
 [params]
 
