@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://EndGameGUI/Button.png" type="Texture" id=1]
 [ext_resource path="res://EndGameGUI/win_tree.png" type="Texture" id=2]
 [ext_resource path="res://EndGameGUI/EndGameGUI.gd" type="Script" id=3]
 [ext_resource path="res://Common/Size100Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://EndGameGUI/ScoreBoard.png" type="Texture" id=5]
 [ext_resource path="res://EndGameGUI/lose_vine.png" type="Texture" id=7]
 [ext_resource path="res://EndGameGUI/fakegrs.png" type="Texture" id=8]
 
@@ -1482,8 +1483,7 @@ anims/TieWin = SubResource( 7 )
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 692.612, 386.5 )
 rotation = -0.0872665
-scale = Vector2( 0.520771, 1.36239 )
-texture = ExtResource( 1 )
+texture = ExtResource( 5 )
 
 [node name="ScoreLeftLabel" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -1500,8 +1500,7 @@ align = 1
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1231, 346.5 )
 rotation = 0.0872665
-scale = Vector2( 0.520771, 1.36239 )
-texture = ExtResource( 1 )
+texture = ExtResource( 5 )
 
 [node name="ScoreRightLabel" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
