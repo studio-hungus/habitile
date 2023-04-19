@@ -7,13 +7,10 @@ onready var _resign_dialog := find_node("ResignDialogLayer")
 
 
 func _ready():
-	
 	_fullscreen_button.pressed = OS.window_fullscreen
 
 	if AudioServer.is_bus_mute(0):
 		_mute_button.pressed = true
-
-
 
 
 func _on_Play_pressed():
@@ -34,4 +31,4 @@ func _on_MuteButton_toggled(button_pressed):
 
 
 func _on_PreIntro_play_music():
-	$AudioStreamPlayer.play()
+	$AudioStreamPlayer.stream_paused = false

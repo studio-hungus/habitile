@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://SettingsBar/SettingsBar.gd" type="Script" id=1]
 [ext_resource path="res://GUI/button_fullscreen_expand.png" type="Texture" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://SettingsBar/button_flag_press.png" type="Texture" id=8]
 [ext_resource path="res://SettingsBar/button_check.png" type="Texture" id=9]
 [ext_resource path="res://SettingsBar/button_x.png" type="Texture" id=10]
+[ext_resource path="res://SettingsBar/Surrender.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 600, 300 )
 
 [node name="SettingsBar" type="CanvasLayer"]
 layer = -1
@@ -24,48 +29,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -263.5
-margin_top = -192.0
-margin_right = 263.5
-margin_bottom = 64.0
+margin_left = -300.0
+margin_top = -210.0
+margin_right = 300.0
+margin_bottom = 90.0
+custom_styles/panel = SubResource( 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ResignDialogLayer/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 520.0
-margin_bottom = 249.0
+[node name="MarginContainer" type="MarginContainer" parent="ResignDialogLayer/PanelContainer"]
+margin_right = 600.0
+margin_bottom = 300.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ResignDialogLayer/PanelContainer/VBoxContainer"]
-margin_right = 513.0
-margin_bottom = 158.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ResignDialogLayer/PanelContainer/MarginContainer"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 568.0
+margin_bottom = 268.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 536.0
+margin_bottom = 152.0
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer2"]
-margin_top = 58.0
-margin_right = 513.0
-margin_bottom = 100.0
+[node name="Label" type="Label" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 11.0
+margin_top = 55.0
+margin_right = 524.0
+margin_bottom = 97.0
 custom_fonts/font = ExtResource( 6 )
 text = "Are you sure you want to resign?"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ResignDialogLayer/PanelContainer/VBoxContainer"]
-margin_top = 162.0
-margin_right = 513.0
-margin_bottom = 242.0
+[node name="HBoxContainer" type="HBoxContainer" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 156.0
+margin_right = 536.0
+margin_bottom = 236.0
 custom_constants/separation = 24
 alignment = 1
 
-[node name="ConfirmButton" type="TextureButton" parent="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer"]
-margin_left = 164.0
-margin_right = 244.0
+[node name="ConfirmButton" type="TextureButton" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 176.0
+margin_right = 256.0
 margin_bottom = 80.0
 texture_normal = ExtResource( 9 )
 
-[node name="CancelButton" type="TextureButton" parent="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer"]
-margin_left = 268.0
-margin_right = 348.0
+[node name="CancelButton" type="TextureButton" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 280.0
+margin_right = 360.0
 margin_bottom = 80.0
 texture_normal = ExtResource( 10 )
 
@@ -106,8 +121,8 @@ texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 stretch_mode = 3
 
-[connection signal="pressed" from="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
-[connection signal="pressed" from="ResignDialogLayer/PanelContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="pressed" from="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]
 [connection signal="toggled" from="VBoxContainer/FullscreenButton" to="." method="_on_FullscreenButton_toggled"]
 [connection signal="toggled" from="VBoxContainer/MuteButton" to="." method="_on_MuteButton_toggled"]
 [connection signal="pressed" from="VBoxContainer/ResignButton" to="." method="_on_ResignButton_pressed"]

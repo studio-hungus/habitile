@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://TitleScreen/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://GUI/button_fullscreen_shrink.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://GUI/button_fullscreen_expand.png" type="Texture" id=4]
 [ext_resource path="res://GUI/button_sound_on.png" type="Texture" id=5]
 [ext_resource path="res://TitleScreen/Credits/Credits.tscn" type="PackedScene" id=6]
-[ext_resource path="res://TitleScreen/PreIntro/PreIntro.tscn" type="PackedScene" id=7]
 [ext_resource path="res://TitleScreen/frog_cards.png" type="Texture" id=8]
 [ext_resource path="res://TitleScreen/Mouse_cards.png" type="Texture" id=9]
 [ext_resource path="res://TitleScreen/main_screen_Grass.png" type="Texture" id=10]
@@ -156,21 +155,11 @@ texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 3 )
 stretch_mode = 3
 
-[node name="PreIntro" parent="." instance=ExtResource( 7 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -960.0
-margin_top = -540.0
-margin_right = 960.0
-margin_bottom = 540.0
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
 [connection signal="toggled" from="HBoxContainer/FullscreenButton" to="." method="_on_FullscreenButton_toggled"]
 [connection signal="toggled" from="HBoxContainer/MuteButton" to="." method="_on_MuteButton_toggled"]
-[connection signal="play_music" from="PreIntro" to="." method="_on_PreIntro_play_music"]
