@@ -130,5 +130,9 @@ func calculate_points(neighbors: Array) -> int:
 
 
 func delay_indicator_animation(score_indicator:Node2D, delay_time:float):
-	yield(get_tree().create_timer(delay_time), "timeout")
-	score_indicator.play_indicate_score()
+	var timer = get_tree().create_timer(delay_time)
+	timer.connect("timeout", self, "_on_animation_timer_timeout", [score_indicator])
+
+
+func _on_animation_timer_timeout(score_indicator:Node2D):
+		score_indicator.play_indicate_score()

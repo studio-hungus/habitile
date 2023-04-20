@@ -1457,7 +1457,6 @@ anims/TieWin = SubResource( 7 )
 
 [node name="ScoreLeftSprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 0.964706, 0.662745, 0.529412, 1 )
 position = Vector2( 692.612, 386.5 )
 rotation = -0.0872665
 texture = ExtResource( 5 )
@@ -1475,7 +1474,6 @@ align = 1
 
 [node name="ScoreRightSprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 0.152941, 0.623529, 1, 1 )
 position = Vector2( 1231, 346.5 )
 rotation = 0.0872665
 texture = ExtResource( 5 )

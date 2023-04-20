@@ -73,12 +73,13 @@ Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 6 )
 
 [node name="SettingsBar" type="CanvasLayer"]
-layer = -1
+layer = 3
 script = ExtResource( 1 )
 
-[node name="ResignDialogLayer" type="CanvasLayer" parent="."]
-layer = 100
+[node name="ResignDialogLayer" type="Control" parent="."]
 visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="PanelContainer" type="PanelContainer" parent="ResignDialogLayer"]
 anchor_left = 0.5
