@@ -24,37 +24,37 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color( 0.878431, 0.72549, 0.72549, 1 )
 border_blend = true
-corner_radius_top_left = 36
-corner_radius_top_right = 36
-corner_radius_bottom_right = 36
-corner_radius_bottom_left = 36
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 expand_margin_top = 7.0
 expand_margin_bottom = 7.0
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.37, 0.2405, 0.2405, 1 )
-corner_radius_top_left = 36
-corner_radius_top_right = 36
-corner_radius_bottom_right = 36
-corner_radius_bottom_left = 36
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 expand_margin_top = 7.0
 expand_margin_bottom = 7.0
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.372549, 0.0862745, 0.0862745, 1 )
-corner_radius_top_left = 36
-corner_radius_top_right = 36
-corner_radius_bottom_right = 36
-corner_radius_bottom_left = 36
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 expand_margin_top = 7.0
 expand_margin_bottom = 7.0
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
-corner_radius_top_left = 36
-corner_radius_top_right = 36
-corner_radius_bottom_right = 36
-corner_radius_bottom_left = 36
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 expand_margin_top = 7.0
 expand_margin_bottom = 7.0
 
@@ -106,6 +106,7 @@ margin_left = 32.0
 margin_top = 32.0
 margin_right = 568.0
 margin_bottom = 268.0
+alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer"]
 margin_right = 536.0
@@ -127,20 +128,23 @@ valign = 1
 margin_top = 115.0
 margin_right = 536.0
 margin_bottom = 236.0
-custom_constants/separation = 161
+grow_horizontal = 0
+grow_vertical = 0
+custom_constants/separation = 104
 alignment = 1
 
 [node name="ConfirmButton" type="Button" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 46.0
-margin_right = 201.0
+margin_left = 21.0
+margin_right = 216.0
 margin_bottom = 121.0
 custom_fonts/font = ExtResource( 4 )
 text = "Yes"
 
 [node name="CancelButton" type="Button" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 362.0
-margin_right = 489.0
+margin_left = 320.0
+margin_right = 515.0
 margin_bottom = 121.0
+rect_min_size = Vector2( 195, 121 )
 custom_fonts/font = ExtResource( 4 )
 text = "No"
 
