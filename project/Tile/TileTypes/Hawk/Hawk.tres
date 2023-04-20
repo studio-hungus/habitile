@@ -10,6 +10,6 @@ name = "Hawk"
 positive_score_modifier = 15
 negative_score_modifier = -20
 positive_neighbor_names = [ "Bullfrog", "Lizard", "Mouse", "Worm" ]
-negative_neighbor_names = [  ]
+negative_neighbor_names = [ "Bush" ]
 in_supply_texture = ExtResource( 1 )
 on_board_texture = ExtResource( 2 )
