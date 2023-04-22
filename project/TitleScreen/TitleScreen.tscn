@@ -57,7 +57,7 @@ margin_right = 347.0
 margin_bottom = -200.0
 custom_colors/font_color = Color( 0.976471, 0.964706, 0.964706, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "A Two Player Tactical Tile Game"
+text = "A Two-Player Tactical Tile Game"
 
 [node name="Play" type="Button" parent="."]
 anchor_left = 0.5
