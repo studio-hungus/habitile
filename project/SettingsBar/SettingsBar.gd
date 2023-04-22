@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 const FULLSCREEN_PRESSED_ICON := preload("res://SettingsBar/button_fullscreen_shrink_nobg.png")
 const FULLSCREEN_UNPRESSED_ICON := preload("res://SettingsBar/button_fullscreen_expand_nobg.png")
@@ -18,7 +18,7 @@ var _start_screen := load("res://TitleScreen/TitleScreen.tscn")
 
 
 func _ready():
-	
+	layer = -1
 	_fullscreen_button.pressed = OS.window_fullscreen
 	_update_fullscreen_button()
 	
@@ -47,6 +47,7 @@ func _on_ConfirmButton_pressed():
 func _on_CancelButton_pressed():
 	_resign_dialog.visible = false
 	_resign_button.pressed = !_resign_button.pressed
+	layer = -1
 
 
 func _on_FullscreenButton_toggled(button_pressed):
@@ -63,8 +64,10 @@ func _update_fullscreen_button():
 
 func _on_ResignButton_toggled(button_pressed):
 	if button_pressed:
+		layer = 0
 		_resign_dialog.visible = true
 		_resign_button.icon = RESIGN_PRESSED_ICON
 	else:
+		layer = -1
 		_resign_dialog.visible = false
 		_resign_button.icon = RESIGN_UNPRESSED_ICON
