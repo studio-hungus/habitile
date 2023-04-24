@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Board/Board.gd" type="Script" id=1]
 [ext_resource path="res://Tile/TileTypes/Wildflowers/Wildflowers.tres" type="Resource" id=2]
 [ext_resource path="res://Tile/TileTypes/Bush/Bush.tres" type="Resource" id=3]
 [ext_resource path="res://Tile/TileTypes/Tree/Tree.tres" type="Resource" id=4]
 [ext_resource path="res://Tile/TileTypes/Water/Water.tres" type="Resource" id=5]
+[ext_resource path="res://Board/BoardLayouts/Layout2.tres" type="Resource" id=6]
+[ext_resource path="res://Board/BoardLayouts/Layout1.tres" type="Resource" id=7]
+[ext_resource path="res://Board/BoardLayouts/Layout3.tres" type="Resource" id=8]
 
 [node name="Board" type="Node2D"]
 script = ExtResource( 1 )
-_obstacle_types = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
+_obstacle_types = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ]
+_layout = [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]

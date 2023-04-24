@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Board/BoardLayout.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+positions = [ Vector2( 1, 1 ), Vector2( 4, 0 ), Vector2( 6, 1 ), Vector2( 7, 3 ), Vector2( 9, 1 ), Vector2( 2, 3 ), Vector2( 3, 1 ), Vector2( 4, 2 ) ]
