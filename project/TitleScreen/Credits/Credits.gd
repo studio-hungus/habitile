@@ -1,5 +1,5 @@
 extends CanvasLayer
 
 
-func _on_ExitButton_pressed():
+func _on_ExitButton_pressed() -> void:
 	visible = !visible

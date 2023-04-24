@@ -37,9 +37,10 @@ func _display_win(end_state) -> void:
 func _on_PlayAgain_pressed() -> void:
 	var _current_scene = get_tree().reload_current_scene()
 
-func _on_FullscreenButton_pressed():
+
+func _on_FullscreenButton_pressed() -> void:
 	OS.window_fullscreen = !OS.window_fullscreen
 
 
-func _on_QuitGameButton_pressed():
+func _on_QuitGameButton_pressed() -> void:
 	var _current_scene = get_tree().change_scene("res://TitleScreen/TitleScreen.tscn")

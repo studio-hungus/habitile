@@ -9,16 +9,6 @@ const SUPPLY_SIZE = 3
 
 export(Array, Resource) var _initial_stack_tile_types := []
 export var _held_tile_z_index := 21
-var _original_tile_z_index := 0
-var _pressed_tile : Node2D
-var _hovered_node : Node2D
-var _original_tile_position := Vector2(0, 0)
-var _is_left_player_turn := true
-var _left_stack := []
-var _right_stack := []
-var _is_game_over := false
-var _left_score := 0
-var _right_score := 0
 
 onready var _music_manager := find_node("AudioManager")
 onready var _tiles := find_node("Tiles")
@@ -34,6 +24,16 @@ onready var _left_stack_position := find_node("LeftStackPosition")
 onready var _right_stack_position := find_node("RightStackPosition")
 onready var _space_indicator := find_node("SpaceIndicator")
 
+var _original_tile_z_index := 0
+var _pressed_tile : Node2D
+var _hovered_node : Node2D
+var _original_tile_position := Vector2(0, 0)
+var _is_left_player_turn := true
+var _left_stack := []
+var _right_stack := []
+var _is_game_over := false
+var _left_score := 0
+var _right_score := 0
 
 
 func _ready() -> void:
@@ -52,7 +52,6 @@ func _physics_process(_delta) -> void:
 
 		if _pressed_tile != null:
 			_pressed_tile.global_position = current_mouse_position
-
 
 		if Input.is_action_just_pressed("debug_fill_board"):
 			_debug_fill_board()
@@ -176,7 +175,6 @@ func _place_tile_on_board(tile: Tile) -> void:
 	tile.global_position = _hovered_node.global_position
 	tile.set_interactable(false)
 
-
 	#Add new tile to supply
 	if _is_left_player_turn and _left_stack.size() > 0:
 		_move_tile_to_supply(_left_stack.pop_front(), _original_tile_position)
@@ -195,12 +193,11 @@ func _place_tile_on_board(tile: Tile) -> void:
 		_right_score += score_modifier
 
 	_gui.update_score(_left_score, _right_score)
-	
+
 	if _board.get_number_of_empty_spaces() == 0:
 		_on_board_filled()
 	else:
 		_swap_turn()
-
 
 
 func _move_tile_to_supply(tile: Tile, position: Vector2) -> void:
@@ -231,7 +228,7 @@ func _on_board_filled() -> void:
 		_music_manager.play_gameover_win()
 	else:
 		_music_manager.play_gameover_tie()
-	
+
 	_gui.display_gameover(end_state)
 
 
@@ -241,5 +238,4 @@ func _tween_end(tile: Tile) -> void:
 
 
 func _debug_fill_board() -> void:
-
 	_on_board_filled()

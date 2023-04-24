@@ -5,22 +5,20 @@ extends Node2D
 signal pressed
 signal released
 
-
 enum State{
 	BIG, SMALL
 }
 
-
 export var size := Vector2(175, 175)
-var _interactable = false
-var _pressed = false
-var type: TileType
-
-var state = State.BIG setget set_state
 
 onready var _supply_sprite := find_node("SupplyTexture")
 onready var _supply_tile := find_node("SupplyTile")
 onready var _board_sprite := get_node("BoardSprite")
+
+var _interactable = false
+var _pressed = false
+var type: TileType
+var state = State.BIG setget set_state
 
 
 func contains(mouse_position: Vector2) -> bool:
@@ -29,7 +27,7 @@ func contains(mouse_position: Vector2) -> bool:
 	return rect.has_point(mouse_position)
 
 
-func _on_Area2D_input_event(_viewport, event, _shape_idx):
+func _on_Area2D_input_event(_viewport, event: InputEvent, _shape_idx) -> void:
 	if _interactable and _is_touched(event) and not _pressed:
 			_pressed = true
 			emit_signal("pressed")
@@ -54,28 +52,28 @@ func _is_released(event: InputEvent) -> bool:
 	return false
 
 
-func set_interactable(interactable):
+func set_interactable(interactable: bool) -> void:
 	_interactable = interactable
 
 
-func initialize_type(init_type: TileType):
+func initialize_type(init_type: TileType) -> void:
 	assert(type == null)
 
 	type = init_type
 
 	_supply_sprite.texture = type.in_supply_texture
 	_board_sprite.texture = type.on_board_texture
-	
+
 	find_node("PositivePoints").text = "+%s" % type.positive_score_modifier
 	find_node("NegativePoints").text = "-%s" % abs(type.negative_score_modifier)
 
 	find_node("PositiveCreatures").text = ", ".join(type.positive_neighbor_names)
 	find_node("NegativeCreatures").text = ", ".join(type.negative_neighbor_names)
-	
+
 	find_node("Name").text = type.name
 
 
-func get_type():
+func get_type() -> TileType:
 	return type
 
 
@@ -129,10 +127,10 @@ func calculate_points(neighbors: Array) -> int:
 	return points
 
 
-func delay_indicator_animation(score_indicator:Node2D, delay_time:float):
+func delay_indicator_animation(score_indicator: Node2D, delay_time: float) -> void:
 	var timer = get_tree().create_timer(delay_time)
 	timer.connect("timeout", self, "_on_animation_timer_timeout", [score_indicator])
 
 
-func _on_animation_timer_timeout(score_indicator:Node2D):
+func _on_animation_timer_timeout(score_indicator: Node2D) -> void:
 		score_indicator.play_indicate_score()

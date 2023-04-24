@@ -8,4 +8,3 @@ export(Array, String) var positive_neighbor_names := []
 export(Array, String) var negative_neighbor_names := []
 export(Texture) var in_supply_texture
 export(Texture) var on_board_texture
-

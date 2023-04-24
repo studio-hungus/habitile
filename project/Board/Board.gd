@@ -88,7 +88,7 @@ func get_neighbors(tile: Node2D) -> Array:
 
 func get_points(tile: Tile, index: int) -> int:
 	set_space(tile, index)
-	
+
 	var neighbors := get_neighbors(tile)
 
 	return tile.calculate_points(neighbors)
