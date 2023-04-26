@@ -18,12 +18,15 @@ var _start_screen := load("res://TitleScreen/TitleScreen.tscn")
 
 func _ready() -> void:
 	layer = -1
-	_fullscreen_button.pressed = OS.window_fullscreen
 	_update_fullscreen_button()
 
 	if AudioServer.is_bus_mute(0):
 		_mute_button.pressed = true
 	_update_mute_button()
+
+
+func _process(_delta):
+	_update_fullscreen_button()
 
 
 func _on_MuteButton_toggled(button_pressed: bool) -> void:
@@ -54,6 +57,7 @@ func _on_FullscreenButton_toggled(button_pressed: bool) -> void:
 
 
 func _update_fullscreen_button() -> void:
+	_fullscreen_button.pressed = OS.window_fullscreen
 	if _fullscreen_button.pressed:
 		_fullscreen_button.icon = FULLSCREEN_PRESSED_ICON
 	else:
