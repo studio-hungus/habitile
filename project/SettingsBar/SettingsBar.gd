@@ -21,21 +21,24 @@ var _start_screen := load("res://TitleScreen/TitleScreen.tscn")
 
 func _ready() -> void:
 	layer = -1
+
+	#Because the fullscreen button will update upon loading the scene, this code makes sure it is muted
 	_button_click.volume_db = -80
 	if !_button_click.playing:
 		_button_click.play()
 	_update_fullscreen_button()
 	yield(_button_click, "finished")
-	_button_click.volume_db = 0.75
 
+	#Connects the viewport changing to the button to handle pressing escape
+	_button_click.volume_db = 0.75
+	var viewport := get_viewport()
+
+	viewport.connect("size_changed", self, "_update_fullscreen_button")
 
 	if AudioServer.is_bus_mute(0):
 		_mute_button.pressed = true
 	_update_mute_button()
 
-
-func _process(_delta):
-	_update_fullscreen_button()
 
 
 func _on_MuteButton_toggled(button_pressed: bool) -> void:
@@ -73,18 +76,17 @@ func _on_CancelButton_pressed() -> void:
 
 
 func _on_FullscreenButton_toggled(button_pressed: bool) -> void:
-	_button_click.play()
 	OS.window_fullscreen = button_pressed
-	_update_fullscreen_button()
 
 
 func _update_fullscreen_button() -> void:
+	_button_click.play()
 	_fullscreen_button.pressed = OS.window_fullscreen
 	if _fullscreen_button.pressed:
 		_fullscreen_button.icon = FULLSCREEN_PRESSED_ICON
 	else:
 		_fullscreen_button.icon = FULLSCREEN_UNPRESSED_ICON
-
+	
 
 func _on_ResignButton_toggled(button_pressed: bool) -> void:
 	_button_click.play()
