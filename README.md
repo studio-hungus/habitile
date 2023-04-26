@@ -12,9 +12,9 @@ The current build is made using version 3.5 of Godot and is hosted on the web.
 
 ©2023 Studio Hungus
 
-HabiTile is licensed under the General Public License, Creative Commons Attribution-Sharealike 4.0
-Any person is granted permission, free of charge, to "copy and redistribute" the individual assets of the HabiTile game and the sum total thereof (henceforth referred to as "Habitile") "in any medium or format." Further, one can "remix, transform, and build upon (HabiTile) for any purpose" so long as the following conditions are met:
-Any person looking to build upon, change, or otherwise distribute HabiTile "must give appropriate credit, provide a link to the license, and indicate if changes were made." Further, one must distribute the altered product "under the same license as the original."
+Habitile is licensed under the [GPL 3.0 License](https://github.com/studio-hungus/habitile/blob/master/LICENSE.txt)
+
+Habitiles art assets are licensed under the [Creative Commons ShareAlike 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/)
 
 # 3rd Party Assets
 AveriaLibre - Bold from [google fonts](https://fonts.google.com/specimen/Averia+Libre?query=averia+libre) licensed under the [SIL Open Font Liscence](licenses/Averia_Libre_OFL.txt)
