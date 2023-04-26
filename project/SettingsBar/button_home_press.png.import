@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_flag_nobg.png-1bee5671a049fde78bcd82c804b61133.stex"
+path="res://.import/button_home_press.png-1ca330ea73da88a830e76b27b9be1ef6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SettingsBar/button_flag_nobg.png"
-dest_files=[ "res://.import/button_flag_nobg.png-1bee5671a049fde78bcd82c804b61133.stex" ]
+source_file="res://SettingsBar/button_home_press.png"
+dest_files=[ "res://.import/button_home_press.png-1ca330ea73da88a830e76b27b9be1ef6.stex" ]
 
 [params]
 

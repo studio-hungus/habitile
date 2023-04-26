@@ -5,8 +5,8 @@ const FULLSCREEN_PRESSED_ICON := preload("res://SettingsBar/button_fullscreen_sh
 const FULLSCREEN_UNPRESSED_ICON := preload("res://SettingsBar/button_fullscreen_expand_nobg.png")
 const MUTE_PRESSED_ICON := preload("res://SettingsBar/button_sound_off_nobg.png")
 const MUTE_UNPRESSED_ICON := preload("res://SettingsBar/button_sound_on_nobg.png")
-const RESIGN_PRESSED_ICON := preload("res://SettingsBar/button_flag_press_nobg.png")
-const RESIGN_UNPRESSED_ICON := preload("res://SettingsBar/button_flag_nobg.png")
+const RESIGN_PRESSED_ICON := preload("res://SettingsBar/button_home_press.png")
+const RESIGN_UNPRESSED_ICON := preload("res://SettingsBar/button_home.png")
 
 onready var _fullscreen_button := find_node("FullscreenButton")
 onready var _mute_button := find_node("MuteButton")
