@@ -18,15 +18,17 @@ onready var _button_click := find_node("ButtonClick")
 
 
 func _ready() -> void:
+	_button_click.volume_db = -80
+	if !_button_click.playing:
+		_button_click.play()
 	_update_fullscreen_button()
-
+	yield(_button_click, "finished")
+	_button_click.volume_db = 0.75
+	
 	if AudioServer.is_bus_mute(0):
 		_mute_button.pressed = true
 	_update_mute_button()
 
-
-func _process(_delta):
-	_update_fullscreen_button()
 
 
 func _on_Play_pressed() -> void:
@@ -61,7 +63,7 @@ func _update_fullscreen_button() -> void:
 		_fullscreen_button.icon = FULLSCREEN_PRESSED_ICON
 	else:
 		_fullscreen_button.icon = FULLSCREEN_UNPRESSED_ICON
-
+	
 
 func _on_MuteButton_toggled(button_pressed: bool) -> void:
 	_button_click.play()

@@ -21,7 +21,13 @@ var _start_screen := load("res://TitleScreen/TitleScreen.tscn")
 
 func _ready() -> void:
 	layer = -1
+	_button_click.volume_db = -80
+	if !_button_click.playing:
+		_button_click.play()
 	_update_fullscreen_button()
+	yield(_button_click, "finished")
+	_button_click.volume_db = 0.75
+
 
 	if AudioServer.is_bus_mute(0):
 		_mute_button.pressed = true
