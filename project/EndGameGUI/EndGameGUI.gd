@@ -7,6 +7,8 @@ onready var _win_gradient := find_node("WinGradient")
 onready var _left_score_label := find_node("ScoreLeftLabel")
 onready var _right_score_label := find_node("ScoreRightLabel")
 onready var _button_click := find_node("ButtonClick")
+onready var _play_again_button := find_node("PlayAgainButton")
+onready var _quit_button := find_node("QuitGameButton")
 
 
 func display_gameover_screen(end_state, left_score: String, right_score: String) -> void:
@@ -37,9 +39,18 @@ func _display_win(end_state) -> void:
 
 func _on_PlayAgain_pressed() -> void:
 	_button_click.play()
+	_disable_buttons()
+	yield(_button_click,"finished")
 	var _current_scene = get_tree().reload_current_scene()
 
 
 func _on_QuitGameButton_pressed() -> void:
 	_button_click.play()
+	_disable_buttons()
+	yield(_button_click,"finished")
 	var _current_scene = get_tree().change_scene("res://TitleScreen/TitleScreen.tscn")
+
+
+func _disable_buttons() -> void:
+	_play_again_button.disabled = true
+	_quit_button.disabled = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TitleScreen/menuTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Common/CreditNameFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://TitleScreen/Credits/credits_bg_v2.png" type="Texture" id=3]
 [ext_resource path="res://TitleScreen/Credits/Credits.gd" type="Script" id=4]
+[ext_resource path="res://Common/GL_SFX_Button.wav" type="AudioStream" id=5]
 [ext_resource path="res://TitleScreen/PreIntro/minnetrista_logo.png" type="Texture" id=6]
 [ext_resource path="res://Common/CreditFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://TitleScreen/Credits/BSU_Logo_Long.png" type="Texture" id=8]
@@ -125,5 +126,9 @@ position = Vector2( 1666.68, 916.889 )
 scale = Vector2( 0.924539, 0.924539 )
 texture = ExtResource( 9 )
 flip_h = true
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 0.75
 
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]

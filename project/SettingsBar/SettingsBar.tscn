@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://SettingsBar/SettingsBar.gd" type="Script" id=1]
 [ext_resource path="res://Common/ScoreFont.tres" type="DynamicFont" id=2]
@@ -9,11 +9,21 @@
 [ext_resource path="res://SettingsBar/button_sound_on_nobg.png" type="Texture" id=7]
 [ext_resource path="res://SettingsBar/button_home.png" type="Texture" id=8]
 [ext_resource path="res://Common/PlayButtonFont.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Common/GL_SFX_Button.wav" type="AudioStream" id=10]
 [ext_resource path="res://SettingsBar/Surrender.png" type="Texture" id=11]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 600, 300 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
@@ -49,15 +59,6 @@ corner_radius_bottom_left = 20
 expand_margin_top = 7.0
 expand_margin_bottom = 7.0
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.239216, 0.121569, 0.121569, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-expand_margin_top = 7.0
-expand_margin_bottom = 7.0
-
 [sub_resource type="Theme" id=7]
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
@@ -66,7 +67,7 @@ Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = -47
 Button/fonts/font = ExtResource( 9 )
-Button/styles/disabled = null
+Button/styles/disabled = SubResource( 6 )
 Button/styles/focus = SubResource( 5 )
 Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 3 )
@@ -188,6 +189,10 @@ margin_bottom = 292.0
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = true
 icon = ExtResource( 8 )
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 0.75
 
 [connection signal="pressed" from="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
 [connection signal="pressed" from="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_CancelButton_pressed"]

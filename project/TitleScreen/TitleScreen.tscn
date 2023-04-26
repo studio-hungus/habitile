@@ -6,7 +6,7 @@
 [ext_resource path="res://SettingsBar/button_fullscreen_expand_nobg.png" type="Texture" id=4]
 [ext_resource path="res://SettingsBar/button_sound_on_nobg.png" type="Texture" id=5]
 [ext_resource path="res://TitleScreen/Credits/Credits.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Common/GL_SFX_ClickyClicky.wav" type="AudioStream" id=7]
+[ext_resource path="res://Common/GL_SFX_Button.wav" type="AudioStream" id=7]
 [ext_resource path="res://TitleScreen/frog_cards.png" type="Texture" id=8]
 [ext_resource path="res://TitleScreen/Mouse_cards.png" type="Texture" id=9]
 [ext_resource path="res://TitleScreen/main_screen_Grass.png" type="Texture" id=10]
@@ -108,6 +108,7 @@ autoplay = true
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = 0.75
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]

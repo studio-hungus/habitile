@@ -10,8 +10,11 @@ const RESIGN_UNPRESSED_ICON := preload("res://SettingsBar/button_home.png")
 
 onready var _fullscreen_button := find_node("FullscreenButton")
 onready var _mute_button := find_node("MuteButton")
+onready var _confirm_button := find_node("ConfirmButton")
+onready var _cancel_button := find_node("CancelButton")
 onready var _resign_dialog := find_node("ResignDialogLayer")
 onready var _resign_button := find_node("ResignButton")
+onready var _button_click := find_node("ButtonClick")
 
 var _start_screen := load("res://TitleScreen/TitleScreen.tscn")
 
@@ -32,6 +35,7 @@ func _process(_delta):
 func _on_MuteButton_toggled(button_pressed: bool) -> void:
 	AudioServer.set_bus_mute(0, button_pressed)
 	_update_mute_button()
+	_button_click.play()
 
 
 func _update_mute_button() -> void:
@@ -42,16 +46,28 @@ func _update_mute_button() -> void:
 
 
 func _on_ConfirmButton_pressed() -> void:
+	_button_click.play()
+	_disable_buttons()
+	yield(_button_click,"finished")
 	var _current_scene = get_tree().change_scene("res://TitleScreen/TitleScreen.tscn")
+
+
+func _disable_buttons() -> void:
+	_fullscreen_button.disabled = true
+	_mute_button.disabled = true
+	_confirm_button.disabled = true
+	_cancel_button.disabled = true
 
 
 func _on_CancelButton_pressed() -> void:
 	_resign_dialog.visible = false
 	_resign_button.pressed = !_resign_button.pressed
 	layer = -1
+	_button_click.play()
 
 
 func _on_FullscreenButton_toggled(button_pressed: bool) -> void:
+	_button_click.play()
 	OS.window_fullscreen = button_pressed
 	_update_fullscreen_button()
 
@@ -65,6 +81,7 @@ func _update_fullscreen_button() -> void:
 
 
 func _on_ResignButton_toggled(button_pressed: bool) -> void:
+	_button_click.play()
 	if button_pressed:
 		layer = 0
 		_resign_dialog.visible = true

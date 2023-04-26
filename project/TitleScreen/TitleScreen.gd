@@ -9,6 +9,8 @@ const MUTE_UNPRESSED_ICON := preload("res://SettingsBar/button_sound_on_nobg.png
 onready var _game = preload("res://Game/Game.tscn")
 onready var _fullscreen_button := find_node("FullscreenButton")
 onready var _mute_button := find_node("MuteButton")
+onready var _credits_button := find_node("Credits")
+onready var _play_button := find_node("Play")
 onready var _resign_dialog := find_node("ResignDialogLayer")
 onready var _audio_player := find_node("AudioStreamPlayer")
 onready var _credits := find_node("CreditScreen")
@@ -29,8 +31,17 @@ func _process(_delta):
 
 func _on_Play_pressed() -> void:
 	_button_click.play()
+	_disable_buttons()
+	yield(_button_click, "finished")
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(_game)
+
+
+func _disable_buttons() -> void:
+	_fullscreen_button.disabled = true
+	_mute_button.disabled = true
+	_credits_button.disabled = true
+	_play_button.disabled = true
 
 
 func _on_Credits_pressed() -> void:
