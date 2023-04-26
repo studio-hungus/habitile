@@ -12,6 +12,7 @@ onready var _mute_button := find_node("MuteButton")
 onready var _resign_dialog := find_node("ResignDialogLayer")
 onready var _audio_player := find_node("AudioStreamPlayer")
 onready var _credits := find_node("CreditScreen")
+onready var _button_click := find_node("ButtonClick")
 
 
 func _ready() -> void:
@@ -27,15 +28,18 @@ func _process(_delta):
 
 
 func _on_Play_pressed() -> void:
+	_button_click.play()
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene_to(_game)
 
 
 func _on_Credits_pressed() -> void:
+	_button_click.play()
 	_credits.visible = !_credits.visible
 
 
 func _on_FullscreenButton_toggled(button_pressed: bool) -> void:
+	_button_click.play()
 	OS.window_fullscreen = button_pressed
 	_update_fullscreen_button()
 
@@ -49,6 +53,7 @@ func _update_fullscreen_button() -> void:
 
 
 func _on_MuteButton_toggled(button_pressed: bool) -> void:
+	_button_click.play()
 	AudioServer.set_bus_mute(0, button_pressed)
 	_update_mute_button()
 

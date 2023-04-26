@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://TitleScreen/menuTheme.tres" type="Theme" id=1]
 [ext_resource path="res://EndGameGUI/win_tree.png" type="Texture" id=2]
 [ext_resource path="res://EndGameGUI/EndGameGUI.gd" type="Script" id=3]
 [ext_resource path="res://Common/Size100Font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://EndGameGUI/ScoreBoard.png" type="Texture" id=5]
+[ext_resource path="res://Common/GL_SFX_ClickyClicky.wav" type="AudioStream" id=6]
 [ext_resource path="res://EndGameGUI/lose_vine.png" type="Texture" id=7]
 [ext_resource path="res://EndGameGUI/fakegrs.png" type="Texture" id=8]
 
@@ -1517,6 +1518,9 @@ rect_pivot_offset = Vector2( 76.5, 61 )
 custom_fonts/font = ExtResource( 4 )
 text = "TIE"
 align = 1
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="pressed" from="PlayAgainButton" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_QuitGameButton_pressed"]

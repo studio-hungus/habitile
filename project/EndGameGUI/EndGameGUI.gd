@@ -6,6 +6,7 @@ onready var _animation_player = find_node("AnimationPlayer")
 onready var _win_gradient := find_node("WinGradient")
 onready var _left_score_label := find_node("ScoreLeftLabel")
 onready var _right_score_label := find_node("ScoreRightLabel")
+onready var _button_click := find_node("ButtonClick")
 
 
 func display_gameover_screen(end_state, left_score: String, right_score: String) -> void:
@@ -35,12 +36,10 @@ func _display_win(end_state) -> void:
 
 
 func _on_PlayAgain_pressed() -> void:
+	_button_click.play()
 	var _current_scene = get_tree().reload_current_scene()
 
 
-func _on_FullscreenButton_pressed() -> void:
-	OS.window_fullscreen = !OS.window_fullscreen
-
-
 func _on_QuitGameButton_pressed() -> void:
+	_button_click.play()
 	var _current_scene = get_tree().change_scene("res://TitleScreen/TitleScreen.tscn")
