@@ -2,21 +2,25 @@
 
 ![GameLogo](https://user-images.githubusercontent.com/97885755/234024399-140ea86e-dda6-4804-9118-6bb8fa7984b4.png)
 
-A tactical tile game, made with [Godot Engine](https://godotengine.org/), that cultivates curiosity about Muncie, Indiana eco systems. Created by [Studio Hungus](https://github.com/studio-hungus) in collaboration with the [Ball State Immersive Learning Offices](https://www.bsu.edu/about/administrativeoffices/immersive-learning) and [Minnetrista](https://www.minnetrista.net/).
+A tactical tile-laying game, made with [Godot Engine](https://godotengine.org/), that cultivates curiosity about Muncie, Indiana ecosystems. Created by [Studio Hungus](https://github.com/studio-hungus) in collaboration with the [Ball State Immersive Learning Offices](https://www.bsu.edu/about/administrativeoffices/immersive-learning) and [Minnetrista](https://www.minnetrista.net/).
+
+# The Studio Hungus Team
+
+We are a multidisciplinary undergraduate team formed in Spring 2023 at Ball State University to create an interactive experience for our community partner, Minnetrista. We used Scrum and Agile methods to successfully deliver software in a 15-week time frame.
 
 # Build Details
 
-The current build is made using version 3.5 of Godot and is hosted on the web.
+HabiTile is created with version 3.5 of [Godot Engine](https://godotengine.org/). The web build is created [using continuous integration through GitHub Actions](.github/workflows/godot-ci.yml)
 
-# Licensing
+# Licensing and Copyright
 
-©2023 Studio Hungus
+©2023 [Studio Hungus](https://github.com/studio-hungus)
 
-Habitile is licensed under the [GPL 3.0 License](https://github.com/studio-hungus/habitile/blob/master/LICENSE.txt)
+_HabiTile's_ source code is licensed under the [GPL 3.0 License](LICENSE.txt)
 
-Habitiles art assets are licensed under the [Creative Commons ShareAlike 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/)
+_HabiTile's_ assets are licensed under the [Creative Commons Attribution ShareAlike 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/)
 
-# 3rd Party Assets
-AveriaLibre - Bold from [google fonts](https://fonts.google.com/specimen/Averia+Libre?query=averia+libre) licensed under the [SIL Open Font Liscence](licenses/Averia_Libre_OFL.txt)
+# Third-Party Assets
+- AveriaLibre - Bold from [google fonts](https://fonts.google.com/specimen/Averia+Libre?query=averia+libre) licensed under the [SIL Open Font Liscence](licenses/Averia_Libre_OFL.txt)
 
-Barlow - SemiBold from [google fonts](https://fonts.google.com/specimen/Barlow?query=barlow) licensed under the [SIL Open Font Liscence](licenses/Barlow_OFL.txt)
+- Barlow - SemiBold from [google fonts](https://fonts.google.com/specimen/Barlow?query=barlow) licensed under the [SIL Open Font Liscence](licenses/Barlow_OFL.txt)
