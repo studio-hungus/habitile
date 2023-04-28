@@ -33,6 +33,7 @@ func _ready() -> void:
 	
 	#connects the viewport changing to the button to handle pressing escape
 	var viewport := get_viewport()
+# warning-ignore:return_value_discarded
 	viewport.connect("size_changed", self, "_update_fullscreen_button")
 
 

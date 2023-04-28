@@ -38,6 +38,7 @@ func _ready() -> void:
 	_button_click.volume_db = 0.75
 	var viewport := get_viewport()
 
+# warning-ignore:return_value_discarded
 	viewport.connect("size_changed", self, "_update_fullscreen_button")
 
 
