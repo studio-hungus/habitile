@@ -6,7 +6,7 @@ A tactical tile-laying game, made with [Godot Engine](https://godotengine.org/),
 
 # The Studio Hungus Team
 
-We are a multidisciplinary undergraduate team formed in Spring 2023 at Ball State University to create an interactive experience for our community partner, Minnetrista. We used Scrum and Agile methods to successfully deliver software in a 15-week time frame.
+We are a multidisciplinary undergraduate team formed in Spring 2023 at [Ball State University](https://www.bsu.edu/) to create an interactive experience for our community partner, [Minnetrista](https://www.minnetrista.net/). We used [Scrum](https://www.scrum.org/resources/what-scrum-module) and [Agile](https://agilemanifesto.org/) methods to successfully deliver software in a 15-week time frame.
 
 # Build Details
 
