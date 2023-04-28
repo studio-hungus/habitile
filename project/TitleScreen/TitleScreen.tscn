@@ -10,7 +10,7 @@
 [ext_resource path="res://TitleScreen/frog_cards.png" type="Texture" id=8]
 [ext_resource path="res://TitleScreen/Mouse_cards.png" type="Texture" id=9]
 [ext_resource path="res://TitleScreen/main_screen_Grass.png" type="Texture" id=10]
-[ext_resource path="res://TitleScreen/GameLogo.png" type="Texture" id=11]
+[ext_resource path="res://TitleScreen/Game_logo.png" type="Texture" id=11]
 [ext_resource path="res://Common/AveriaLibre-Bold.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://TitleScreen/Sunset.ogg" type="AudioStream" id=15]
 [ext_resource path="res://TitleScreen/button_twoplayer.png" type="Texture" id=17]
@@ -41,7 +41,8 @@ position = Vector2( 1827, 757 )
 texture = ExtResource( 9 )
 
 [node name="Logo" type="Sprite" parent="."]
-position = Vector2( 968, 201 )
+position = Vector2( 961.28, 209.5 )
+scale = Vector2( 1.14179, 1.14179 )
 texture = ExtResource( 11 )
 
 [node name="CreditScreen" parent="." instance=ExtResource( 6 )]
@@ -53,9 +54,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -332.0
-margin_top = -256.0
-margin_right = 347.0
-margin_bottom = -200.0
+margin_top = -193.0
+margin_right = 354.0
+margin_bottom = -137.0
 custom_colors/font_color = Color( 0.976471, 0.964706, 0.964706, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "A Two-Player Tactical Tile Game"
