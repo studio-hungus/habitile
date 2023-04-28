@@ -36,10 +36,11 @@ func _ready() -> void:
 
 	#Connects the viewport changing to the button to handle pressing escape
 	_button_click.volume_db = 0.75
-	var viewport := get_viewport()
 
-# warning-ignore:return_value_discarded
-	viewport.connect("size_changed", self, "_update_fullscreen_button")
+
+func _process(_delta):
+	# Update fullscreen button icon even if button not pressed
+	_update_fullscreen_button()
 
 
 func _on_MuteButton_toggled(button_pressed: bool) -> void:
@@ -77,17 +78,21 @@ func _on_CancelButton_pressed() -> void:
 
 
 func _on_FullscreenButton_toggled(button_pressed: bool) -> void:
+	if OS.window_fullscreen == button_pressed:
+		return
+
 	OS.window_fullscreen = button_pressed
 	_button_click.play()
 
 
 func _update_fullscreen_button() -> void:
 	_fullscreen_button.pressed = OS.window_fullscreen
+
 	if _fullscreen_button.pressed:
 		_fullscreen_button.icon = FULLSCREEN_PRESSED_ICON
 	else:
 		_fullscreen_button.icon = FULLSCREEN_UNPRESSED_ICON
-	
+
 
 func _on_ResignButton_toggled(button_pressed: bool) -> void:
 	_button_click.play()
