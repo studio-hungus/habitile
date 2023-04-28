@@ -1419,7 +1419,7 @@ margin_right = 452.0
 margin_bottom = 496.0
 theme = ExtResource( 1 )
 action_mode = 0
-text = "Main Menu"
+text = "Home"
 
 [node name="Grass1" type="Sprite" parent="."]
 position = Vector2( -424, 1080 )
