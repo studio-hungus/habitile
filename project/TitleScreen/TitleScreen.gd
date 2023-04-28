@@ -38,6 +38,13 @@ func _process(_delta):
 
 
 func _on_Play_pressed() -> void:
+	if OS.get_name()=="HTML5":
+		JavaScript.eval("""
+			gtag("event", "level_start", {
+				"level_name": "Regular Game"
+			});
+		""")
+	
 	_button_click.play()
 	_disable_buttons()
 	yield(_button_click, "finished")
