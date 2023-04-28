@@ -23,16 +23,17 @@ func _ready() -> void:
 	if !_button_click.playing:
 		_button_click.play()
 	_update_fullscreen_button()
+	
+	if AudioServer.is_bus_mute(0):
+		_mute_button.pressed = true
+	_update_mute_button()
+	
 	yield(_button_click, "finished")
 	_button_click.volume_db = 0.75
 	
 	#connects the viewport changing to the button to handle pressing escape
 	var viewport := get_viewport()
 	viewport.connect("size_changed", self, "_update_fullscreen_button")
-	
-	if AudioServer.is_bus_mute(0):
-		_mute_button.pressed = true
-	_update_mute_button()
 
 
 

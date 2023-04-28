@@ -144,6 +144,7 @@ margin_left = 58.0
 margin_right = 253.0
 margin_bottom = 121.0
 custom_fonts/font = ExtResource( 4 )
+action_mode = 0
 text = "Yes"
 
 [node name="CancelButton" type="Button" parent="ResignDialogLayer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -152,6 +153,7 @@ margin_right = 552.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 195, 121 )
 custom_fonts/font = ExtResource( 4 )
+action_mode = 0
 text = "No"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -172,6 +174,7 @@ margin_right = 81.0
 margin_bottom = 92.0
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = true
+action_mode = 0
 icon = ExtResource( 5 )
 
 [node name="MuteButton" type="Button" parent="VBoxContainer"]
@@ -180,6 +183,7 @@ margin_right = 81.0
 margin_bottom = 192.0
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = true
+action_mode = 0
 icon = ExtResource( 7 )
 
 [node name="ResignButton" type="Button" parent="VBoxContainer"]
@@ -188,6 +192,7 @@ margin_right = 81.0
 margin_bottom = 292.0
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = true
+action_mode = 0
 icon = ExtResource( 8 )
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="."]
