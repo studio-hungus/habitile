@@ -58,11 +58,13 @@ func _on_Credits_pressed() -> void:
 
 
 func _on_FullscreenButton_toggled(button_pressed: bool) -> void:
+
 	if OS.window_fullscreen == button_pressed:
 		return
 
-	OS.window_fullscreen = button_pressed
-	_button_click.play()
+	
+	OS.set_window_fullscreen(button_pressed)
+
 
 
 func _update_fullscreen_button() -> void:
