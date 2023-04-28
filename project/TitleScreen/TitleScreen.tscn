@@ -92,7 +92,6 @@ margin_right = 906.0
 margin_bottom = 1050.0
 custom_fonts/font = ExtResource( 2 )
 toggle_mode = true
-action_mode = 0
 icon = ExtResource( 4 )
 expand_icon = true
 
