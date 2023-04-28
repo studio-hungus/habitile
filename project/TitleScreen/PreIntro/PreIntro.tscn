@@ -101,9 +101,9 @@ texture = ExtResource( 2 )
 [node name="Tablet" type="Label" parent="OpenImage"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1103.0
+margin_left = 1186.0
 margin_top = 988.0
-margin_right = -661.0
+margin_right = -578.0
 margin_bottom = -34.0
 custom_fonts/font = ExtResource( 3 )
 text = "Tablet"
@@ -111,18 +111,22 @@ text = "Tablet"
 [node name="Computer" type="Label" parent="OpenImage"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 488.0
+margin_left = 552.0
 margin_top = 988.0
-margin_right = -1242.0
+margin_right = -1178.0
 margin_bottom = -34.0
 custom_fonts/font = ExtResource( 3 )
 text = "PC/Mac"
 
 [node name="OptimizedFor" type="Label" parent="OpenImage"]
-margin_left = 728.0
-margin_top = 631.0
-margin_right = 1080.0
-margin_bottom = 689.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -176.0
+margin_top = 54.0
+margin_right = 176.0
+margin_bottom = 112.0
 custom_fonts/font = ExtResource( 3 )
 text = "Optimized for"
 
@@ -132,10 +136,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -330.0
-margin_top = -118.0
-margin_right = 241.0
-margin_bottom = -60.0
+margin_left = -285.5
+margin_top = -121.0
+margin_right = 285.5
+margin_bottom = -63.0
 custom_fonts/font = ExtResource( 3 )
 text = "Click here to continue"
 
