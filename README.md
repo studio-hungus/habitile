@@ -20,6 +20,8 @@ _HabiTile's_ source code is licensed under the [GPL 3.0 License](LICENSE.txt)
 
 _HabiTile's_ assets are licensed under the [Creative Commons Attribution ShareAlike 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/)
 
+_HabiTile_ was created using [Godot Engine](https://godotengine.org/) which is licensed under the [MIT License](https://github.com/studio-hungus/habitile/blob/master/licenses/Godot_MIT.md)
+
 # Third-Party Assets
 - AveriaLibre - Bold from [google fonts](https://fonts.google.com/specimen/Averia+Libre?query=averia+libre) licensed under the [SIL Open Font Liscence](licenses/Averia_Libre_OFL.txt)
 
