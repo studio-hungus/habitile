@@ -1,6 +1,6 @@
 # [Play the game here for free!](https://studio-hungus.github.io/habitile/)
 
-![GameLogo](https://user-images.githubusercontent.com/97885755/234024399-140ea86e-dda6-4804-9118-6bb8fa7984b4.png)
+![GameLogo](https://github.com/studio-hungus/habitile/blob/master/raw_assets/logo_website.png)
 
 A tactical tile-laying game, made with [Godot Engine](https://godotengine.org/), that cultivates curiosity about Muncie, Indiana ecosystems. Created by [Studio Hungus](https://github.com/studio-hungus) in collaboration with the [Ball State Immersive Learning Offices](https://www.bsu.edu/about/administrativeoffices/immersive-learning) and [Minnetrista](https://www.minnetrista.net/).
 
