@@ -4,6 +4,13 @@
 
 A tactical tile-laying game, made with [Godot Engine](https://godotengine.org/), that cultivates curiosity about Muncie, Indiana ecosystems. Created by [Studio Hungus](https://github.com/studio-hungus) in collaboration with the [Ball State Immersive Learning Offices](https://www.bsu.edu/about/administrativeoffices/immersive-learning) and [Minnetrista](https://www.minnetrista.net/).
 
+# Awards
+
+_HabiTile_ won a Gold Medal Award at the Serious Play Conference!
+
+![Gold Award Badge No Label](https://github.com/studio-hungus/habitile/assets/6951973/31d9928a-247e-4ab3-a628-6124b74b91da)
+
+
 # The Studio Hungus Team
 
 We are a multidisciplinary undergraduate team formed in Spring 2023 at [Ball State University](https://www.bsu.edu/) to create an interactive experience for our community partner, [Minnetrista](https://www.minnetrista.net/). We used [Scrum](https://www.scrum.org/resources/what-scrum-module) and [Agile](https://agilemanifesto.org/) methods to successfully deliver software in a 15-week time frame.
